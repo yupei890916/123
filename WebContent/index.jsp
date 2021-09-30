@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="BIG5">
-<title>FOOODPANDA MARKET ºµ¿ß¶W¥«</title>
+<title>FOOODPANDA MARKET ç†Šè²“è¶…å¸‚</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -19,12 +19,12 @@
         <!-- Banner -->
         <section>
           <header class="major">
-            <h2>ºµ¿ß¶W¥« - ¤½§iÄæ</h2>
+            <h2>ç†Šè²“è¶…å¸‚ - å…¬å‘Šæ¬„QQ</h2>
           </header>
         </section>
         <div class="content">
-          <h2>¬Ì±¡¤½§i </h2><a href="javascript:" onclick="document.all.fullContent.style.display=(document.all.fullContent.style.display=='none')?'':'none';document.all.smallContent.style.display=(document.all.smallContent.style.display=='none')?'':'none'">ÂI§Ú®i¶}¢AÁôÂÃ</a>
-          <div class="block" id="fullContent" style="display: none;"> ½Ð¬~¤â¡AÀ¹¤f¸n¡A3Q </div>
+          <h2>ç–«æƒ…å…¬å‘Š </h2><a href="javascript:" onclick="document.all.fullContent.style.display=(document.all.fullContent.style.display=='none')?'':'none';document.all.smallContent.style.display=(document.all.smallContent.style.display=='none')?'':'none'">é»žæˆ‘å±•é–‹âˆ•éš±è—</a>
+          <div class="block" id="fullContent" style="display: none;"> è«‹æ´—æ‰‹ï¼Œæˆ´å£ç½©ï¼Œ3Q </div>
         </div>
       </div>
     </div>
