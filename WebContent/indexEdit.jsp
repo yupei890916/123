@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="BIG5">
-<title>FOOODPANDA MARKET ºµ¿ß¶W¥«</title>
+<title>FOOODPANDA MARKET ç†Šè²“è¶…å¸‚</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -19,7 +19,7 @@
         <!-- Banner -->
         <section>
           <header class="major">
-            <h2>ºµ¿ß¶W¥« - ¤½§iÄæ</h2>
+            <h2>ç†Šè²“è¶…å¸‚ - å…¬å‘Šæ¬„</h2>
           </header>
         
         <h3>Form</h3>
@@ -27,7 +27,7 @@
 													<form method="post" action="#">
 														<div class="row gtr-uniform">
 															<div class="col-6 col-12-xsmall">
-																<input type="text" name="demo-name" id="demo-name" value="" placeholder="¼ÐÃD" />
+																<input type="text" name="demo-name" id="demo-name" value="" placeholder="æ¨™é¡Œ" />
 															</div>
 															<div class="col-6 col-12-xsmall">
 																<input type="text" name="demo-name" id="demo-name" value="" placeholder="name" />
@@ -55,14 +55,14 @@
 													</form>
         
        <div class="content">
-          <h2>Ãö©ó³ø§i </h2><a href="javascript:" onclick="document.all.fullContent.style.display=(document.all.fullContent.style.display=='none')?'':'none';document.all.smallContent.style.display=(document.all.smallContent.style.display=='none')?'':'none'">ÂI§Ú®i¶}¢AÁôÂÃ</a>
-          <div class="block" id="fullContent" style="display: none;"> ¤j®a¥[ªo!!! </div>
+          <h2>é—œæ–¼å ±å‘Š </h2><a href="javascript:" onclick="document.all.fullContent.style.display=(document.all.fullContent.style.display=='none')?'':'none';document.all.smallContent.style.display=(document.all.smallContent.style.display=='none')?'':'none'">é»žæˆ‘å±•é–‹âˆ•éš±è—</a>
+          <div class="block" id="fullContent" style="display: none;"> å¤§å®¶åŠ æ²¹!!! </div>
         </div><BR> 
         
         
         <div class="content">
-          <h2>¬Ì±¡¤½§i </h2><a href="javascript:" onclick="document.all.fullContent.style.display=(document.all.fullContent.style.display=='none')?'':'none';document.all.smallContent.style.display=(document.all.smallContent.style.display=='none')?'':'none'">ÂI§Ú®i¶}¢AÁôÂÃ</a>
-          <div class="block" id="fullContent" style="display: none;"> ½Ð¬~¤â¡AÀ¹¤f¸n¡A3Q </div>
+          <h2>ç–«æƒ…å…¬å‘Š </h2><a href="javascript:" onclick="document.all.fullContent.style.display=(document.all.fullContent.style.display=='none')?'':'none';document.all.smallContent.style.display=(document.all.smallContent.style.display=='none')?'':'none'">é»žæˆ‘å±•é–‹âˆ•éš±è—</a>
+          <div class="block" id="fullContent" style="display: none;"> å‹¤æ´—æ‰‹ï¼Œæˆ´å£ç½©ï¼Œ3Q </div>
         </div>
        
         </section>

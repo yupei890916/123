@@ -16,15 +16,15 @@
       <div class="inner">
         <!-- Header -->
         <%@include file ="header.jsp" %>
-        <!-- Banner -->
+        
         <section>
           <header class="major">
-            <h2>ºµ¿ß¶W¥« - ¤½§iÄæ</h2>
+            <h2>?Šè?è¶…å? - ?¬å?æ¬„QQ</h2>
           </header>
         </section>
         <div class="content">
-          <h2>¬Ì±¡¤½§i </h2><a href="javascript:" onclick="document.all.fullContent.style.display=(document.all.fullContent.style.display=='none')?'':'none';document.all.smallContent.style.display=(document.all.smallContent.style.display=='none')?'':'none'">ÂI§Ú®i¶}¢AÁôÂÃ</a>
-          <div class="block" id="fullContent" style="display: none;"> ½Ð¬~¤â¡AÀ¹¤f¸n¡A3Q </div>
+          <h2>?«æ??¬å? </h2><a href="javascript:" onclick="document.all.fullContent.style.display=(document.all.fullContent.style.display=='none')?'':'none';document.all.smallContent.style.display=(document.all.smallContent.style.display=='none')?'':'none'">é»žæ?å±•é??•éš±??/a>
+          <div class="block" id="fullContent" style="display: none;"> è«‹æ??‹ï??´å£ç½©ï?3Q </div>
         </div>
       </div>
     </div>
