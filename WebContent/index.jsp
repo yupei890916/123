@@ -16,7 +16,7 @@
       <div class="inner">
         <!-- Header -->
         <%@include file ="header.jsp" %>
-        <!-- Banner -->
+        
         <section>
           <header class="major">
             <h2>熊貓超市 - 公告欄QQ</h2>
