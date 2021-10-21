@@ -17,12 +17,13 @@
         <!-- Header -->
         <%@include file ="header.jsp" %>
         <!-- Banner -->
-        <section>
+        <br>
           <header class="major">
-            <h2>熊貓超市 - 公告欄</h2>
+            <h2>&ensp;公 告 欄</h2>
           </header>
         
-        <h3>Form</h3>
+        <h3>發佈公告</h3>
+       
 
 													<form method="post" action="#">
 														<div class="row gtr-uniform">
@@ -30,10 +31,11 @@
 																<input type="text" name="demo-name" id="demo-name" value="" placeholder="標題" />
 															</div>
 															<div class="col-6 col-12-xsmall">
-																<input type="text" name="demo-name" id="demo-name" value="" placeholder="name" />
+																<input type="text" name="demo-name" id="demo-name" value="" placeholder="發佈人" />
 															</div>
 															<div class="col-6 col-12-xsmall">
-																<input type="date" name="date" id="date" placeholder="Date">
+																<input type="datetime-local" name="發佈日期">
+																
 															</div>
 															<div class="col-6 col-12-small">
 																<input type="checkbox" id="demo-copy" name="demo-copy">
@@ -42,30 +44,20 @@
 						
 															<!-- Break -->
 															<div class="col-12">
-																<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+																<textarea name="demo-message" id="demo-message" placeholder="輸入內容" rows="6"></textarea>
 															</div>
 															<!-- Break -->
 															<div class="col-12">
 																<ul class="actions">
-																	<li><input type="submit" value="Send Message" class="primary" /></li>
-																	<li><input type="reset" value="Reset" /></li>
+																	<li><input type="submit" value="發佈" class="primary" /></li>
+																	<li><input type="reset" value="清除" /></li>
 																</ul>
 															</div>
 														</div>
 													</form>
         
-       <div class="content">
-          <h2>關於報告 </h2><a href="javascript:" onclick="document.all.fullContent.style.display=(document.all.fullContent.style.display=='none')?'':'none';document.all.smallContent.style.display=(document.all.smallContent.style.display=='none')?'':'none'">點我展開∕隱藏</a>
-          <div class="block" id="fullContent" style="display: none;"> 大家加油!!! </div>
-        </div><BR> 
-        
-        
-        <div class="content">
-          <h2>疫情公告 </h2><a href="javascript:" onclick="document.all.fullContent.style.display=(document.all.fullContent.style.display=='none')?'':'none';document.all.smallContent.style.display=(document.all.smallContent.style.display=='none')?'':'none'">點我展開∕隱藏</a>
-          <div class="block" id="fullContent" style="display: none;"> 請洗手，戴口罩，3Q </div>
-        </div>
-       
-        </section>
+            
+     
       </div>
     </div>
     <!-- Sidebar -->
