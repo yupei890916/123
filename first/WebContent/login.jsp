@@ -39,5 +39,21 @@
   <script src="assets/js/breakpoints.min.js" style=""></script>
   <script src="assets/js/util.js" style=""></script>
   <script src="assets/js/main.js" style=""></script>
+  <script language="javascript">  
+function isValid(form)  
+{  
+if (form.username.value=="")  
+{  
+alert("員工ID不能為空");  
+return false;  
+}  
+else  if (form.pwd.value=="")  
+{  
+alert("密碼不能為空！");  
+return false;  
+}  
+else return true;  
+}  
+</script> 
 </body>
 </html>
