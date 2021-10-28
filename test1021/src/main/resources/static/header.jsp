@@ -6,7 +6,7 @@
        
        <header id="header">
        <form method="post" action="logout.jsp">
-          <img src="images/6.jpg" alt="FOOODPANDA" width="260" height="90" > 
+          <img src="images/ºµ¿ß.png" alt="FOOODPANDA" width="300" height="60"> 
            <%if(session.getAttribute("accessId") != null){%>
           	<input type="submit" value="µn¥X" name="logout" class="divcss5-right">
 		  <%}else{%>
