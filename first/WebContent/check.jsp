@@ -3,19 +3,12 @@
 String path = request.getContextPath();
 String basePath = request.getScheme() "://" request.getServerName() ":" request.getServerPort() path "/";
 %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <base href="<%=basePath%>">
-<title>My JSP 'check.jsp' starting page</title>
-<meta http-equiv="pragma" content="no-cache">
-<meta http-equiv="cache-control" content="no-cache">
-<meta http-equiv="expires" content="0">    
-<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-<meta http-equiv="description" content="This is my page">
-<!--
-<link rel="stylesheet" type="text/css" href="styles.css">
--->
+<title>判斷員工登入</title>
+
 </head>
 <body>
 <%
@@ -29,12 +22,12 @@ Connection conn=null;
 %>
 <% 
 String driver = "com.mysql.jdbc.Driver";  
-String url = "jdbc:mysql://127.0.0.1:3307/login";  
+String url = "jdbc:mysql://127.0.0.1:3306/FPM";  
 String use = "root";   
 String password = "960404";  
 Class.forName(driver);  
 conn= DriverManager.getConnection(url,use,password);  
-sql =conn.prepareStatement("select * from student where username=? and password=?");
+sql =conn.prepareStatement("select * from 員工 where username=員工ID and password=身分證");
 sql.setString(1,users);
 sql.setString(2,pass);
 rs=sql.executeQuery();
@@ -47,12 +40,12 @@ conn.close();
 %>
 <!-- 判斷是否是正確的登入使用者 -->
 <% if (flag==true){ %>
-<jsp:forward page="show.jsp"/>
+<jsp:forward page="index.jsp"/>
 <%} 
 else
 if (flag==false){
 %>
-<jsp:forward page="login_fali.jsp"/>
+<jsp:forward page="login_fail.jsp"/>
 <%} %>
 </body>
 </html>

@@ -24,6 +24,7 @@
         <div class="content">
           &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
            <font size="4"><input type="submit"  value="¤W¯Z"/></font> 
+           <button id="add">¼W¥[</button>
            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
            <font size="4"><input type="reset" value="¥ð®§"/></font>
            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
@@ -83,5 +84,15 @@
 ¡@setTimeout('ShowTime()',1000);
   }
   </script>
+  <script>
+var tag = 0;
+$(function(){
+  $("#add").click(function(){
+      $('#mt tbody').append('<tr><td>Name'+tag+'</td><td>TEL</td><td>E-MAIL</td><td>TEL</td><td>E-MAIL</td><td>TEL</td></tr>');
+    tag++;
+   });
+  
+})
+</script>
 </body>
 </html>
