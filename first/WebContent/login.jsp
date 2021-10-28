@@ -20,8 +20,8 @@
           </header>
         <form action="check.jsp" method="post">
           <table>
-            <tr><td><font size="4">員 工 I D : </font></td><td><input type="text" name="username" size="20" placeholder="英文名+英文姓"/></td></tr>
-            <tr><td><font size="4">密 碼 :</font></td><td><input type="text" name="pwd" size="20" placeholder="身分證字號"/></td></tr>
+            <tr><td><font size="4">員 工 I D : </font></td><td><input type="text" name="username" size="20" placeholder="英文名+英文姓" required/></td></tr>
+            <tr><td><font size="4">密 碼 :</font></td><td><input type="text" name="pwd" size="20" placeholder="身分證字號" required/></td></tr>
           </table>
           <center>
            <font size="4"><input type="submit" value="登入"/></font> 
@@ -39,21 +39,6 @@
   <script src="assets/js/breakpoints.min.js" style=""></script>
   <script src="assets/js/util.js" style=""></script>
   <script src="assets/js/main.js" style=""></script>
-  <script language="javascript">  
-function isValid(form)  
-{  
-if (form.username.value=="")  
-{  
-alert("員工ID不能為空");  
-return false;  
-}  
-else  if (form.pwd.value=="")  
-{  
-alert("密碼不能為空！");  
-return false;  
-}  
-else return true;  
-}  
-</script> 
+  
 </body>
 </html>

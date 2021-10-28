@@ -2,15 +2,13 @@
     pageEncoding="BIG5"%>
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>FOOODPANDA MARKET 熊貓超市 打卡</title>
-  <meta charset="BIG5">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta charset="BIG5">
+<title>FOOODPANDA MARKET 熊貓超市 打卡專區</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
-
-<body class="is-preload">
+<body class="is-preload" onload="ShowTime()">
 	<!-- Wrapper -->
   <div id="wrapper">
     <!-- Main -->
@@ -18,45 +16,25 @@
       <div class="inner">
         <!-- Header -->
         <%@include file ="header.jsp" %>
-         <section>
+        <!-- Banner -->
+            <br>
           <header class="major">
-            <h2>熊貓超市 打卡系統</h2>
+             <h2>&ensp;打 卡 專 區</h2>
           </header>
-          <form id="c_form-h" class="text-dark" style="">
-            <font size="5" style="color:black;">員工ID</font>
-            <href="member.jsp?memberId=<%=session.getAttribute("accessId")%>> 
-                <%
-					if(session.getAttribute("accessId") == null){
-						out.println("");
-					}else{
-						out.println(session.getAttribute("accessId"));
-					}
-			  %>
-                </div><br>
-            <div class="col-10">
-            </div>
-          </form>
-          <ul class="actions">
-            <li><a href="#" class="button primary">上班</a></li>
-            <li><a href="#" class="button">休息</a></li>
-            <li><a href="#" class="button primary">休息結束</a></li>
-            <li><a href="#" class="button">下班</a></li>
-          </ul>
-          <p id="demo"></p>
-          
-<script>
-var myVar = setInterval(myTimer, 1000);
-
-function myTimer() {
-  var d = new Date();
-  document.getElementById("demo").innerHTML = d.toLocaleTimeString();
-}
-</script>
-          <form method="post" action="#">
-            <font color="#000000" size="4">
-              <div class=" gtr-uniform">
-                <div class="col-6 col-12-xsmall">
-                  <table style="width:100%">
+        <div class="content">
+          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+           <font size="4"><input type="submit"  value="上班"/></font> 
+           &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+           <font size="4"><input type="reset" value="休息"/></font>
+           &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+           <font size="4"><input type="submit" value="休息結束"/></font> 
+           &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+           <font size="4"><input type="submit" value="下班"/></font> 
+           &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+           
+           <br>
+           <br>
+           <table style="width:100%">
                     <thead>
                       <tr>
                         <th>日期</th>
@@ -85,19 +63,12 @@ function myTimer() {
                         <th>24:00</th>
                       </tr>
                     </tbody>
-                  </table>
-                </div><br>
-                <!-- Break -->
-                <div class="col-5">
-                  <ul class="actions">
-                  </ul>
-                </div>
-              </div>
-            </font>
-          </form>
-        </section>
-       </div>
-     </div>
+             </table>
+             <div id="showbox"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Sidebar -->
     <%@include file ="menu.jsp" %>
   </div>
   <!-- Scripts -->
@@ -106,5 +77,11 @@ function myTimer() {
   <script src="assets/js/breakpoints.min.js" style=""></script>
   <script src="assets/js/util.js" style=""></script>
   <script src="assets/js/main.js" style=""></script>
+  <script language="JavaScript">
+  function ShowTime(){
+　document.getElementById('showbox').innerHTML = new Date();
+　setTimeout('ShowTime()',1000);
+  }
+  </script>
 </body>
 </html>
