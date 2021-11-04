@@ -1,12 +1,9 @@
 <%@ page language="java" import="java.sql.*" contentType="text/html;charset=utf-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme() "://" request.getServerName() ":" request.getServerPort() path "/";
-%>
+
 <!DOCTYPE HTML>
 <html>
 <head>
-<base href="<%=basePath%>">
+<base href="C:/Users/han/Desktop/FFIRST/WebContent/">
 <title>登入失敗</title>
 </head>
 <body>

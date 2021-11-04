@@ -1,12 +1,9 @@
 <%@ page language="java" import="java.sql.*" contentType="text/html;charset=utf-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme() "://" request.getServerName() ":" request.getServerPort() path "/";
-%>
+
 <!DOCTYPE HTML>
 <html>
 <head>
-<base href="<%=basePath%>">
+<base href="http://localhost:8080/FPM/login.jsp">
 <title>判斷員工登入</title>
 
 </head>
@@ -22,14 +19,13 @@ Connection conn=null;
 %>
 <% 
 String driver = "com.mysql.jdbc.Driver";  
-String url = "jdbc:mysql://127.0.0.1:3306/FPM";  
+String url = "jdbc:mysql://127.0.0.1:3306/fpm";  
 String use = "root";   
-String password = "960404";  
-Class.forName(driver);  
+String password = "lovelove520";  
+Class.forName("com.mysql.jdbc.Driver").newInstance();  
 conn= DriverManager.getConnection(url,use,password);  
-sql =conn.prepareStatement("select * from 員工 where username=員工ID and password=身分證");
-sql.setString(1,users);
-sql.setString(2,pass);
+sql =conn.prepareStatement("select * from staff where 員工ID='"+users+"' and 身份證='"+pass+"'");
+
 rs=sql.executeQuery();
 if (rs.next()) {  
 flag=true;

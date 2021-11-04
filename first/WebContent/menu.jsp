@@ -25,8 +25,8 @@
                    <li>
                     <span class="opener">打卡</span>
                     <ul style="">
-                      <li><a href="clock.jsp">打卡</a></li>
-                      <li><a href="clockList.jsp">打卡記錄</a></li>
+                      <li><a href="punchIn.jsp">打卡</a></li>
+                      <li><a href="punchInList.jsp">打卡記錄</a></li>
                     </ul>
                   </li>
                   <li><a href="drawBreak.jsp">休假表</a></li>

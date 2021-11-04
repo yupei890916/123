@@ -19,45 +19,34 @@
         <!-- Banner -->
         <br>
           <header class="major">
-            <h2>&ensp;公 告 欄</h2>
+            <h2>&ensp;發 佈 公 告  </h2>
           </header>
-        
-        <h3>發佈公告</h3>
-       
-
-													<form method="post" action="#">
-														<div class="row gtr-uniform">
-															<div class="col-6 col-12-xsmall">
-																<input type="text" name="demo-name" id="demo-name" value="" placeholder="標題" />
-															</div>
-															<div class="col-6 col-12-xsmall">
-																<input type="text" name="demo-name" id="demo-name" value="" placeholder="發佈人" />
-															</div>
-															<div class="col-6 col-12-xsmall">
-																<input type="datetime-local" name="發佈日期">
-																
-															</div>
-															<div class="col-6 col-12-small">
-																<input type="checkbox" id="demo-copy" name="demo-copy">
-																<label for="demo-copy">Email me a copy</label>
-															</div>
-						
-															<!-- Break -->
-															<div class="col-12">
-																<textarea name="demo-message" id="demo-message" placeholder="輸入內容" rows="6"></textarea>
-															</div>
-															<!-- Break -->
-															<div class="col-12">
-																<ul class="actions">
-																	<li><input type="submit" value="發佈" class="primary" /></li>
-																	<li><input type="reset" value="清除" /></li>
-																</ul>
-															</div>
-														</div>
-													</form>
-        
-            
-     
+			<form method="post" action="index.jsp">
+				<div class="row gtr-uniform">
+				<div class="col-6 col-12-xsmall">
+					<input type="text" name="demo-name" id="demo-name" value="" placeholder="標題" />
+				</div>	
+				<div class="col-6 col-12-xsmall">
+					<input type="text" name="demo-name" id="demo-name" value="" placeholder="發佈人" />
+				</div>	
+				<div class="col-6 col-12-xsmall">
+					<input type="datetime-local" name="發佈日期">
+				</div>
+				<div class="col-6 col-12-small">
+					<input type="checkbox" id="demo-copy" name="demo-copy">
+					<label for="demo-copy">Email me a copy</label>
+				</div>
+				<div class="col-12">
+					<textarea name="demo-message" id="demo-message" placeholder="輸入內容" rows="6"></textarea>
+				</div>	
+				<div class="col-12">
+				<center>
+				 <input type="submit" value="發佈" class="primary" />
+				 <input type="reset" value="清除" />
+				 </center>
+				</div>	
+			   </div>										
+			</form>
       </div>
     </div>
     <!-- Sidebar -->

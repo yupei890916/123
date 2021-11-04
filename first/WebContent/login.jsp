@@ -21,7 +21,7 @@
         <form action="check.jsp" method="post">
           <table>
             <tr><td><font size="4">員 工 I D : </font></td><td><input type="text" name="username" size="20" placeholder="英文名+英文姓" required/></td></tr>
-            <tr><td><font size="4">密 碼 :</font></td><td><input type="text" name="pwd" size="20" placeholder="身分證字號" required/></td></tr>
+            <tr><td><font size="4">密 碼 :</font></td><td><input type="password" name="pwd" size="20" placeholder="身份證字號" required/></td></tr>
           </table>
           <center>
            <font size="4"><input type="submit" value="登入"/></font> 
