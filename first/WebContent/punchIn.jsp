@@ -21,10 +21,10 @@
           <header class="major">
              <h2>&ensp;打 卡 專 區</h2>
           </header>
+         
         <div class="content">
-          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 
            <font size="4"><input type="submit"  value="上班"/></font> 
-           <button id="add">增加</button>
            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
            <font size="4"><input type="reset" value="休息"/></font>
            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
