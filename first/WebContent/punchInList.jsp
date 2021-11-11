@@ -67,10 +67,17 @@
                         <th>20:00</th>
                         <th>20:30</th>
                         <th>24:00</th>
+                         <th>10</th>
+                        <th>V</th>
                       </tr>
                     </tbody>
                   </table>
-                </div><br>
+           &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+           <font size="4"><input type="submit"  value="¥ğ®§¬ö¿ı"/></font> 
+           &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+           <font size="4"><input type="reset" value="¿ğ¨ì¬ö¿ı"/></font>
+           &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                          </div><br>
                 <!-- Break -->
                 <div class="col-5">
                   <ul class="actions">
