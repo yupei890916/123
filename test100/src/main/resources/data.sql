@@ -1,0 +1,14 @@
+insert into resource (name) values ('KIKI.YANG');
+insert into resource (name) values ('TERRY.PAN');
+insert into resource (name) values ('AMBER.HSU');
+insert into resource (name) values ('DAVID.HO');
+insert into resource (name) values ('JANE.CHEN');
+insert into resource (name) values ('BETTY.WU');
+insert into resource (name) values ('JACKY.LIOU');
+insert into resource (name) values ('SHAWN.CHEN');
+insert into resource (name) values ('PON.PENG');
+insert into resource (name) values ('WEN.HUANG');
+insert into resource (name) values ('GAEN.WANG');
+insert into resource (name) values ('LIN.LIN');
+insert into resource (name) values ('JERRY.HUANG');
+insert into resource (name) values ('GERRY.LU');
