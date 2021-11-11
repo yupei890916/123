@@ -20,6 +20,8 @@ public class Event {
 	
 	String text;
 	
+	String status;
+	
 	LocalDateTime start;
 	
 	LocalDateTime end;
@@ -28,7 +30,6 @@ public class Event {
 	@JsonIgnore
 	Resource resource;
 
-	String color;
 	
 	@JsonProperty("resource")
 	public Long getResourceId() {
@@ -50,7 +51,7 @@ public class Event {
 	public void setText(String text) {
 		this.text = text;
 	}
-
+	
 	public LocalDateTime getStart() {
 		return start;
 	}
@@ -74,8 +75,13 @@ public class Event {
 	public void setResource(Resource resource) {
 		this.resource = resource;
 	}
+	
+	public String getStatus() {
+		return status;
+	}
 
-	public String getColor() { return color; }
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
-	public void setColor(String color) { this.color = color; }
 }

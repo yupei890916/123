@@ -52,6 +52,7 @@
             var params = {
                 start: args.start.toString(),
                 end: args.end.toString(),
+                status: 1,
                 text: modal.result,
                 resource: args.resource
             };
@@ -89,7 +90,7 @@
     	  }
     	};
     dp.onEventDeleted = function(args) {
-    	url: '/api/events/delete',
+    	url: '/api/events/status',
         dp.message("刪除成功");
     };
     

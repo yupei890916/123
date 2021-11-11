@@ -12,7 +12,6 @@ import org.daypilot.demo.html5schedulerspring.repository.ResourceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -60,6 +59,7 @@ public class MainController {
         Event e = new Event();
         e.setStart(params.start);
         e.setEnd(params.end);
+        e.setStatus("1");
         e.setText(params.text);
         e.setResource(r);
 
@@ -85,11 +85,12 @@ public class MainController {
         return e;
     }
     
-    @DeleteMapping("/api/events/delete")
+    @PostMapping("/api/events/delete")
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @Transactional
-    public String deleteByName(@RequestParam(value = "resource") String resource) {
-      return "Delete by resource called";
+    public String createStatus(@RequestParam(value = "已刪除") String status)
+    {
+    return "已刪除";
     }
     
 
@@ -106,6 +107,7 @@ public class MainController {
         public LocalDateTime end;
         public Long resource;
     }
+    
 
 
 
