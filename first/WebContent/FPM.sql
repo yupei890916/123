@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.18, for macos10.14 (x86_64)
 --
--- Host: 127.0.0.1    Database: FPM
+-- Host: 127.0.0.1    Database: fpm
 -- ------------------------------------------------------
 -- Server version	8.0.18
 
@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `Notice`;
 CREATE TABLE `Notice` (
   `發佈人ID` char(10) NOT NULL,
   `標題` char(40) DEFAULT NULL,
-  `公告日期` datetime DEFAULT NULL,
+  `公告日期` date DEFAULT NULL,
   `公告內容` char(50) DEFAULT NULL,
   PRIMARY KEY (`發佈人ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -87,7 +87,7 @@ CREATE TABLE `staff` (
   `班別` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `姓名` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `性別` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `生日` datetime NOT NULL,
+  `生日` date NOT NULL,
   `身份證` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `手機號碼` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Email` char(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
@@ -109,7 +109,7 @@ CREATE TABLE `staff` (
 
 LOCK TABLES `staff` WRITE;
 /*!40000 ALTER TABLE `staff` DISABLE KEYS */;
-INSERT INTO `staff` VALUES ('BETTY.WU','PT','晚班','吳昱霈','女','2000-09-16 00:00:00','A123456789','0902215952','BETTY62411890916@gmail.com','yupei890916','新北市中和區大勇路','李至濡','母女','0930360466','2021-04-01',NULL,NULL),('TERRY.LI','FT','晚班','李大衛','男','1995-04-01 00:00:00','W456487513','0987545145','terry45454@gmil.com','565TTTT','新北市板橋區大月路','劉爸爸','父子','0988844455','2019-05-11',NULL,NULL);
+INSERT INTO `staff` VALUES ('BETTY.WU','PT','晚班','吳昱霈','女','2000-09-16','A123456789','0902215952','BETTY62411890916@gmail.com','yupei890916','新北市中和區大勇路','李至濡','母女','0930360466','2021-04-01',NULL,NULL),('TERRY.LI','FT','晚班','李大衛','男','1995-04-01','W456487513','0987545145','terry45454@gmil.com','565TTTT','新北市板橋區大月路','劉爸爸','父子','0988844455','2019-05-11',NULL,NULL);
 /*!40000 ALTER TABLE `staff` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -150,7 +150,7 @@ CREATE TABLE `調班` (
   `須調班員工ID` char(10) NOT NULL,
   `調班日期` date NOT NULL,
   `可調班員工ID` char(10) NOT NULL,
-  `填寫日期` datetime NOT NULL,
+  `填寫日期` date NOT NULL,
   `審核狀況` char(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `審核日期` date DEFAULT NULL,
   PRIMARY KEY (`須調班員工ID`,`調班日期`)
@@ -163,7 +163,7 @@ CREATE TABLE `調班` (
 
 LOCK TABLES `調班` WRITE;
 /*!40000 ALTER TABLE `調班` DISABLE KEYS */;
-INSERT INTO `調班` VALUES ('BETTY.WU','2021-06-28','PENNY.LI','2021-06-20 00:00:00','待審核',NULL);
+INSERT INTO `調班` VALUES ('BETTY.WU','2021-06-28','PENNY.LI','2021-06-20','待審核',NULL);
 /*!40000 ALTER TABLE `調班` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,7 +197,11 @@ INSERT INTO `請假` VALUES ('BETTY.WU','2021-05-03','事假','與家人吃飯',
 UNLOCK TABLES;
 
 --
--- Dumping routines for database 'FPM'
+-- Dumping events for database 'fpm'
+--
+
+--
+-- Dumping routines for database 'fpm'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -209,4 +213,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-01 23:45:09
+-- Dump completed on 2021-11-11 13:48:07
