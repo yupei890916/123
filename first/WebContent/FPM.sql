@@ -37,6 +37,7 @@ CREATE TABLE `Notice` (
 
 LOCK TABLES `Notice` WRITE;
 /*!40000 ALTER TABLE `Notice` DISABLE KEYS */;
+INSERT INTO `Notice` VALUES ('KiKi','雙十一','2021-11-10','當天薪水雙倍，單量較多請好好對點。');
 /*!40000 ALTER TABLE `Notice` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,7 +110,7 @@ CREATE TABLE `staff` (
 
 LOCK TABLES `staff` WRITE;
 /*!40000 ALTER TABLE `staff` DISABLE KEYS */;
-INSERT INTO `staff` VALUES ('BETTY.WU','PT','晚班','吳昱霈','女','2000-09-16','A123456789','0902215952','BETTY62411890916@gmail.com','yupei890916','新北市中和區大勇路','李至濡','母女','0930360466','2021-04-01',NULL,NULL),('TERRY.LI','FT','晚班','李大衛','男','1995-04-01','W456487513','0987545145','terry45454@gmil.com','565TTTT','新北市板橋區大月路','劉爸爸','父子','0988844455','2019-05-11',NULL,NULL);
+INSERT INTO `staff` VALUES ('BETTY.WU','PT','晚班','吳昱霈','女','2000-09-16','A123456789','0902215952','BETTY62411890916@gmail.com','yupei890916','新北市中和區大勇路','李至濡','母女','0930360466','2021-04-01',NULL,NULL),('TERRY.LI','SUP','晚班','李大衛','男','1995-04-01','W456487513','0987545145','terry45454@gmil.com','565TTTT','新北市板橋區大月路','劉爸爸','父子','0988844455','2019-05-11',NULL,NULL);
 /*!40000 ALTER TABLE `staff` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,4 +214,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-11 13:48:07
+-- Dump completed on 2021-11-11 13:58:27
