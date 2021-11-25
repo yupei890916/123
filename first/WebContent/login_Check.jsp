@@ -22,8 +22,13 @@ Connection conn=null;
 String driver = "com.mysql.jdbc.Driver";  
 String url = "jdbc:mysql://127.0.0.1:3306/fpm";  
 String use = "root";   
+<<<<<<< HEAD:first/WebContent/login_Check.jsp
 String password = "lovelove520";  
 Class.forName("com.mysql.jdbc.Driver");  
+=======
+String password = "kevin0508";  
+Class.forName("com.mysql.jdbc.Driver").newInstance();  
+>>>>>>> 9d851dbb10c3ecae3d6b06fda5a9d6870171593d:first/WebContent/check.jsp
 conn= DriverManager.getConnection(url,use,password);  
 sql =conn.prepareStatement("select * from staff where 員工ID='"+username+"' and 身份證='"+pwd+"' and 職稱='"+position+"'");
 
