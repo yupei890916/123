@@ -21,7 +21,7 @@ Connection conn=null;
 String driver = "com.mysql.jdbc.Driver";  
 String url = "jdbc:mysql://127.0.0.1:3306/fpm";  
 String use = "root";   
-String password = "lovelove520";  
+String password = "kevin0508";  
 Class.forName("com.mysql.jdbc.Driver").newInstance();  
 conn= DriverManager.getConnection(url,use,password);  
 sql =conn.prepareStatement("select * from staff where 員工ID='"+users+"' and 身份證='"+pass+"'");
