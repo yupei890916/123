@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=BIG5"
-    pageEncoding="BIG5"%>
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="BIG5">
-<title>FOOODPANDA MARKET ºµ¿ß¶W¥«</title>
+<title>FOOODPANDA MARKET ç†Šè²“è¶…å¸‚</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -19,26 +19,26 @@
         <!-- Banner -->
             <br>
           <header class="major">
-             <h2>&ensp;¤½ §i Äæ </h2>
+             <h2>&ensp;å…¬ å‘Š æ¬„</h2>
           </header>
           
-          <%String title = request.getParameter("title");
+          <%request.setCharacterEncoding("BIG5");
+          String title = request.getParameter("title");
 String Publisher = request.getParameter("Publisher");
 String date = request.getParameter("date");
 String message = request.getParameter("message");
 %>
 
        <div class="content">
-          <h2><%= title %> </h2><a href="javascript:" onclick="document.all.fullContent.style.display=(document.all.fullContent.style.display=='none')?'':'none';document.all.smallContent.style.display=(document.all.smallContent.style.display=='none')?'':'none'">ÂI§Ú®i¶}¢AÁôÂÃ</a>
-          <div class="block" id="fullContent" style="display: none;"> µo§G¤H¡G<%= Publisher %> <br> µo§G¤é´Á¡G<%=date %> <br> ¤º®e¡G<%=message %>
-		</div>
-       </div>
+          <h2><%= title %> </h2>
+          <h3>ç™¼ä½ˆäººï¼š<%= Publisher %> <br> ç™¼ä½ˆæ—¥æœŸï¼š<%=date %> <br> å…§å®¹ï¼š<%=message %></h3>
+                 </div>
           &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 
 
         <div class="content">
-          <h2>¬Ì±¡¤½§i </h2><a href="javascript:" onclick="document.all.fullContent.style.display=(document.all.fullContent.style.display=='none')?'':'none';document.all.smallContent.style.display=(document.all.smallContent.style.display=='none')?'':'none'">ÂI§Ú®i¶}¢AÁôÂÃ</a>
-          <div class="block" id="fullContent" style="display: none;"> ½Ð¬~¤â¡AÀ¹¤f¸n¡A3Q </div>
+          <h2>ç–«æƒ…å…¬å‘Š </h2><a href="javascript:" onclick="document.all.fullContent.style.display=(document.all.fullContent.style.display=='none')?'':'none';document.all.smallContent.style.display=(document.all.smallContent.style.display=='none')?'':'none'">é»žæˆ‘å±•é–‹ï¼éš±è—</a>
+          <div class="block" id="fullContent" style="display: none;"> è«‹æ´—æ‰‹ï¼Œæˆ´å£ç½©ï¼Œ3Q </div>
         </div>
       </div>
     </div>
