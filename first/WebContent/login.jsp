@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=BIG5"
     pageEncoding="BIG5"%>
-<%@ page import="java.util.*"%>
+<%@page import="java.sql.*"%>
 
 <html>
 <head>
@@ -18,10 +18,11 @@
           <header class="major">
             <h2> &ensp; 員 工 登 入 </h2>
           </header>
-        <form action="check.jsp" method="post">
+        <form action="login_Check.jsp" method="post">
           <table>
             <tr><td><font size="4">員 工 I D : </font></td><td><input type="text" name="username" size="20" placeholder="英文名+英文姓" required/></td></tr>
             <tr><td><font size="4">密 碼 :</font></td><td><input type="password" name="pwd" size="20" placeholder="身份證字號" required/></td></tr>
+            <tr><td><font size="4">職稱 :</font></td><td><input type="text" name="position" size="20" placeholder="PT/FT/SUP" required/></td></tr>
           </table>
           <center>
            <font size="4"><input type="submit" value="登入"/></font> 

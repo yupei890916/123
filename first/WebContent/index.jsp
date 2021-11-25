@@ -19,7 +19,7 @@
         <!-- Banner -->
             <br>
           <header class="major">
-             <h2>&ensp;公 告 欄</h2>
+             <h2>&ensp;公 告 欄 </h2>
           </header>
           
           <%String title = request.getParameter("title");
