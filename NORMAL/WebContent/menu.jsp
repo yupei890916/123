@@ -35,11 +35,11 @@
                    <li>
                     <span class="opener">打卡區</span>
                     <ul style="">
-                      <li><a href="punchln.jsp">打卡</a></li>
+                      <li><a href="punchIn.jsp">打卡</a></li>
                       <%
                       if(session.getAttribute("Authority") != null){
 						if(session.getAttribute("Authority").toString().equals("SUP")){%>
-                      <li><a href="punchlnList.jsp">打卡記錄</a></li>
+                      <li><a href="punchInList.jsp">打卡記錄</a></li>
                       <%}}%>
                     </ul>
                   </li>
