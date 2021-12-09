@@ -1,13 +1,12 @@
-<%@page import="com.mysql.cj.x.protobuf.MysqlxSql.StmtExecute"%>
 <%@ page language="java" contentType="text/html; charset=BIG5"
-pageEncoding="BIG5"%>
+    pageEncoding="utf-8"%>
 <%@page import="java.sql.*,java.util.*"%>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="BIG5">
-<title>FOOODPANDA MARKET ºµ¿ß¶W¥«</title>
+<title>FOOODPANDA MARKET ç†Šè²“è¶…å¸‚</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -22,23 +21,23 @@ pageEncoding="BIG5"%>
         <!-- Banner -->
         <br>
           <header class="major">
-            <h2>&ensp;¤½ §i Äæ</h2>
+            <h2>&ensp;å…¬ å‘Š æ¬„</h2>
           </header>
         
-        <h3>µo§G¤½§i</h3>
+        <h3>ç™¼ä½ˆå…¬å‘Š</h3>
        
 
 <form method="post" action="index_input.jsp">
 <table>
 	<div class="row gtr-uniform">
 	<div class="col-6 col-12-xsmall">										
-		<input type="text" name="title" id="demo-name" value="" placeholder="¼ÐÃD" />
+		<input type="text" name="title" id="demo-name" value="" placeholder="æ¨™é¡Œ" />
 	</div>
 	<div class="col-6 col-12-xsmall">
-		<input type="text" name="Publisher" id="demo-name" value="" placeholder="µo§G¤H" />
+		<input type="text" name="Publisher" id="demo-name" value="" placeholder="ç™¼ä½ˆäºº" />
 	</div>
 	<div class="col-6 col-12-xsmall">
-		<input type="datetime-local" name="date"" placeholder="µo§G¤é´Á" />
+		<input type="datetime-local" name="date"" placeholder="ç™¼ä½ˆæ—¥æœŸ" />
 	</div>
 	<div class="col-6 col-12-small">
 		<input type="checkbox" id="demo-copy" name="demo-copy">
@@ -47,13 +46,13 @@ pageEncoding="BIG5"%>
 						
 <!-- Break -->
 	<div class="col-12">
-		<textarea name="message" id="demo-message" placeholder="¿é¤J¤º®e" rows="6"></textarea>
+		<textarea name="message" id="demo-message" placeholder="è¼¸å…¥å…§å®¹" rows="6"></textarea>
 	</div>
 <!-- Break -->
 	<div class="col-12">
 		<ul class="actions">
-	<li><input type="submit" value="µo§G" class="primary" /></li>
-	<li><input type="reset" value="²M°£" /></li>
+	<li><input type="submit" value="ç™¼ä½ˆ" class="primary" /></li>
+	<li><input type="reset" value="æ¸…é™¤" /></li>
 </ul>
 	</div>
 	</div>
