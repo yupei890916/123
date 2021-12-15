@@ -9,8 +9,84 @@
   <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
   <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-  <link rel="stylesheet" href="jqueryui/style.css">
-  <script src="assets/js/calender.js"></script>
+  <link rel="stylesheet" href="jqueryui/style.css"> 
+  <script>
+  $(function() {
+	    $( "#datepicker1" ).datepicker({
+	        dateFormat: 'yy-mm-dd'
+	    });
+	  });
+	  $(function() {
+		 $( "#datepicker2" ).datepicker({
+			 dateFormat: 'yy-mm-dd'
+		  });
+	  });
+	  $(function() {
+		 $( "#datepicker3" ).datepicker({
+		     dateFormat: 'yy-mm-dd'
+		  });
+	  });
+	  $(function() {
+	     $( "#datepicker4" ).datepicker({
+			 dateFormat: 'yy-mm-dd'
+		  });
+	  });
+	  $(function() {
+		 $( "#datepicker5" ).datepicker({
+		     dateFormat: 'yy-mm-dd'
+		  });
+	  });
+	  $(function() {
+		 $( "#datepicker6" ).datepicker({
+			 dateFormat: 'yy-mm-dd'
+		  });
+	  });
+	  $(function() {
+	     $( "#datepicker7" ).datepicker({
+		     dateFormat: 'yy-mm-dd'
+		  });
+	  });
+	  $(function() {
+	     $( "#datepicker8" ).datepicker({
+			 dateFormat: 'yy-mm-dd'
+		  });
+	  });
+	  $(function() {
+	     $( "#datepicker9" ).datepicker({
+			 dateFormat: 'yy-mm-dd'
+		  });
+	  });
+	  $(function() {
+		 $( "#datepicker10" ).datepicker({
+			 dateFormat: 'yy-mm-dd'
+	      });
+	   });
+	  $(function() {
+		 $( "#datepicker11" ).datepicker({
+			 dateFormat: 'yy-mm-dd'
+		  });
+	   });
+	  $(function() {
+		 $( "#datepicker12" ).datepicker({
+			 dateFormat: 'yy-mm-dd'
+		  });
+	   });
+	  $(function() {
+		 $( "#datepicker13" ).datepicker({
+			 dateFormat: 'yy-mm-dd'
+		  });
+	   });
+	  $(function() {
+		 $( "#datepicker14" ).datepicker({
+			 dateFormat: 'yy-mm-dd'
+		  });
+	   });
+	  $(function() {
+		 $( "#datepicker15" ).datepicker({
+			 dateFormat: 'yy-mm-dd'
+		  });
+	   });
+  </script>
 </head>
 <body class="is-preload">
 	<!-- Wrapper -->
@@ -29,7 +105,7 @@
 <form method="post" action="employee_leave_create_process.jsp">
  <table>
   <tr>
-    <td><input type="text"  placeholder="請輸入員工ID" name="employee_ID"></td>
+    <td><input type="text" name="employee_ID" value="<%@include file ="employee_leave_create_name.jsp" %>"></td>
   </tr>
   <tr>
     <td><div align="center">預排休1</div></td>
@@ -92,7 +168,13 @@
         </section>
        </div>
      </div>
-     <!-- menu -->
+     <%@include file ="menu.jsp" %>
   </div>
+  <!-- Scripts -->
+  <script src="assets/js/jquery1.min.js" style=""></script>
+  <script src="assets/js/browser.min.js" style=""></script>
+  <script src="assets/js/breakpoints.min.js" style=""></script>
+  <script src="assets/js/util.js" style=""></script>
+  <script src="assets/js/main.js" style=""></script>
 </body>
 </html>
