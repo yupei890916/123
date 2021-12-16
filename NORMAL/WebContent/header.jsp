@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.sql.*" contentType="text/html;charset=utf-8"%>
+<%@ page language="java" contentType="text/html; charset=BIG5" pageEncoding="BIG5"%>
     <style> 
      .divcss5-right{width:100px; height:30px;text-align:center;border:1px solid #F00;float:right} 
     </style> 
@@ -9,11 +9,11 @@
            <%if(session.getAttribute("accessId") != null){
            out.println(session.getAttribute("accessId"));
            out.println(session.getAttribute("Authority"));%>
-           <a href="logout.jsp" class="divcss5-right">ç™»å‡º</a>
+           <a href="logout.jsp" class="divcss5-right">µn¥X</a>
            
           	
 		<%}else{%>
-			<a href="login.jsp" class="divcss5-right">ç™»å…¥</a>
+			<a href="login.jsp" class="divcss5-right">µn¤J</a>
 	  	  <%}%>
 	  	  </form>
         </header>

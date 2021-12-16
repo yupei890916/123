@@ -1,16 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=BIG5"
-    pageEncoding="BIG5"%>
+<%@ page language="java" contentType="text/html; charset=BIG5" pageEncoding="UTF-8"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+
 <!DOCTYPE html>
 <html>
 
 <head>
-  <title>FOOODPANDA MARKET ºµ¿ß¶W¥« ¥´¥d</title>
+  <title>FOOODPANDA MARKET ç†Šè²“è¶…å¸‚ æ‰“å¡</title>
   <meta charset="BIG5">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
 <body class="is-preload">
+ <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
+     url="jdbc:mysql://127.0.0.1:3306/fpm"
+     user="root"  password="lovelove520"/>
+<sql:query dataSource="${snapshot}" var="result">
+SELECT * from fpm.staff where å“¡å·¥ID='BETTY.WU';
+</sql:query>
+
+
 	<!-- Wrapper -->
   <div id="wrapper">
     <!-- Main -->
@@ -20,40 +30,43 @@
         <%@include file ="header.jsp" %>
          <section>
           <header class="major">
-            <h2>ºµ¿ß¶W¥« ¥´¥d¨t²Î</h2>
+            <h2>ç†Šè²“è¶…å¸‚ æ‰“å¡ç³»çµ±</h2>
           </header>
+          <c:forEach var="row" items="${result.rows}">
            <form method="post" action="#">
+           
           <font color="#000000" size="4">
             <div class="row gtr-uniform">
-              <div class="col-4 col-12-xsmall col-md-1" style=""> ­û¤uID¡G BETTY.WU</div>
-              <div class="col-4 col-12-xsmall col-md-1" style=""> ©m¦W¡G§d¬Rè®</div>
-              <div class="col-4" style=""> ¯Z§O¡G±ß¯Z</div>
-              <div class="col-4" style=""> Â¾ºÙ¡GPT </div>
-              <div class="col-4" style=""> ©Ê§O¡G¤k</div>
-              <div class="col-4 col-12-xsmall" style=""> ¥X¥Í¦~¤ë¤é¡G2000/9/16</div>
-              <div class="col-4 col-12-xsmall" style=""> ¨­¤ÀÃÒ¦r¸¹¡GA123456789</div>
-              <div class="col-4 col-12-xsmall" style=""> ¤â¾÷¸¹½X¡G0912345678</div>
-              <div class="col-4 col-12-xsmall" style=""> Email¡GBETTY62411890916@gmail.com</div>
-              <div class="col-4 col-12-xsmall" style=""> LINE ID¡Gyupei890916</div>
-              <div class="col-4 col-12-xsmall" style=""> ¦í§}¡G·s¥_¥«¤¤©M°Ï¤j«iµó </div>
-              <div class="col-4 col-12-xsmall" style=""> ºò«æÁpµ¸¤H¡G§õ¦ÜÀá</div>
-              <div class="col-4 col-12-xsmall" style=""> ºò«æÁpµ¸¤H¹q¸Ü¡G0930260466</div>
-              <div class="col-4 col-12-xsmall" style=""> ºò«æÁpµ¸¤HÃö«Y¡G¥À¤k</div>
-              <div class="col-4 col-12-xsmall" style=""> ¦bÂ¾¤é/Â÷Â¾¤é¡G2021/4/1</div>
-              <div class="col-4 col-12-xsmall" style=""> Â÷Â¾¤é¡G©|¥¼</div>
+              <div class="col-4 col-12-xsmall col-md-1" style="">å“¡å·¥ID : <%=session.getAttribute("accessId")%></div>
+              <div class="col-4 col-12-xsmall col-md-1" style=""> å§“åï¼š</div>
+              <div class="col-4" style=""> ç­åˆ¥ï¼šæ™šç­</div>
+              <div class="col-4" style=""> è·ç¨±ï¼š<%=session.getAttribute("Authority")%> </div>
+              <div class="col-4" style=""> æ€§åˆ¥ï¼šå¥³</div>
+              <div class="col-4 col-12-xsmall" style=""> å‡ºç”Ÿå¹´æœˆæ—¥ï¼š2000/9/16</div>
+              <div class="col-4 col-12-xsmall" style=""> èº«åˆ†è­‰å­—è™Ÿï¼šA123456789</div>
+              <div class="col-4 col-12-xsmall" style=""> æ‰‹æ©Ÿè™Ÿç¢¼ï¼š0912345678</div>
+              <div class="col-4 col-12-xsmall" style=""> Emailï¼š<c:out value="${row.Email}"/></div>
+              <div class="col-4 col-12-xsmall" style=""> LINE IDï¼š</div>
+              <div class="col-4 col-12-xsmall" style=""> ä½å€ï¼šæ–°åŒ—å¸‚ä¸­å’Œå€å¤§å‹‡è¡— </div>
+              <div class="col-4 col-12-xsmall" style=""> ç·Šæ€¥è¯çµ¡äººï¼šæŽè‡³æ¿¡</div>
+              <div class="col-4 col-12-xsmall" style=""> ç·Šæ€¥è¯çµ¡äººé›»è©±ï¼š0930260466</div>
+              <div class="col-4 col-12-xsmall" style=""> ç·Šæ€¥è¯çµ¡äººé—œä¿‚ï¼šæ¯å¥³</div>
+              <div class="col-4 col-12-xsmall" style=""> åœ¨è·æ—¥/é›¢è·æ—¥ï¼š2021/4/1</div>
+              <div class="col-4 col-12-xsmall" style=""> é›¢è·æ—¥ï¼šå°šæœª</div>
               <!-- Break -->
               <div class="col-12" style="">
-                <textarea name="demo-message" id="demo-message" placeholder="³Æµù" rows=""></textarea>
+                <textarea name="demo-message" id="demo-message" placeholder="å‚™è¨»" rows=""></textarea>
               </div>
               <!-- Break -->
               <div class="col-12" style="">
                 <ul class="actions">
-                  <li><input type="reset" value="­×§ï"></li>
+                  <li><input type="reset" value="ä¿®æ”¹"></li>
                 </ul>
               </div>
             </div>
           </font>
         </form>
+         </c:forEach>
         </section>
        </div>
      </div>

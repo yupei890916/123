@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.sql.*" contentType="text/html;charset=utf-8"%>
+<%@ page language="java" contentType="text/html; charset=BIG5" pageEncoding="BIG5"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,87 +21,87 @@
                 </header>
                 <ul>
                 <li>
-                    <span class="opener">ä¸»é </span>
+                    <span class="opener">¥D­¶</span>
                     <ul style="">
-                      <li><a href="index.jsp">å…¬å‘Šæ¬„</a></li>
+                      <li><a href="index.jsp">¤½§iÄæ</a></li>
                       <%
                       if(session.getAttribute("Authority") != null){
 						if(session.getAttribute("Authority").toString().equals("SUP")){%>
-                      <li><a href="indexEdit.jsp">ç™¼ä½ˆå…¬å‘Š</a></li>
+                      <li><a href="indexEdit.jsp">µo§G¤½§i</a></li>
                       <%}}%>
                     </ul>
                   </li>
                    <li>
-                    <span class="opener">æ‰“å¡å€</span>
+                    <span class="opener">¥´¥d°Ï</span>
                     <ul style="">
-                      <li><a href="punchIn.jsp">æ‰“å¡</a></li>
+                      <li><a href="punchIn.jsp">¥´¥d</a></li>
                       <%
                       if(session.getAttribute("Authority") != null){
 						if(session.getAttribute("Authority").toString().equals("SUP")){%>
-                      <li><a href="punchInList.jsp">æ‰“å¡è¨˜éŒ„</a></li>
+                      <li><a href="punchInList.jsp">¥´¥d°O¿ý</a></li>
                       <%}}%>
                     </ul>
                   </li>
                   <li>
-                    <span class="opener">ç­è¡¨å€</span>
+                    <span class="opener">¯Zªí°Ï</span>
                     <ul style="">
-                      <li><a href="employee_leave.jsp">æŽ’ç­</a></li>
+                      <li><a href="employee_leave.jsp">±Æ¯Z</a></li>
                       <%
                       if(session.getAttribute("Authority") != null){
 						if(session.getAttribute("Authority").toString().equals("SUP")){%>
-                      <li><a href="personnel_leave.jsp.jsp">æŽ’ç­ä¿®æ”¹</a></li>
+                      <li><a href="personnel_leave.jsp.jsp">±Æ¯Z­×§ï</a></li>
                       <%}}%>
-                      <li><a href="employee_schedule.jsp">ç­è¡¨</a></li>
+                      <li><a href="employee_schedule.jsp">¯Zªí</a></li>
                       <%
                       if(session.getAttribute("Authority") != null){
 						if(session.getAttribute("Authority").toString().equals("SUP")){%>
-                      <li><a href="personnel_schedule.jsp">ç¸½é«”ç­è¡¨</a></li>
+                      <li><a href="personnel_schedule.jsp">Á`Åé¯Zªí</a></li>
                       <%}}%>
-                      <li><a href="takeOver.jsp">èª¿ç­</a></li>
+                      <li><a href="takeOver.jsp">½Õ¯Z</a></li>
                       <%
                       if(session.getAttribute("Authority") != null){
 						if(session.getAttribute("Authority").toString().equals("SUP")){%>
-                      <li><a href="takeOverCheck.jsp">èª¿ç­å¯©æ ¸</a></li>
+                      <li><a href="takeOverCheck.jsp">½Õ¯Z¼f®Ö</a></li>
                       <%}}%>
-                      <li><a href="takeOverList.jsp">èª¿ç­ç´€éŒ„</a></li>
+                      <li><a href="takeOverList.jsp">½Õ¯Z¬ö¿ý</a></li>
                       <%
                       if(session.getAttribute("Authority") != null){
 						if(session.getAttribute("Authority").toString().equals("SUP")){%>
-                      <li><a href="takeOverDB.jsp">å…¨é«”èª¿ç­ç´€éŒ„</a></li>
+                      <li><a href="takeOverDB.jsp">¥þÅé½Õ¯Z¬ö¿ý</a></li>
                       <%}}%>
-                      <li><a href="leave.jsp">è«‹å‡</a></li>
+                      <li><a href="leave.jsp">½Ð°²</a></li>
                       <%
                       if(session.getAttribute("Authority") != null){
 						if(session.getAttribute("Authority").toString().equals("SUP")){%>
-                      <li><a href="leaveCheck.jsp">è«‹å‡å¯©æ ¸</a></li>
+                      <li><a href="leaveCheck.jsp">½Ð°²¼f®Ö</a></li>
                       <%}}%>
-                      <li><a href="leaveList.jsp">è«‹å‡ç´€éŒ„</a></li>
+                      <li><a href="leaveList.jsp">½Ð°²¬ö¿ý</a></li>
                       <%
                       if(session.getAttribute("Authority") != null){
 						if(session.getAttribute("Authority").toString().equals("SUP")){%>
-                      <li><a href="leaveDB.jsp">å…¨é«”è«‹å‡ç´€éŒ„</a></li>
+                      <li><a href="leaveDB.jsp">¥þÅé½Ð°²¬ö¿ý</a></li>
                       <%}}%>
                     </ul>
                   </li>
                    <li>
-                    <span class="opener">å€‹äººè³‡æ–™å€</span>
+                    <span class="opener">­Ó¤H¸ê®Æ°Ï</span>
                     <ul style="">
-                      <li><a href="member.jsp">å€‹äººè³‡æ–™</a></li>
+                      <li><a href="member.jsp">­Ó¤H¸ê®Æ</a></li>
                       <%
                       if(session.getAttribute("Authority") != null){
 						if(session.getAttribute("Authority").toString().equals("SUP")){%>
-                      <li><a href="memberList.jsp">å€‹äººè³‡æ–™æ¸…å–®</a></li>
+                      <li><a href="memberList.jsp">­Ó¤H¸ê®Æ²M³æ</a></li>
                       <%}}%>
                     </ul>
                   </li>
                   <li>
-                    <span class="opener">è–ªè³‡è¡¨å€</span>
+                    <span class="opener">Á~¸êªí°Ï</span>
                     <ul style="">
-                      <li><a href="payroll.jsp">è–ªè³‡è¡¨</a></li>
+                      <li><a href="payroll.jsp">Á~¸êªí</a></li>
                       <%
                       if(session.getAttribute("Authority") != null){
 						if(session.getAttribute("Authority").toString().equals("SUP")){%>
-                      <li><a href="payrollList.jsp">è–ªè³‡è¡¨æ¸…å–®</a></li>
+                      <li><a href="payrollList.jsp">Á~¸êªí²M³æ</a></li>
                       <%}}%>
                     </ul>
                   </li>
