@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.18, for macos10.14 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: FPM
+-- Host: localhost    Database: fpm
 -- ------------------------------------------------------
--- Server version	8.0.18
+-- Server version	8.0.24
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,62 +16,155 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Notice`
+-- Table structure for table `jobtitleandclass`
 --
 
-DROP TABLE IF EXISTS `Notice`;
+DROP TABLE IF EXISTS `jobtitleandclass`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Notice` (
-  `發佈人ID` char(10) NOT NULL,
-  `標題` char(40) DEFAULT NULL,
-  `公告日期` datetime DEFAULT NULL,
-  `公告內容` char(50) DEFAULT NULL,
-  PRIMARY KEY (`發佈人ID`)
+CREATE TABLE `jobtitleandclass` (
+  `jobtitle` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `class` char(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `workinghours` char(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Salary` char(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`jobtitle`,`class`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Notice`
+-- Dumping data for table `jobtitleandclass`
 --
 
-LOCK TABLES `Notice` WRITE;
-/*!40000 ALTER TABLE `Notice` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Notice` ENABLE KEYS */;
+LOCK TABLES `jobtitleandclass` WRITE;
+/*!40000 ALTER TABLE `jobtitleandclass` DISABLE KEYS */;
+INSERT INTO `jobtitleandclass` VALUES ('FT','大夜班','00:00','NT$250'),('FT','早班','08:00','NT$200'),('FT','晚班','18:00','NT$200'),('PT','大夜班','00:00','NT$180'),('PT','早班','08:00','NT$160'),('PT','晚班','18:00','NT$160'),('SUP','大夜班','00:00','NT$350'),('SUP','早班','08:00','NT$300'),('SUP','晚班','18:00','NT$300');
+/*!40000 ALTER TABLE `jobtitleandclass` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Schedules`
+-- Table structure for table `leave`
 --
 
-DROP TABLE IF EXISTS `Schedules`;
+DROP TABLE IF EXISTS `leave`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Schedules` (
-  `員工ID` char(10) NOT NULL,
-  `日期` datetime NOT NULL,
-  `是否請假` char(2) NOT NULL,
-  `是否調班` char(2) NOT NULL,
-  `實際上班時間` time NOT NULL,
-  `遲到分鐘數` tinyint(10) NOT NULL,
-  `休息時間` time NOT NULL,
-  `休息結束時間` time NOT NULL,
-  `下班時間` time NOT NULL,
-  `本日工時` tinyint(10) NOT NULL,
-  `獎懲` char(20) DEFAULT NULL,
-  `獎懲原因` char(20) DEFAULT NULL,
-  PRIMARY KEY (`員工ID`,`日期`)
+CREATE TABLE `leave` (
+  `leavememberID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `leavedate` date NOT NULL,
+  `leavecategory` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `leavereason` char(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `date` date NOT NULL,
+  `auditstatus` char(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `auditdate` date DEFAULT NULL,
+  PRIMARY KEY (`leavememberID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Schedules`
+-- Dumping data for table `leave`
 --
 
-LOCK TABLES `Schedules` WRITE;
-/*!40000 ALTER TABLE `Schedules` DISABLE KEYS */;
-INSERT INTO `Schedules` VALUES ('BETTY.WU','2021-05-01 00:00:00','是','否','18:02:00',2,'22:00:00','22:30:00','00:00:00',6,NULL,NULL);
-/*!40000 ALTER TABLE `Schedules` ENABLE KEYS */;
+LOCK TABLES `leave` WRITE;
+/*!40000 ALTER TABLE `leave` DISABLE KEYS */;
+INSERT INTO `leave` VALUES ('BETTY.WU','2021-05-03','事假','與家人吃飯','2021-05-03','審核通過','2021-05-03');
+/*!40000 ALTER TABLE `leave` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `notice`
+--
+
+DROP TABLE IF EXISTS `notice`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `notice` (
+  `title` varchar(50) NOT NULL,
+  `Publisher` varchar(50) NOT NULL,
+  `date` varchar(45) NOT NULL,
+  `message` varchar(45) NOT NULL,
+  PRIMARY KEY (`title`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `notice`
+--
+
+LOCK TABLES `notice` WRITE;
+/*!40000 ALTER TABLE `notice` DISABLE KEYS */;
+INSERT INTO `notice` VALUES ('元旦','KIKI','1/1','元旦快樂'),('雙12','KIKI','12/10','單量較多請好好對點');
+/*!40000 ALTER TABLE `notice` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `schedule`
+--
+
+DROP TABLE IF EXISTS `schedule`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `schedule` (
+  `employee_ID` varchar(100) NOT NULL,
+  `drawbreak1` varchar(50) DEFAULT NULL,
+  `drawbreak2` varchar(50) DEFAULT NULL,
+  `drawbreak3` varchar(50) DEFAULT NULL,
+  `drawbreak4` varchar(50) DEFAULT NULL,
+  `drawbreak5` varchar(50) DEFAULT NULL,
+  `drawbreak6` varchar(50) DEFAULT NULL,
+  `drawbreak7` varchar(50) DEFAULT NULL,
+  `drawbreak8` varchar(50) DEFAULT NULL,
+  `drawbreak9` varchar(50) DEFAULT NULL,
+  `drawbreak10` varchar(50) DEFAULT NULL,
+  `drawbreak11` varchar(50) DEFAULT NULL,
+  `drawbreak12` varchar(50) DEFAULT NULL,
+  `drawbreak13` varchar(50) DEFAULT NULL,
+  `drawbreak14` varchar(50) DEFAULT NULL,
+  `drawbreak15` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`employee_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `schedule`
+--
+
+LOCK TABLES `schedule` WRITE;
+/*!40000 ALTER TABLE `schedule` DISABLE KEYS */;
+/*!40000 ALTER TABLE `schedule` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `schedules`
+--
+
+DROP TABLE IF EXISTS `schedules`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `schedules` (
+  `memberID` char(10) NOT NULL,
+  `date` datetime NOT NULL,
+  `leave?` char(2) NOT NULL,
+  `takeOver?` char(2) NOT NULL,
+  `punchIn` time NOT NULL,
+  `delay` tinyint NOT NULL,
+  `rest` time NOT NULL,
+  `restOff` time NOT NULL,
+  `punchOff` time NOT NULL,
+  `worktime` tinyint NOT NULL,
+  `incentive` char(20) DEFAULT NULL,
+  `incentiveReason` char(20) DEFAULT NULL,
+  PRIMARY KEY (`memberID`,`date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `schedules`
+--
+
+LOCK TABLES `schedules` WRITE;
+/*!40000 ALTER TABLE `schedules` DISABLE KEYS */;
+INSERT INTO `schedules` VALUES ('BETTY.WU','2021-05-01 00:00:00','是','否','18:02:00',2,'22:00:00','22:30:00','00:00:00',6,NULL,NULL);
+/*!40000 ALTER TABLE `schedules` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -82,24 +175,24 @@ DROP TABLE IF EXISTS `staff`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `staff` (
-  `員工ID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `職稱` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `班別` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `姓名` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `性別` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `生日` datetime NOT NULL,
-  `身份證` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `手機號碼` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Email` char(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `LineID` char(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `地址` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `緊急聯絡人` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `緊急聯絡人關係` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `緊急連絡人電話` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `到職日` date NOT NULL,
-  `離職日` date DEFAULT NULL,
-  `備註` tinytext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  PRIMARY KEY (`員工ID`)
+  `memberID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `jobtitle` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `class` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `name` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `gender` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `birthday` date NOT NULL,
+  `identitycard` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `phonenumber` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `email` char(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `lineID` char(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `address` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `ec` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `ecrelationships` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `ecphonenumber` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `arrivalday` date NOT NULL,
+  `turnoverdate` date DEFAULT NULL,
+  `remark` tinytext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  PRIMARY KEY (`memberID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -109,96 +202,37 @@ CREATE TABLE `staff` (
 
 LOCK TABLES `staff` WRITE;
 /*!40000 ALTER TABLE `staff` DISABLE KEYS */;
-INSERT INTO `staff` VALUES ('BETTY.WU','PT','晚班','吳昱霈','女','2000-09-16 00:00:00','A123456789','0902215952','BETTY62411890916@gmail.com','yupei890916','新北市中和區大勇路','李至濡','母女','0930360466','2021-04-01',NULL,NULL),('TERRY.LI','FT','晚班','李大衛','男','1995-04-01 00:00:00','W456487513','0987545145','terry45454@gmil.com','565TTTT','新北市板橋區大月路','劉爸爸','父子','0988844455','2019-05-11',NULL,NULL);
+INSERT INTO `staff` VALUES ('BETTY.WU','PT','晚班','吳昱霈','女','2000-09-16','A123456789','0902215952','BETTY62411890916@gmail.com','yupei890916','新北市中和區大勇路','李至濡','母女','0930360466','2021-04-01',NULL,NULL),('TERRY.LI','SUP','晚班','李大衛','男','1995-04-01','W456487513','0987545145','terry45454@gmil.com','565TTTT','新北市板橋區大月路','劉爸爸','父子','0988844455','2019-05-11',NULL,NULL);
 /*!40000 ALTER TABLE `staff` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `職稱及班別`
+-- Table structure for table `takeover`
 --
 
-DROP TABLE IF EXISTS `職稱及班別`;
+DROP TABLE IF EXISTS `takeover`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `職稱及班別` (
-  `職稱` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `班別` char(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `應上班時間` char(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `薪資` char(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  PRIMARY KEY (`職稱`,`班別`)
+CREATE TABLE `takeover` (
+  `takeOvermemberID` char(10) NOT NULL,
+  `takeOverdate` date NOT NULL,
+  `cantakeOvermemberID` char(10) NOT NULL,
+  `date` date NOT NULL,
+  `auditstatus` char(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `auditdate` date DEFAULT NULL,
+  PRIMARY KEY (`takeOvermemberID`,`takeOverdate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `職稱及班別`
+-- Dumping data for table `takeover`
 --
 
-LOCK TABLES `職稱及班別` WRITE;
-/*!40000 ALTER TABLE `職稱及班別` DISABLE KEYS */;
-INSERT INTO `職稱及班別` VALUES ('FT','大夜班','00:00','NT$250'),('FT','早班','08:00','NT$200'),('FT','晚班','18:00','NT$200'),('PT','大夜班','00:00','NT$180'),('PT','早班','08:00','NT$160'),('PT','晚班','18:00','NT$160'),('SUP','大夜班','00:00','NT$350'),('SUP','早班','08:00','NT$300'),('SUP','晚班','18:00','NT$300');
-/*!40000 ALTER TABLE `職稱及班別` ENABLE KEYS */;
+LOCK TABLES `takeover` WRITE;
+/*!40000 ALTER TABLE `takeover` DISABLE KEYS */;
+INSERT INTO `takeover` VALUES ('BETTY.WU','2021-06-28','PENNY.LI','2021-06-20','待審核',NULL);
+/*!40000 ALTER TABLE `takeover` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `調班`
---
-
-DROP TABLE IF EXISTS `調班`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `調班` (
-  `須調班員工ID` char(10) NOT NULL,
-  `調班日期` date NOT NULL,
-  `可調班員工ID` char(10) NOT NULL,
-  `填寫日期` datetime NOT NULL,
-  `審核狀況` char(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `審核日期` date DEFAULT NULL,
-  PRIMARY KEY (`須調班員工ID`,`調班日期`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `調班`
---
-
-LOCK TABLES `調班` WRITE;
-/*!40000 ALTER TABLE `調班` DISABLE KEYS */;
-INSERT INTO `調班` VALUES ('BETTY.WU','2021-06-28','PENNY.LI','2021-06-20 00:00:00','待審核',NULL);
-/*!40000 ALTER TABLE `調班` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `請假`
---
-
-DROP TABLE IF EXISTS `請假`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `請假` (
-  `請假員工ID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `請假日期` date NOT NULL,
-  `請假類別` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `請假原因` char(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `填寫日期` date NOT NULL,
-  `審核狀況` char(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `審核日期` date DEFAULT NULL,
-  PRIMARY KEY (`請假員工ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `請假`
---
-
-LOCK TABLES `請假` WRITE;
-/*!40000 ALTER TABLE `請假` DISABLE KEYS */;
-INSERT INTO `請假` VALUES ('BETTY.WU','2021-05-03','事假','與家人吃飯','2021-05-03','審核通過','2021-05-03');
-/*!40000 ALTER TABLE `請假` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping routines for database 'FPM'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -209,4 +243,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-01 23:45:09
+-- Dump completed on 2021-12-16 14:56:40
