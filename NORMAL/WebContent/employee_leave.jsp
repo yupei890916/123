@@ -26,10 +26,7 @@
     <td><p><div align="center"><input type="button" value="新增畫休申請" onclick="location.href='employee_leave_create.jsp'"></div></p></td>
     </tr>
     <tr>
-    <td><p><div align="center"><input type="button" value="修改畫休申請" onclick="location.href='employee_leave_update_delete.jsp'"></div></p></td>
-    </tr>
-    <tr>
-    <td><p><div align="center"><input type="button" value="刪除畫休申請" onclick="location.href='employee_leave_update_delete.jsp'"></div></p></td>
+    <td><p><div align="center"><input type="button" value="修改畫休申請" onclick="location.href='employee_leave_update.jsp'"></div></p></td>
     </tr>
 </table>
           </header>

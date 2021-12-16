@@ -1,11 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=BIG5"
-pageEncoding="BIG5"%>
+<%@ page language="java" contentType="text/html; charset=BIG5" pageEncoding="BIG5"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page import="java.sql.*" %>
+<%@ page import="java.io.*" %>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%
-String id = request.getParameter("id");
 String driver = "com.mysql.jdbc.Driver";
 String connectionUrl = "jdbc:mysql://localhost:3306/";
 String database = "fpm";
@@ -20,77 +21,79 @@ Connection connection = null;
 Statement statement = null;
 ResultSet resultSet = null;
 %>
+<html>
+<head>
+  <title>FOOODPANDA MARKET 熊貓超市 員工畫休</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+  <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="jqueryui/style.css"> 
+  <script src="assets/js/calender.js"></script>
+</head>
+<body class="is-preload">
+	<!-- Wrapper -->
+  <div id="wrapper">
+    <!-- Main -->
+    <div id="main">
+      <div class="inner">
+        <!-- Header -->
+        <%@include file ="header.jsp" %>
+         <section>
+          <header class="major">
+            <h2>熊貓超市 - 畫休</h2>
+<table border="1" width="1500">
+<tr>
+<td>員工代號</td>
+<td>預排休1</td>
+<td>預排休2</td>
+<td>預排休3</td>
+<td>預排休4</td>
+<td>預排休5</td>
+<td>預排休6</td>
+<td>預排休7</td>
+<td>預排休8</td>
+<td>預排休9</td>
+<td>預排休10</td>
+<td>預排休11</td>
+<td>預排休12</td>
+<td>預排休13</td>
+<td>預排休14</td>
+<td>預排休15</td>
+<td>修改</td>
+</tr>
 <%
 try{
 connection = DriverManager.getConnection(connectionUrl+database, userid, password);
 statement=connection.createStatement();
-String sql ="select * from schedule where id = '1'";
+String sql ="select * from schedule ";
 resultSet = statement.executeQuery(sql);
 while(resultSet.next()){
 %>
-<!DOCTYPE html>
-<html>
-<body>
-<h1>Update data</h1>
-<form method="post" action="employee_leave_update_process.jsp">
- <table>
-  <tr>
-    <td><div align="center">預排休1</div></td>
-    <td><div align="center">預排休2</div></td>
-    <td><div align="center">預排休3</div></td>
-  </tr>
-  <tr>
-    <td><input type="text" placeholder="請選擇預畫休日期" id="datepicker1" name="drawbreak1" value="<%=resultSet.getString("drawbreak1") %>"></td>
-    <td><input type="text" placeholder="請選擇預畫休日期" id="datepicker2" name="drawbreak2" value="<%=resultSet.getString("drawbreak2") %>"></td>
-    <td><input type="text" placeholder="請選擇預畫休日期" id="datepicker3" name="drawbreak3" value="<%=resultSet.getString("drawbreak3") %>"></td>
-  </tr>
-  <tr>
-    <td><div align="center">預排休4</div></td>
-    <td><div align="center">預排休5</div></td>
-    <td><div align="center">預排休6</div></td>
-  </tr>
-  <tr>
-    <td><input type="text" placeholder="請選擇預畫休日期" id="datepicker4" name="drawbreak4" value="<%=resultSet.getString("drawbreak4") %>"></td>
-    <td><input type="text" placeholder="請選擇預畫休日期" id="datepicker5" name="drawbreak5" value="<%=resultSet.getString("drawbreak5") %>"></td>
-    <td><input type="text" placeholder="請選擇預畫休日期" id="datepicker6" name="drawbreak6" value="<%=resultSet.getString("drawbreak6") %>"></td>
-  </tr>
-  <tr>
-    <td><div align="center">預排休7</div></td>
-    <td><div align="center">預排休8</div></td>
-    <td><div align="center">預排休9</div></td>
-  </tr>
-  <tr>
-    <td><input type="text" placeholder="請選擇預畫休日期" id="datepicker7" name="drawbreak7" value="<%=resultSet.getString("drawbreak7") %>"></td>
-    <td><input type="text" placeholder="請選擇預畫休日期" id="datepicker8" name="drawbreak8" value="<%=resultSet.getString("drawbreak8") %>"></td>
-    <td><input type="text" placeholder="請選擇預畫休日期" id="datepicker9" name="drawbreak9" value="<%=resultSet.getString("drawbreak9") %>"></td>
-  </tr>
-  <tr>
-    <td><div align="center">預排休10</div></td>
-    <td><div align="center">預排休11</div></td>
-    <td><div align="center">預排休12</div></td>
-  </tr>
-  <tr>
-    <td><input type="text" placeholder="請選擇預畫休日期" id="datepicker10" name="drawbreak10" value="<%=resultSet.getString("drawbreak10") %>"></td>
-    <td><input type="text" placeholder="請選擇預畫休日期" id="datepicker11" name="drawbreak11" value="<%=resultSet.getString("drawbreak11") %>"></td>
-    <td><input type="text" placeholder="請選擇預畫休日期" id="datepicker12" name="drawbreak12" value="<%=resultSet.getString("drawbreak12") %>"></td>
-  </tr>
-   <tr>
-    <td><div align="center">預排休13</div></td>
-    <td><div align="center">預排休14</div></td>
-    <td><div align="center">預排休15</div></td>
-  </tr>
-  <tr>
-    <td><input type="text" placeholder="請選擇預畫休日期" id="datepicker13" name="drawbreak13" value="<%=resultSet.getString("drawbreak13") %>"></td>
-    <td><input type="text" placeholder="請選擇預畫休日期" id="datepicker14" name="drawbreak14" value="<%=resultSet.getString("drawbreak14") %>"></td>
-    <td><input type="text" placeholder="請選擇預畫休日期" id="datepicker15" name="drawbreak15" value="<%=resultSet.getString("drawbreak15") %>"></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td><div align="center"><input type="submit" value="提交修改申請"></div></td>
-    <td></td>
-  </tr>
-</table>
-</form>
+<tr>
+<td><%=resultSet.getString("employee_ID") %></td>
+<td><%=resultSet.getString("drawbreak1") %></td>
+<td><%=resultSet.getString("drawbreak2") %></td>
+<td><%=resultSet.getString("drawbreak3") %></td>
+<td><%=resultSet.getString("drawbreak4") %></td>
+<td><%=resultSet.getString("drawbreak5") %></td>
+<td><%=resultSet.getString("drawbreak6") %></td>
+<td><%=resultSet.getString("drawbreak7") %></td>
+<td><%=resultSet.getString("drawbreak8") %></td>
+<td><%=resultSet.getString("drawbreak9") %></td>
+<td><%=resultSet.getString("drawbreak10") %></td>
+<td><%=resultSet.getString("drawbreak11") %></td>
+<td><%=resultSet.getString("drawbreak12") %></td>
+<td><%=resultSet.getString("drawbreak13") %></td>
+<td><%=resultSet.getString("drawbreak14") %></td>
+<td><%=resultSet.getString("drawbreak15") %></td>
+<td><%if(session.getAttribute("accessId")!=null){
+          		if(session.getAttribute("accessId").equals(resultSet.getString("employee_ID"))) {%>
+          			<a href="memberEdit.jsp?memberId=<%=resultSet.getString("employee_ID")%>" >編輯</a>
+		  		<%}
+          }%></td>
+</tr>
 <%
 }
 connection.close();
@@ -98,5 +101,18 @@ connection.close();
 e.printStackTrace();
 }
 %>
+</table>
+ </header>
+        </section>
+       </div>
+     </div>
+     <%@include file ="menu.jsp" %>
+  </div>
+  <!-- Scripts -->
+  <script src="assets/js/jquery1.min.js" style=""></script>
+  <script src="assets/js/browser.min.js" style=""></script>
+  <script src="assets/js/breakpoints.min.js" style=""></script>
+  <script src="assets/js/util.js" style=""></script>
+  <script src="assets/js/main.js" style=""></script>
 </body>
 </html>
