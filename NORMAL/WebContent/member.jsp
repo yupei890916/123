@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=BIG5" pageEncoding="UTF-8"%>
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 
 <!DOCTYPE html>
 <html>
@@ -17,7 +19,7 @@
      url="jdbc:mysql://127.0.0.1:3306/fpm"
      user="root"  password="lovelove520"/>
 <sql:query dataSource="${snapshot}" var="result">
-SELECT * from fpm.staff where 員工ID='BETTY.WU';
+SELECT * from fpm.staff where 員工ID='<%=session.getAttribute("accessId")%>';
 </sql:query>
 
 
@@ -46,7 +48,7 @@ SELECT * from fpm.staff where 員工ID='BETTY.WU';
               <div class="col-4 col-12-xsmall" style=""> 身分證字號：A123456789</div>
               <div class="col-4 col-12-xsmall" style=""> 手機號碼：0912345678</div>
               <div class="col-4 col-12-xsmall" style=""> Email：<c:out value="${row.Email}"/></div>
-              <div class="col-4 col-12-xsmall" style=""> LINE ID：</div>
+              <div class="col-4 col-12-xsmall" style=""> LINE ID：<c:out value="${row.LineID}"/></div>
               <div class="col-4 col-12-xsmall" style=""> 住址：新北市中和區大勇街 </div>
               <div class="col-4 col-12-xsmall" style=""> 緊急聯絡人：李至濡</div>
               <div class="col-4 col-12-xsmall" style=""> 緊急聯絡人電話：0930260466</div>
