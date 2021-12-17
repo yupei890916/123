@@ -1,13 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=BIG5"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=BIG5" pageEncoding="UTF-8"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="BIG5">
-<title>FOOODPANDA MARKET 熊貓超市</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>FOOODPANDA MARKET 熊貓超市</title>
+  <meta charset="BIG5">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
+
 <body class="is-preload">
 	<!-- Wrapper -->
   <div id="wrapper">
@@ -16,33 +22,49 @@
       <div class="inner">
         <!-- Header -->
         <%@include file ="header.jsp" %>
-        <!-- Banner -->
-            <br>
+         <section>
           <header class="major">
-             <h2>&ensp;公 告 欄</h2>
+            <h2>熊貓超市 公告欄</h2>
           </header>
-          
-          <%request.setCharacterEncoding("BIG5");
-          String title = request.getParameter("title");
-String Publisher = request.getParameter("Publisher");
-String date = request.getParameter("date");
-String message = request.getParameter("message");
-%>
-
-       <div class="content">
-          <h2><%= title %> </h2>
-          <h3>發佈人：<%= Publisher %> <br> 發佈日期：<%=date %> <br> 內容：<%=message %></h3>
-                 </div>
-          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-
-
-        <div class="content">
-          <h2>疫情公告 </h2><a href="javascript:" onclick="document.all.fullContent.style.display=(document.all.fullContent.style.display=='none')?'':'none';document.all.smallContent.style.display=(document.all.smallContent.style.display=='none')?'':'none'">點我展開／隱藏</a>
-          <div class="block" id="fullContent" style="display: none;"> 請洗手，戴口罩，3Q </div>
-        </div>
-      </div>
-    </div>
-    <!-- Sidebar -->
+    <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
+     url="jdbc:mysql://127.0.0.1:3306/fpm"
+     user="root"  password="betty62411"/>
+     <sql:query dataSource="${snapshot}" var="result">
+     SELECT * from fpm.notice;
+     </sql:query>
+          <form method="post" action="#">
+            <font color="#000000" size="4">
+              <div class=" gtr-uniform">
+                <div class="col-6 col-12-xsmall">
+               
+                  <table style="width:100%">
+                  <c:forEach var="row" items="${result.rows}">
+                    <thead>
+                      <tr>
+                        <th><font size="5"><c:out value="${row.title}"/></font></th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                       <th>發佈人：<c:out value="${row.Publisher}"/></th> 
+                       <th> 發佈日期：<c:out value="${row.date}"/></th> 
+                       <th> 內容：<c:out value="${row.message}"/></th>
+                      </tr>
+                     </tbody>
+                     </c:forEach> 
+                  </table>
+            </div><br>
+                <!-- Break -->
+                <div class="col-5">
+                  <ul class="actions">
+                  </ul>
+                </div>
+              </div>
+            </font>
+          </form>
+        </section>
+       </div>
+     </div>
     <%@include file ="menu.jsp" %>
   </div>
   <!-- Scripts -->
