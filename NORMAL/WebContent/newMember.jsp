@@ -4,7 +4,7 @@
 <html>
 
 <head>
-  <title>FOOODPANDA MARKET 熊貓超市 薪資表</title>
+  <title>FOOODPANDA MARKET 熊貓超市 新增員工資料</title>
   <meta charset="BIG5">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="assets/css/main.css">

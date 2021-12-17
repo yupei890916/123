@@ -1,10 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=BIG5"
-    pageEncoding="BIG5"%>
+<%@ page language="java" contentType="text/html; charset=BIG5" pageEncoding="UTF-8"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+
 <!DOCTYPE html>
 <html>
 
 <head>
-  <title>FOOODPANDA MARKET ∫µøﬂ∂W•´ ¡~∏Í™Ì</title>
+  <title>FOOODPANDA MARKET ÁÜäË≤ìË∂ÖÂ∏Ç Âì°Â∑•Ê∏ÖÂñÆ</title>
   <meta charset="BIG5">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="assets/css/main.css">
@@ -20,107 +24,71 @@
         <%@include file ="header.jsp" %>
          <section>
           <header class="major" draggable="true">
-            <h2>≠”§H∏ÍÆ∆¶C™Ì</h2>
+            <h2>ÂÄã‰∫∫Ë≥áÊñôÂàóË°®</h2>
           </header>
-          <form method="post" action="#">
-            <font color="#000000" size="4">
-              <div class=" gtr-uniform">
-                <div class="col-12-xsmall col-md-6 col-8" style="">
-                  <table>
-                    <tbody>
-                      <tr style="">
-                        <th>≠˚§uID</th>
-                        <th>©m¶W</th>
-                        <th>¬æ∫Ÿ</th>
-                        <th>ØZßO</th>
-                        <th>© ßO</th>
-                        <th>•X•Õ¶~§Î§È</th>
-                        <th>®≠•˜√“¶r∏π</th>
-                        <th>§‚æ˜∏πΩX</th>
-                        <th>Email</th>
-                        <th>LINE ID</th>
-                        <th>¶Ìß}</th>
-                        <th>∫Ú´Ê≥sµ∏§H</th>
-                        <th>∫Ú´Ê≥sµ∏§H√ˆ´Y</th>
-                        <th>∫Ú´Ê≥sµ∏§Hπq∏‹</th>
-                        <th>®Ï¬æ§È</th>
-                        <th>¬˜¬æ§È</th>
-                      </tr>
-                      <tr>
-                        <th>BETTY.WU</th>
-                        <th>ßd¨RËÆ</th>
-                        <th>PT</th>
-                        <th>±ﬂØZ</th>
-                        <th>§k</th>
-                        <th>2018/7/11</th>
-                        <th>A123456789</th>
-                        <th>0902215952</th>
-                        <th>BETTY62411890916@gmail.com</th>
-                        <th>yupei890916</th>
-                        <th>∑s•_•´§§©M∞œ§j´iµÛ</th>
-                        <th>ßı¶‹¿·</th>
-                        <th>•¿§k</th>
-                        <th>0930260466</th>
-                        <th>2021/4/1</th>
-                        <th></th>
-                      </tr>
-                      <tr>
-                        <th>TERRY.LI</th>
-                        <th>ßı§jΩ√</th>
-                        <th>FT</th>
-                        <th>¶≠ØZ</th>
-                        <th>®k</th>
-                        <th>1995/4/1</th>
-                        <th>W456487513</th>
-                        <th>0987545145</th>
-                        <th>terry45454@gmail.com</th>
-                        <th>565TTTT</th>
-                        <th>∑s•_•´ØZæÙ∞œ§j•ŒµÛ4455∏π7º”</th>
-                        <th>ºB™®™®</th>
-                        <th>§˜§l</th>
-                        <th>0988844455</th>
-                        <th>2019/5/11</th>
-                        <th></th>
-                      </tr>
-                      <tr>
-                        <th>JACKY.LIU</th>
-                        <th>ºBøAßª</th>
-                        <th>PT</th>
-                        <th>±ﬂØZ</th>
-                        <th>®k</th>
-                        <th>2021/8/17</th>
-                        <th>P454648215</th>
-                        <th>0945682355</th>
-                        <th>netrfgf11123@gmail.com</th>
-                        <th>jacky456</th>
-                        <th>∑s•_•´•√©M∞œ§T¶W∏Ù29∏π</th>
-                        <th>ßı™®™®</th>
-                        <th>§˜§l</th>
-                        <th>0988444555</th>
-                        <th>2021/3/2</th>
-                        <th></th>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <ul class="actions">
-                    <li><input type="reset" value="∑sºW" font="" size="7"></li>
-                    <li><input type="reset" value="≠◊ßÔ" font="" size="7"></li>
-                    <font color="#000000">
-                      <font color="#000000">
-                        <font color="#000000">
-                        </font>
-                      </font>
-                    </font>
-                  </ul>
-                </div><br style="">
-                <!-- Break -->
-                <div class="col-5" style="">
-                  <ul class="actions">
-                  </ul>
-                </div>
-              </div>
-            </font>
-          </form>
+          <div class="content">
+          <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
+                             url="jdbc:mysql://127.0.0.1:3306/fpm"
+                             user="root"  password="lovelove520"/>
+          <sql:query dataSource="${snapshot}" var="result">
+               SELECT * from fpm.staff ;
+          </sql:query>
+          <form action="newMember.jsp" method="post">
+			<table id="memberList" border="1" width="100%">
+			<thead>
+				<tr>
+  					 <th>Âì°Â∑•ID</th>
+  					 <th>ÂßìÂêç</th>
+  					 <th>Áè≠Âà•</th>
+  					 <th>ËÅ∑Á®±</th>
+  					 <th>ÊÄßÂà•</th>
+  					 <th>Âá∫ÁîüÂπ¥ÊúàÊó•</th>
+  					 <th>Ë∫´ÂàÜË≠âÂ≠óËôü</th>
+  					 <th>ÊâãÊ©üËôüÁ¢º</th>
+  					 <th>Email</th>
+  					 <th>LINE ID</th>
+  					 <th>‰ΩèÂùÄ</th>
+  					 <th>Á∑äÊÄ•ËÅØÁµ°‰∫∫</th>
+  					 <th>Á∑äÊÄ•ËÅØÁµ°‰∫∫ÈõªË©±</th>
+  					 <th>Á∑äÊÄ•ËÅØÁµ°‰∫∫Èóú‰øÇ</th>
+  					 <th>Âú®ËÅ∑Êó•</th>
+  					 <th>Èõ¢ËÅ∑Êó•</th>
+  					 <th>ÂÇôË®ª</th>
+				</tr>
+			</thead>
+				<c:forEach var="row" items="${result.rows}">
+			<tbody>
+				<tr>
+				   <td><c:out value="${row.memberID}"/></td>
+				   <td><c:out value="${row.name}"/></td>
+				   <td><c:out value="${row.shift}"/></td>
+				   <td><c:out value="${row.jobtitle}"/></td>
+				   <td><c:out value="${row.gender}"/></td>
+				   <td><c:out value="${row.birthday}"/></td>
+				   <td><c:out value="${row.identitycard}"/></td>
+				   <td><c:out value="${row.phonenumber}"/></td>
+				   <td><c:out value="${row.email}"/></td>
+				   <td><c:out value="${row.lineID}"/></td>
+				   <td><c:out value="${row.address}"/></td>
+				   <td><c:out value="${row.ec}"/></td>
+				   <td><c:out value="${row.ecrelationships}"/></td>
+				   <td><c:out value="${row.ecphonenumber}"/></td>
+				   <td><c:out value="${row.arrivalday}"/></td>
+				   <td><c:out value="${row.turnoverdate}"/></td>
+				    <td><c:out value="${row.remark}"/></td>
+				</tr>
+				</c:forEach>
+			</tbody>
+			</table>
+		   <center>
+           <font size="4"><input type="submit" value="Êñ∞Â¢û"/></font> 
+           &emsp;
+           <font size="4"><input id="del" type="reset" value="Âà™Èô§"/></font> 
+           &emsp;
+           <font size="4"><input id="edit"type="reset" value="‰øÆÊîπ"/></font> 
+           </center>
+            </form>
+           </div>
         </section>
        </div>
      </div>
@@ -132,5 +100,6 @@
   <script src="assets/js/breakpoints.min.js" style=""></script>
   <script src="assets/js/util.js" style=""></script>
   <script src="assets/js/main.js" style=""></script>
+  <script src="assets/js/table.js" style=""></script>
 </body>
 </html>

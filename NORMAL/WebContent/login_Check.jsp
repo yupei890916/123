@@ -25,15 +25,15 @@ String use = "root";
 String password = "lovelove520";  
 Class.forName("com.mysql.jdbc.Driver");  
 conn= DriverManager.getConnection(url,use,password);  
-sql =conn.prepareStatement("select * from staff where 員工ID='"+username+"' and 身份證='"+pwd+"' and 職稱='"+position+"'");
+sql =conn.prepareStatement("select * from staff where memberID='"+username+"' and identitycard='"+pwd+"' and jobtitle='"+position+"'");
 
 rs=sql.executeQuery();
 %>
 <!-- 判斷是否是正確的登入使用者 -->
 <%
 if(rs.next()){  
-	session.setAttribute("accessId",rs.getString("員工ID"));
-	session.setAttribute("Authority",rs.getString("職稱"));
+	session.setAttribute("accessId",rs.getString("memberID"));
+	session.setAttribute("Authority",rs.getString("jobtitle"));
 	session.setMaxInactiveInterval(20);
 	response.sendRedirect("index.jsp");
 }else{
