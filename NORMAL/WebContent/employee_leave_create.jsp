@@ -3,7 +3,7 @@
 <%@page import="java.sql.*"%>
 <html>
 <head>
-  <title>FOOODPANDA MARKET 熊貓超市 員工畫休</title>
+  <title>FOOODPANDA MARKET 熊貓超市 員工新增畫休</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">

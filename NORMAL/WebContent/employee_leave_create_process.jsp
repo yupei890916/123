@@ -32,42 +32,6 @@ catch(Exception e)
 System.out.print(e);
 e.printStackTrace();
 }
+response.sendRedirect("employee_leave_update.jsp");
 %>
-<html>
-<head>
-  <title>FOOODPANDA MARKET 熊貓超市 員工畫休</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <link rel="stylesheet" href="assets/css/main.css">
-  <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
-  <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-  <link rel="stylesheet" href="jqueryui/style.css"> 
-  <script src="assets/js/calender.js"></script>
-</head>
-<body class="is-preload">
-	<!-- Wrapper -->
-  <div id="wrapper">
-    <!-- Main -->
-    <div id="main">
-      <div class="inner">
-        <!-- Header -->
-        <%@include file ="header.jsp" %>
-         <section>
-          <header class="major">
-            <h2>熊貓超市 - 畫休提交確認</h2>
-             <h3>您已完成畫休提交申請</h3><br>
-             <h4>排定之班表請至排班區查閱，若對於班表有疑問者，請親洽或電聯主管。</h4>
-          </header>
-        </section>
-       </div>
-     </div>
-     <%@include file ="menu.jsp" %>
-  </div>
-  <!-- Scripts -->
-  <script src="assets/js/jquery1.min.js" style=""></script>
-  <script src="assets/js/browser.min.js" style=""></script>
-  <script src="assets/js/breakpoints.min.js" style=""></script>
-  <script src="assets/js/util.js" style=""></script>
-  <script src="assets/js/main.js" style=""></script>
-</body>
 </html>
