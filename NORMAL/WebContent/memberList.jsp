@@ -40,20 +40,7 @@
   					 <th>員工ID</th>
   					 <th>姓名</th>
   					 <th>班別</th>
-  					 <th>職稱</th>
-  					 <th>性別</th>
-  					 <th>出生年月日</th>
-  					 <th>身分證字號</th>
-  					 <th>手機號碼</th>
-  					 <th>Email</th>
-  					 <th>LINE ID</th>
-  					 <th>住址</th>
-  					 <th>緊急聯絡人</th>
-  					 <th>緊急聯絡人電話</th>
-  					 <th>緊急聯絡人關係</th>
-  					 <th>在職日</th>
-  					 <th>離職日</th>
-  					 <th>備註</th>
+  					 <th>編輯</th>
 				</tr>
 			</thead>
 				<c:forEach var="row" items="${result.rows}">
@@ -62,30 +49,13 @@
 				   <td><c:out value="${row.memberID}"/></td>
 				   <td><c:out value="${row.name}"/></td>
 				   <td><c:out value="${row.shift}"/></td>
-				   <td><c:out value="${row.jobtitle}"/></td>
-				   <td><c:out value="${row.gender}"/></td>
-				   <td><c:out value="${row.birthday}"/></td>
-				   <td><c:out value="${row.identitycard}"/></td>
-				   <td><c:out value="${row.phonenumber}"/></td>
-				   <td><c:out value="${row.email}"/></td>
-				   <td><c:out value="${row.lineID}"/></td>
-				   <td><c:out value="${row.address}"/></td>
-				   <td><c:out value="${row.ec}"/></td>
-				   <td><c:out value="${row.ecrelationships}"/></td>
-				   <td><c:out value="${row.ecphonenumber}"/></td>
-				   <td><c:out value="${row.arrivalday}"/></td>
-				   <td><c:out value="${row.turnoverdate}"/></td>
-				    <td><c:out value="${row.remark}"/></td>
+				   <td><font size="3"><input type="button" value="修改" onclick="location.href='memberEdit.jsp?memberId=${row.memberID}'"></font> </td>
 				</tr>
 				</c:forEach>
 			</tbody>
 			</table>
 		   <center>
-           <font size="4"><input type="submit" value="新增"/></font> 
-           &emsp;
-           <font size="4"><input id="del" type="reset" value="刪除"/></font> 
-           &emsp;
-           <font size="4"><input id="edit"type="reset" value="修改"/></font> 
+           <font size="4"><input type="submit" value="新增"/></font>
            </center>
             </form>
            </div>
