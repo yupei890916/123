@@ -45,23 +45,23 @@ ResultSet resultSet = null;
             <h2>熊貓超市 - 畫休</h2>
 <table border="1" width="1500">
 <tr>
-<td>員工代號</td>
-<td>預排休1</td>
-<td>預排休2</td>
-<td>預排休3</td>
-<td>預排休4</td>
-<td>預排休5</td>
-<td>預排休6</td>
-<td>預排休7</td>
-<td>預排休8</td>
-<td>預排休9</td>
-<td>預排休10</td>
-<td>預排休11</td>
-<td>預排休12</td>
-<td>預排休13</td>
-<td>預排休14</td>
-<td>預排休15</td>
-<td>修改</td>
+<td><div align="center">員工代號</div></td>
+<td><div align="center">預排休1</div></td>
+<td><div align="center">預排休2</div></td>
+<td><div align="center">預排休3</div></td>
+<td><div align="center">預排休4</div></td>
+<td><div align="center">預排休5</div></td>
+<td><div align="center">預排休6</div></td>
+<td><div align="center">預排休7</div></td>
+<td><div align="center">預排休8</div></td>
+<td><div align="center">預排休9</div></td>
+<td><div align="center">預排休10</div></td>
+<td><div align="center">預排休11</div></td>
+<td><div align="center">預排休12</div></td>
+<td><div align="center">預排休13</div></td>
+<td><div align="center">預排休14</div></td>
+<td><div align="center">預排休15</div></td>
+<td><div align="center">修改</div></td>
 </tr>
 <%
 try{
@@ -90,7 +90,7 @@ while(resultSet.next()){
 <td><%=resultSet.getString("drawbreak15") %></td>
 <td><%if(session.getAttribute("accessId")!=null){
           		if(session.getAttribute("accessId").equals(resultSet.getString("employee_ID"))) {%>
-          			<a href="memberEdit.jsp?memberId=<%=resultSet.getString("employee_ID")%>" >編輯</a>
+          			<a href="employee_leave_update_all.jsp?employee_ID=<%=resultSet.getString("employee_ID")%>" >編輯</a>
 		  		<%}
           }%></td>
 </tr>

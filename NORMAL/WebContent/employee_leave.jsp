@@ -23,10 +23,10 @@
             <h2>熊貓超市 - 員工畫休</h2>
 <table>
     <tr>
-    <td><p><div align="center"><input type="button" value="新增畫休申請" onclick="location.href='employee_leave_create.jsp'"></div></p></td>
+    <td><p><div align="center"><input type="button" value="新增畫休" onclick="location.href='employee_leave_create.jsp'"></div></p></td>
     </tr>
     <tr>
-    <td><p><div align="center"><input type="button" value="修改畫休申請" onclick="location.href='employee_leave_update.jsp'"></div></p></td>
+    <td><p><div align="center"><input type="button" value="查詢畫休 / 修改畫休" onclick="location.href='employee_leave_update.jsp'"></div></p></td>
     </tr>
 </table>
           </header>
