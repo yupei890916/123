@@ -18,8 +18,7 @@
  <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://127.0.0.1:3306/fpm"
      user="root"  password="lovelove520"/>
-<%	String sql = "select * from staff where memberId =${row.memberID}";
-%>
+
 
 
 	<!-- Wrapper -->

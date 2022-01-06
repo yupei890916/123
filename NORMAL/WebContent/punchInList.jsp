@@ -37,7 +37,8 @@
                         <th>休息時間</th>
                         <th>休息結束</th>
                         <th>下班時間</th>
-                        <th>遲到</th>
+                        <th>時數</th>
+                        <th>遲到</th>                 
                         <th>未休息</th>
                       </tr>
                       </thead>
@@ -49,16 +50,20 @@
                         <th>--:--</th>
                         <th>--:--</th>
                         <th>00:02</th>
+                        <th>6</th>
                         <th>5</th>
                         <th>V</th>
                       </tr>
                       <tr>
                         <th>2021/06/19</th>
                         <th>BETTY.WU</th>
-                        <th>17:57</th>
+                        <th>18:02</th>
                         <th>21:05</th>
                         <th>21:35</th>
                         <th>00:02</th>
+                        <th>5.5</th>
+                        <th>2</th>
+                        <th></th>
                       </tr>
                       <tr>
                         <th>2021/06/18</th>
@@ -67,8 +72,9 @@
                         <th>20:00</th>
                         <th>20:30</th>
                         <th>24:00</th>
-                         <th>10</th>
-                        <th>V</th>
+                         <th>5.5</th>
+                         <th>0</th>
+                        <th></th>
                       </tr>
                     </tbody>
                   </table>
