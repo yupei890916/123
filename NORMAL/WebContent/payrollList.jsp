@@ -19,6 +19,9 @@
         <!-- Header -->
         <%@include file ="header.jsp" %>
          <section>
+         <header class="major">
+            <h2>Á~¸êÁ`ªí</h2>
+          </header>
          <form method="post" action="#">
             <font color="#000000" size="4">
               <div class=" gtr-uniform">

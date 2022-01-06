@@ -1,78 +1,68 @@
-<%@ page language="java" contentType="text/html; charset=BIG5"
-    pageEncoding="BIG5"%>
+<%@ page language="java" contentType="text/html; charset=BIG5" pageEncoding="UTF-8"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <!DOCTYPE html>
 <html>
 
 <head>
-  <title>FOOODPANDA MARKET ºµ¿ß¶W¥« ·s¼W­û¤u¸ê®Æ</title>
+  <title>FOOODPANDA MARKET ç†Šè²“è¶…å¸‚ æ–°å¢žå“¡å·¥è³‡æ–™</title>
   <meta charset="BIG5">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
 <body class="is-preload">
-	<!-- Wrapper -->
   <div id="wrapper">
-    <!-- Main -->
     <div id="main">
       <div class="inner">
-        <!-- Header -->
         <%@include file ="header.jsp" %>
          <section>
            <header class="major">
-            <h2>·s¼W­û¤u¸ê®Æ</h2>
+            <h2>æ–°å¢žå“¡å·¥è³‡æ–™</h2>
           </header>
         
         <form action="newMember_inserInto.jsp" method="post" action="#">
           <font color="#000000" size="4">
             <div class="row gtr-uniform">
-              <div class="col-4 col-12-xsmall col-md-1" style=""> ­û¤uID¡G <input type="text" name="­û¤uID" id="demo-name" value="" placeholder="­û¤uID">
+              <div class="col-4"> å“¡å·¥IDï¼š<input type="text" name="memberID"  placeholder="å“¡å·¥ID"></div>
+              <div class="col-4"> å§“åï¼š<input type="text" name="name" placeholder="å§“å"></div>
+              <div class="col-4"> ç­åˆ¥ï¼š<select name="shift" >
+                  <option value="æ—©ç­">æ—©ç­</option>
+                  <option value="æ™šç­">æ™šç­</option>
+                  <option value="å¤§å¤œç­">å¤§å¤œç­</option></select></div>
+              <div class="col-4"> è·ç¨±ï¼š<select name="jobtitle">
+                  <option value="PT">PT</option>
+                  <option value="FT">FT</option>
+                  <option value="SUP">SUP</option></select></div>
+              <div class="col-4"> æ€§åˆ¥ï¼š<select name="gender" >
+                  <option value="m">ç”·</option>
+                  <option value="f">å¥³</option></select></div>
+              <div class="col-4"> å‡ºç”Ÿå¹´æœˆæ—¥ï¼š<br><input type="date" name="birthday" placeholder="å‡ºç”Ÿå¹´æœˆæ—¥">
               </div>
-              <div class="col-4 col-12-xsmall col-md-1" style=""> ©m¦W¡G<input type="text" name="©m¦W" id="demo-email" value="" placeholder="©m¦W">
+              <div class="col-4"> èº«åˆ†è­‰å­—è™Ÿï¼š<input type="text" name="identitycard" placeholder="èº«åˆ†è­‰å­—è™Ÿ">
               </div>
-              <div class="col-4" style=""> ¯Z§O¡G<select name="¯Z§O" id="demo-category">
-                  <option value="1">¦­¯Z</option>
-                  <option value="1">±ß¯Z</option>
-                  <option value="1">¤j©]¯Z</option>
-                </select>
+              <div class="col-4"> æ‰‹æ©Ÿè™Ÿç¢¼ï¼š<input type="text" name="phonenumber"  placeholder="æ‰‹æ©Ÿè™Ÿç¢¼">
               </div>
-              <div class="col-4" style=""> Â¾ºÙ¡G<select name="Â¾ºÙ" id="demo-category">
-                  <option value="1">PT</option>
-                  <option value="1">FT</option>
-                  <option value="1">SUP</option>
-                </select>
+              <div class="col-4"> Emailï¼š<input type="email" name="email"  placeholder="Email">
               </div>
-              <div class="col-4" style=""> ©Ê§O¡G<select name="©Ê§O" id="demo-category">
-                  <option value="1">¨k</option>
-                  <option value="1">¤k</option>
-                </select>
+              <div class="col-4"> LINE IDï¼š<input type="text" name="lineID"  placeholder="LINE ID">
               </div>
-              <div class="col-4 col-12-xsmall" style=""> ¥X¥Í¦~¤ë¤é¡G<br><input  type="date" name="¥X¥Í" placeholder="¥X¥Í¦~¤ë¤é" value="">
+              <div class="col-4"> ä½å€ï¼š<input type="text" name="address" placeholder="ä½å€">
               </div>
-              <div class="col-4 col-12-xsmall" style=""> ¨­¤ÀÃÒ¦r¸¹¡G<input type="text" name="¨­¤ÀÃÒ" placeholder="¨­¤ÀÃÒ¦r¸¹">
+              <div class="col-4"> ç·Šæ€¥è¯çµ¡äººï¼š<input type="text" name="ec"  placeholder="ç·Šæ€¥è¯çµ¡äºº">
               </div>
-              <div class="col-4 col-12-xsmall" style=""> ¤â¾÷¸¹½X¡G<input type="text" name="¤â¾÷"  placeholder="¤â¾÷¸¹½X">
+              <div class="col-4"> ç·Šæ€¥è¯çµ¡äººé›»è©±ï¼š<input type="text" name="ecphonenumber" placeholder="ç·Šæ€¥è¯çµ¡äººé›»è©±">
               </div>
-              <div class="col-4 col-12-xsmall" style=""> Email¡G<input type="email" name="Email"  placeholder="Email">
+              <div class="col-4"> ç·Šæ€¥è¯çµ¡äººé—œä¿‚ï¼š<input type="text" name="ecrelationships" placeholder="ç·Šæ€¥è¯çµ¡äººé—œä¿‚">
               </div>
-              <div class="col-4 col-12-xsmall" style=""> LINE ID¡G<input type="text" name="LINE"  placeholder="LINE ID">
+              <div class="col-4"> åœ¨è·æ—¥ï¼š<br><input type="date" name="arrivalday" placeholder="åœ¨è·æ—¥">
               </div>
-              <div class="col-4 col-12-xsmall" style=""> ¦í§}¡G<input type="text" name="¦í§}" placeholder="¦í§}">
+               <div class="col-4 col-12-xsmall" style=""> é›¢è·æ—¥ï¼š<input type="text" name="turnoverdate" placeholder="é›¢è·æ—¥">
               </div>
-              <div class="col-4 col-12-xsmall" style=""> ºò«æÁpµ¸¤H¡G<input type="text" name="ºò«æÁpµ¸¤H"  placeholder="ºò«æÁpµ¸¤H">
+              <div class="col-12" style=""><textarea name="remark"  placeholder="å‚™è¨»" rows=""></textarea>
               </div>
-              <div class="col-4 col-12-xsmall" style=""> ºò«æÁpµ¸¤H¹q¸Ü¡G<input type="text" name="ºò«æÁpµ¸¤H¹q¸Ü" placeholder="ºò«æÁpµ¸¤H¹q¸Ü">
-              </div>
-              <div class="col-4 col-12-xsmall" style=""> ºò«æÁpµ¸¤HÃö«Y¡G<input type="text" name="ºò«æÁpµ¸¤HÃö«Y" placeholder="ºò«æÁpµ¸¤HÃö«Y">
-              </div>
-              <div class="col-4 col-12-xsmall" style=""> ¦bÂ¾¤é¡G<input type="text" name="¦bÂ¾¤é" placeholder="¦bÂ¾¤é">
-              </div>
-               <div class="col-4 col-12-xsmall" style=""> Â÷Â¾¤é¡G<input type="text" name="Â÷Â¾¤é" placeholder="Â÷Â¾¤é">
-              </div>
-              <div class="col-12" style=""><textarea name="³Æµù"  placeholder="³Æµù" rows=""></textarea>
-              </div>
-           <font size="4"><input type="submit" value="·s¼W¸ê®Æ" class="primary"></font>
-           <font size="4"><input type="reset" value="­«³]"></font>
+           <font size="4"><input type="submit" value="æ–°å¢žè³‡æ–™" class="primary"></font>
+           <font size="4"><input type="reset" value="é‡è¨­"></font>
             </div>
           </font>
         </form>

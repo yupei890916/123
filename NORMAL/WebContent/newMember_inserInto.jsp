@@ -3,30 +3,31 @@
 <%@page import="java.sql.*"%>
 <%
 request.setCharacterEncoding("utf-8");
-String memberID=request.getParameter("員工ID");
-String name=request.getParameter("姓名");
-String shift=request.getParameter("班別");
-String jobtitle=request.getParameter("職稱");
-String gender=request.getParameter("性別");
-String birthday=request.getParameter("出生");
-String identitycard=request.getParameter("身分證");
-String phonenumber=request.getParameter("手機");
-String email=request.getParameter("Email");
-String lineID=request.getParameter("LINE");
-String address=request.getParameter("住址");
-String ec=request.getParameter("緊急聯絡人");
-String ecphonenumber=request.getParameter("緊急聯絡人電話");
-String ecrelationships=request.getParameter("緊急聯絡人關係");
-String arrivalday=request.getParameter("在職日");
-String turnoverdate=request.getParameter("離職日");
-String remark=request.getParameter("備註");
+String memberID=request.getParameter("memberID");
+String name=request.getParameter("name");
+String shift=request.getParameter("shift");
+String jobtitle=request.getParameter("jobtitle");
+String gender=request.getParameter("gender");
+String birthday=request.getParameter("birthday");
+String identitycard=request.getParameter("identitycard");
+String phonenumber=request.getParameter("phonenumber");
+String email=request.getParameter("email");
+String lineID=request.getParameter("lineID");
+String address=request.getParameter("address");
+String ec=request.getParameter("ec");
+String ecphonenumber=request.getParameter("ecphonenumber");
+String ecrelationships=request.getParameter("ecrelationships");
+String arrivalday=request.getParameter("arrivalday");
+String turnoverdate=request.getParameter("turnoverdate");
+String remark=request.getParameter("remark");
 try
 {
 Class.forName("com.mysql.jdbc.Driver");
 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/fpm", "root", "lovelove520");
 Statement st=conn.createStatement();
 
-int i=st.executeUpdate("insert into staff (memberID,jobtitle,shift,name) values('"+memberID+"','"+jobtitle+"','"+shift+"','"+name+"')");
+
+int i=st.executeUpdate("insert into staff (memberID,jobtitle,shift,name,gender,birthday,identitycard,phonenumber,email,address,ec,ecphonenumber,ecrelationships,arrivalday,turnoverdate,remark)values('"+memberID+"','"+jobtitle+"','"+shift+"','"+name+"','"+gender+"','"+birthday+"','"+identitycard+"','"+phonenumber+"','"+email+"','"+address+"','"+ec+"','"+ecphonenumber+"','"+ecrelationships+"','"+arrivalday+"','"+turnoverdate+"','"+remark+"')");
 response.sendRedirect("memberList.jsp");
 }
 catch(Exception e)

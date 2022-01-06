@@ -28,7 +28,7 @@
           </header>
     <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://127.0.0.1:3306/fpm"
-     user="root"  password="betty62411"/>
+     user="root"  password="lovelove520"/>
      <sql:query dataSource="${snapshot}" var="result">
      SELECT * from fpm.notice;
      </sql:query>
