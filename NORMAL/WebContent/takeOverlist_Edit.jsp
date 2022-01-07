@@ -44,10 +44,18 @@ alert("takeOver_button");
           <div class="content">
           <div class='row'>
           <form action="takeOverlist_Edit.jsp" method="post">
-          <button style="font-size:15px" onclick="takeover_Update();">修改</button>           
+            <table border="1">                   
+<tr>
+<td><input type="text" name="takeOverID" value="<%@include file ="takeOver_create_name.jsp" %>" style="width:200px; height:40px;"></td>                            
+<td><input type="date" name="takeOverdate" size="10" placeholder="調班日期"/></td>            
+<td><input type="text" name="cantakeOverID" placeholder="可調班員工ID" required style="width:200px; height:40px;"/></td>
+<td><input type="date" name="date" size="10" placeholder="填寫日期"/></td>                        
+<td><input type="submit"  value="確認修改"></td>
+</tr>
+</table>
             </form>       
 <br>
-<table border="1" onload="load()">                   
+<table border="1">                   
 <tr>
 <th>須調班員工ID</th>
 <th>調班日期</th>
@@ -57,7 +65,7 @@ alert("takeOver_button");
 <th>審核日期</th>
 <th>刪除</th>
 </tr>
-<%request.setCharacterEncoding("BIG5");
+<%
 String takeOverID=request.getParameter("takeOverID");
 String takeOverdate=request.getParameter("takeOverdate");
 String cantakeOverID=request.getParameter("cantakeOverID");
@@ -108,27 +116,3 @@ alert(takeOver)//輸出使用者輸入的資訊
   <script src="assets/js/main.js" style=""></script>
 </body>
 </html>
-https://reurl.cc/Gorov3  事件驅動
-http://mirlab.org/jang/books/javascript/ JavaScript 程式設計與應用
-https://tw511.com/a/01/30356.html  JavaScript彈出框有哪些
-https://reurl.cc/WkLkg5  修改並回傳資料
-https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/283154/  js點選button按鈕跳轉到另一個新頁面
-https://www.itread01.com/content/1545932587.html  客戶端提交表單到伺服器
-https://purecss.io/forms/
-https://www.wibibi.com/c.php?cid=10&p=7
-https://ithelp.ithome.com.tw/users/20119743/articles?page=3  先看
-https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/271674/  JS模擬按鈕點選功能的方法
-http://mirlab.org/jang/books/javascript/  (JavaScript 程式設計與應用：用於網頁用戶端
-https://ithelp.ithome.com.tw/articles/10191453 (迴圈
-https://reurl.cc/e686AR  迴圈筆記
-
-https://ithelp.ithome.com.tw/articles/10191057
-https://ithelp.ithome.com.tw/articles/10191549
-http://pclevin.blogspot.com/p/javascript.html
-https://reurl.cc/l9dAXv
-
-
-https://reurl.cc/1242Ep  網頁事件處理 
-https://ithelp.ithome.com.tw/articles/10094965 DOM
-https://www.wibibi.com/info.php?tid=256 先看
-https://www.w3schools.com/js/js_popup.asp

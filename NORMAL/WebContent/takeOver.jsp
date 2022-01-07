@@ -1,10 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=BIG5" pageEncoding="BIG5"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FOOODPANDA MARKET ç†Šè²“è¶…å¸‚ èª¿ç­</title>
-  <meta charset="utf-8">
+  <title>FOOODPANDA MARKET ºµ¿ß¶W¥« ½Õ¯Z</title>
+  <meta charset="BIG5">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -31,45 +34,22 @@ tr:nth-child(even) {background-color: #ffff;}
         <!-- Banner -->
             <br>  
           <header class="major">
-            <h2>èª¿ç­ç”³è«‹å–®</h2>
-          </header>
-              <form method="post" action="takeOverCheck.jsp" target="_blank"> 
-<%
-String driver = "com.mysql.jdbc.Driver";
-String connectionUrl = "jdbc:mysql://localhost:3306/";
-String database = "fpm";
-String userid = "root";
-String password = "root1201";
-try{
-	Class.forName(driver);
-} catch (ClassNotFoundException e) {
-	e.printStackTrace();
-	}
-Connection connection = null;
-Statement statement = null;
-ResultSet resultSet = null;
-%>
-<%
-try{
-connection = DriverManager.getConnection(connectionUrl+database, userid, password);
-statement=connection.createStatement();
-String sql ="select å“¡å·¥ID from staff";
-resultSet = statement.executeQuery(sql);
-while(resultSet.next()){
-%>                                       
- <table>
-<tr><td><a href="member.jsp?å“¡å·¥ID=<%=resultSet.getString("å“¡å·¥ID")%>"><font size=4 color=black >é ˆèª¿ç­å“¡å·¥IDï¼š</font></a></td></tr>                             
-<tr><td>èª¿ç­æ—¥æœŸï¼š</td><td><input type="date" name="èª¿ç­æ—¥æœŸ" size="10" placeholder="èª¿ç­æ—¥æœŸ"/></td></tr>            
-<tr><td>å¯èª¿ç­å“¡å·¥IDï¼š</td><td><input type="text" name="å¯èª¿ç­å“¡å·¥ID" placeholder="å¯èª¿ç­å“¡å·¥ID" required style="width:200px; height:40px;"/></td></tr>
-<tr><td>å¡«å¯«æ—¥æœŸï¼š</td><td><input type="date" name="å¡«å¯«æ—¥æœŸ" size="10" placeholder="å¡«å¯«æ—¥æœŸ"/></td></tr>                        
+            <h2>½Õ¯Z¥Ó½Ğ³æ</h2>
+                      </header>
+               <form method="post" action="takeover_DB.jsp">                                                     
+<table>
+<tr><td>¶·½Õ¯Z­û¤uID¡G</td><td><input type="text" name="takeOverID" value="<%@include file ="takeOver_create_name.jsp" %>" style="width:150px; height:40px;"></td></tr>                            
+<tr><td>½Õ¯Z¤é´Á¡G</td><td><input type="date" name="takeOverdate" size="10" placeholder="½Õ¯Z¤é´Á"/></td></tr>            
+<tr><td>¥i½Õ¯Z­û¤uID¡G</td><td><input type="text" name="cantakeOverID" placeholder="¥i½Õ¯Z­û¤uID" required style="width:150px; height:40px;"/></td></tr>
+<tr><td>¶ñ¼g¤é´Á¡G</td><td><input type="date" name="date" size="10" placeholder="¶ñ¼g¤é´Á"/></td></tr>                        
 </table>
-                 <button onclick="setTimeout(myFunction, 2000);">é€å‡º</button>  
+                 <button onclick="setTimeout(myFunction, 1000);">°e¥X</button>  
                            <script>
                              function myFunction() {
-                               alert('å·²æˆåŠŸé€å‡ºèª¿ç­ç”³è«‹');
+                               alert('¤w¦¨¥\°e¥X½Õ¯Z¥Ó½Ğ');
                               }
                            </script> 
-                           <input type="reset" value="é‡ç½®"/>
+                           <input type="reset" value="­«¸m"/>
                           </form>                                                     
                       </div>
               <div id="showbox"></div>                                                                 
@@ -83,10 +63,10 @@ while(resultSet.next()){
   <script src="assets/js/breakpoints.min.js" style=""></script>
   <script src="assets/js/util.js" style=""></script>
   <script src="assets/js/main.js" style=""></script>
-  <script language="JavaScript">
+  <script>
   function ShowTime(){
-ã€€document.getElementById('showbox').innerHTML = new Date();
-ã€€setTimeout('ShowTime()',1000);
+¡@document.getElementById('showbox').innerHTML = new Date();
+¡@setTimeout('ShowTime()',1000);
   }
   </script>  
 </body>

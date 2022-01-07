@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=BIG5" pageEncoding="BIG5"%>
 <!DOCTYPE html>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.io.*" %>
@@ -7,30 +7,15 @@
 <%@ page import="java.sql.Statement"%>
 <%@ page import="java.sql.Connection"%>
 
-<%
-String id = request.getParameter("staffid");
-String driver = "com.mysql.jdbc.Driver";
-String connectionUrl = "jdbc:mysql://localhost:3306/";
-String database = "fpm";
-String userid = "root";
-String password = "root1201";
-try{
-    Class.forName(driver);
-} catch (ClassNotFoundException e) {
-    e.printStackTrace();
-    }
-Connection connection = null;
-Statement statement = null;
-ResultSet resultSet = null;
-%>
 <html>
 <head>
-  <title>FOOODPANDA MARKET ç†Šè²“è¶…å¸‚ èª¿ç­æ¸…å–®</title>
-  <meta charset="utf-8">
+  <title>FOOODPANDA MARKET ºµ¿ß¶W¥« ½Õ¯Z²M³æ</title>
+  <meta charset="BIG5">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="assets/css/main.css">
  <style> 
  table {
+  border: 1px solid black;
   border-collapse: collapse;
   width:100%
 }
@@ -52,37 +37,54 @@ tr:hover {banckground-color: pink;}
         <%@include file ="header.jsp" %>         
      <section>        
          <header class="major">
-            <h2>èª¿ç­å¯©æ ¸</h2>          
+            <h2>½Õ¯Z¼f®Ö</h2>          
           </header>
 <div class="content">
+<form method="post" action=".jsp">                                                     
+
 <table border="1">    
 <tr>
-<th>é ˆèª¿ç­å“¡å·¥ID</th>
-<th>èª¿ç­æ—¥æœŸ</th>
-<th>å¯èª¿ç­å“¡å·¥ID</th>
-<th>å¡«å¯«æ—¥æœŸ</th>
-<th>å¯©æ ¸ç‹€æ³</th>
-<th>å¯©æ ¸æ—¥æœŸ</th>
+<th>¶·½Õ¯Z­û¤uID</th>
+<th>½Õ¯Z¤é´Á</th>
+<th>¥i½Õ¯Z­û¤uID</th>
+<th>¶ñ¼g¤é´Á</th>
+<th>¼f®Öª¬ªp</th>
+<th>¼f®Ö¤é´Á</th>
 </tr>
 <%
-try{
-connection = DriverManager.getConnection(connectionUrl+database, userid, password);
-statement=connection.createStatement();
-String sql ="select * from fpm.èª¿ç­";
-resultSet = statement.executeQuery(sql);
-while(resultSet.next()){
-%>                      
+String takeOverID=request.getParameter("takeOverID");
+String takeOverdate=request.getParameter("takeOverdate");
+String cantakeOverID=request.getParameter("cantakeOverID");
+String date=request.getParameter("date");
+%>
+<% 
+Class.forName("com.mysql.jdbc.Driver");
+Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/fpm", "root", "root1201");
+Statement smt =conn.createStatement();
+String sql ="select * from fpm.takeover";
+ResultSet rs = smt.executeQuery(sql);
+while(rs.next())
+{ %>                     
 <tr>
-<td><%=resultSet.getString("é ˆèª¿ç­å“¡å·¥ID")%></td>
-<td><%=resultSet.getString("èª¿ç­æ—¥æœŸ")%></td>
-<td><%=resultSet.getString("å¯èª¿ç­å“¡å·¥ID")%></td>
-<td><%=resultSet.getString("å¡«å¯«æ—¥æœŸ")%></td>
-<td></td>
-<td><input type="date" name="å¯©æ ¸æ—¥æœŸ" size="10" placeholder="å¯©æ ¸æ—¥æœŸ"/></td>
-<td></td>
-</tr>                                       
-</table>                                               
-            </div>
+<td><%=rs.getString("takeOverID")%></td>
+<td><%=rs.getString("takeOverdate")%></td>
+<td><%=rs.getString("cantakeOverID")%></td>
+<td><%=rs.getString("date")%></td>  
+<td></td>	
+<td><input type="date" name="auditdate" size="10" placeholder="¼f®Ö¤é´Á"/></td>
+<td><button onclick="setTimeout(myFunction, 1000);">°e¥X</button>  
+                           <script>
+                             function myFunction() {
+                               alert('¤w¦¨¥\°e¥X½Õ¯Z¥Ó½Ğ');
+                              }
+                           </script> </td>
+</tr>
+<%}	
+	conn.close();
+	%>                                                                                            
+</table>
+</form>
+     </div>
         </section>            
     </div>
     <%@include file ="menu.jsp" %>

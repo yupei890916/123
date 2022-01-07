@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=BIG5"
+    pageEncoding="BIG5"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="BIG5">
-<title>FOOODPANDA MARKET ç†Šè²“è¶…å¸‚ è«‹å‡</title>
+<title>FOOODPANDA MARKET ºµ¿ß¶W¥« ½Ğ°²</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -31,39 +31,32 @@ tr:nth-child(even) {background-color: #ffff;}
         <!-- Banner -->
             <br>
           <header class="major">
-             <h2>è«‹å‡ç”³è«‹å–®</h2>
+             <h2>½Ğ°²¥Ó½Ğ³æ</h2>
           </header>
-          <form method="post" action="leave_lnserlntoDB.jsp">
-            <div class="text"><font size=4
-  color=black>è«‹å‡å“¡å·¥IDï¼š</font><href="member.jsp?memberId=<%=session.getAttribute("accessId")%>> 
-                <%
-					if(session.getAttribute("accessId") == null){
-						out.println("");
-					}else{
-						out.println(session.getAttribute("accessId"));
-					}
-			  %>
-                </div><br>
+          <form method="post" action="leave_DB.jsp">
+             
             <table>
-            <tr><td>è«‹å‡æ—¥æœŸï¼š</td><td><input type="date" name="è«‹å‡æ—¥æœŸ" size="10" placeholder="è«‹å‡æ—¥æœŸ"/></td></tr>
-            <tr><td>è«‹å‡é¡åˆ¥ï¼š</td><td><select name="è«‹å‡é¡åˆ¥" style="width:200px; height:50px;">
-                   <option value="ç—…å‡" selected>ç—…å‡</option>
-                   <option value="äº‹å‡">äº‹å‡</option>
-                   <option value="å…¬å‡">å…¬å‡</option>
-                   <option value="ä¾‹å‡">ä¾‹å‡</option>
-                   <option value="å–ªå‡">å–ªå‡ </option>
-                   <option value="è‚²å¬°å‡">è‚²å¬°å‡ </option>
-                   <option value="ç‰¹ä¼‘">ç‰¹ä¼‘ </option>
-                   <option value="å©šå‡">å©šå‡ </option>
-                   <option value="å…¬å‚·å‡">å…¬å‚·å‡ </option>                   
+            <tr><td>½Ğ°²­û¤uID¡G</td>
+            <td><input type="text" name="leaveID" value="<%@include file ="leave_create_name.jsp" %>" style="width:200px; height:40px;"></td></tr> 
+            <tr><td>½Ğ°²¤é´Á¡G</td><td><input type="date" name="leavedate" size="10" placeholder="½Ğ°²¤é´Á"/></td></tr>
+            <tr><td>½Ğ°²Ãş§O¡G</td><td><select name="leavecategory" style="width:200px; height:50px;">
+                   <option value="¯f°²" selected>¯f°²</option>
+                   <option value="¨Æ°²">¨Æ°²</option>
+                   <option value="¤½°²">¤½°²</option>
+                   <option value="¨Ò°²">¨Ò°²</option>
+                   <option value="³à°²">³à°² </option>
+                   <option value="¨|À¦°²">¨|À¦°² </option>
+                   <option value="¯S¥ğ">¯S¥ğ</option>
+                   <option value="±B°²">±B°²</option>
+                   <option value="9">¤½¶Ë°²</option>                   
                    </select></td></tr>
-            <tr><td>è«‹å‡åŸå› ï¼š</td><td><textarea name="è«‹å‡åŸå› " style="width:250px; height:80px;"></textarea></td></tr>            
-            <tr><td>å¡«å¯«æ—¥æœŸï¼š</td><td><input type="date" name="å¡«å¯«æ—¥æœŸ" size="10" placeholder="å¡«å¯«æ—¥æœŸ"/></td></tr>                        
+            <tr><td>½Ğ°²­ì¦]¡G</td><td><textarea name="leavereason" style="width:250px; height:80px;"></textarea></td></tr>            
+            <tr><td>¶ñ¼g¤é´Á¡G</td><td><input type="date" name="writeDate" size="10" placeholder="¶ñ¼g¤é´Á"/></td></tr>                        
             </table>                         
-                        <button onclick="setTimeout(myFunction, 3000);">é€å‡º</button>
+                        <button onclick="setTimeout(myFunction, 3000);">°e¥X</button>
                            <script>
                              function myFunction() {
-                               alert('å·²æˆåŠŸé€å‡ºè«‹å‡å–®ç”³è«‹');
+                               alert('¤w¦¨¥\°e¥X½Ğ°²³æ¥Ó½Ğ');
                               }
                            </script>
                            <input type="reset">
@@ -80,10 +73,10 @@ tr:nth-child(even) {background-color: #ffff;}
   <script src="assets/js/breakpoints.min.js" style=""></script>
   <script src="assets/js/util.js" style=""></script>
   <script src="assets/js/main.js" style=""></script>
-  <script language="JavaScript">
+  <script>
   function ShowTime(){
-ã€€document.getElementById('showbox').innerHTML = new Date();
-ã€€setTimeout('ShowTime()',1000);
+¡@document.getElementById('showbox').innerHTML = new Date();
+¡@setTimeout('ShowTime()',1000);
   }
   </script>
   <script>
