@@ -36,7 +36,7 @@ tr:nth-child(even) {background-color: #ffff;}
           <header class="major">
             <h2>調班申請單</h2>
                       </header>
-               <form method="post" action="takeover_DB.jsp">                                                     
+               <form method="post" action="takeOver_DB.jsp">                                                     
 <table>
 <tr><td>須調班員工ID：</td><td><input type="text" name="takeOverID" value="<%@include file ="takeOver_create_name.jsp" %>" style="width:150px; height:40px;"></td></tr>                            
 <tr><td>調班日期：</td><td><input type="date" name="takeOverdate" size="10" placeholder="調班日期"/></td></tr>            

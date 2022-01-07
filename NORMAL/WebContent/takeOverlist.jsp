@@ -78,14 +78,7 @@ while(rs.next())
 <td><%=rs.getString("date")%></td>
 <td><%=rs.getString("auditstatus")%></td>
 <td><%=rs.getString("auditdate")%></td>
-<td><button style="font-size:12px" id="takeOver" onclick="takeOver_button()"><i class="fas fa-trash-alt"></i></button></td> 
-<script> //js指令碼標註
-function takeOver_button(){
-var name,takeOver;
-takeOver=prompt("請輸入要找尋的調班日期?",""); /*在頁面上再一次彈出提示對話方塊，
-講使用者輸入的資訊賦給變數age*/
-alert(takeOver)//輸出使用者輸入的資訊
-}</script> 
+<td><button style="font-size:12px" id="takeOver" onclick="takeOver_delete()"><i class="fas fa-trash-alt"></i></button></td> 
 </tr>
 
 <%}	

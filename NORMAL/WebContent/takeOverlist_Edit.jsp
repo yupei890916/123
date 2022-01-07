@@ -43,7 +43,7 @@ alert("takeOver_button");
           </header>
           <div class="content">
           <div class='row'>
-          <form action="takeOverlist_Edit.jsp" method="post">
+          <form action="takeOverlist_Up.jsp" method="post">
             <table border="1">                   
 <tr>
 <td><input type="text" name="takeOverID" value="<%@include file ="takeOver_create_name.jsp" %>" style="width:200px; height:40px;"></td>                            
@@ -86,14 +86,7 @@ while(rs.next())
 <td><%=rs.getString("date")%></td>
 <td><%=rs.getString("auditstatus")%></td>
 <td><%=rs.getString("auditdate")%></td>
-<td><button style="font-size:12px" id="takeOver" onclick="takeOver_button()"><i class="fas fa-trash-alt"></i></button></td> 
-<script> //js指令碼標註
-function takeOver_button(){
-var name,takeOver;
-takeOver=prompt("請輸入要找尋的調班日期?",""); /*在頁面上再一次彈出提示對話方塊，
-講使用者輸入的資訊賦給變數age*/
-alert(takeOver)//輸出使用者輸入的資訊
-}</script> 
+<td><button style="font-size:12px" id="takeOver" onclick="takeOver_delete()"><i class="fas fa-trash-alt"></i></button></td> 
 </tr>
 
 <%}	
