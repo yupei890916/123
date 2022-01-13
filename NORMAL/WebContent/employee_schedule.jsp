@@ -42,58 +42,30 @@ ResultSet resultSet = null;
         <%@include file ="header.jsp" %>
          <section>
           <header class="major">
-            <h2>熊貓超市 - 畫休</h2>
-<table border="1" width="1500">
-<tr>
-<td><div align="center">員工代號</div></td>
-<td><div align="center">預排休1</div></td>
-<td><div align="center">預排休2</div></td>
-<td><div align="center">預排休3</div></td>
-<td><div align="center">預排休4</div></td>
-<td><div align="center">預排休5</div></td>
-<td><div align="center">預排休6</div></td>
-<td><div align="center">預排休7</div></td>
-<td><div align="center">預排休8</div></td>
-<td><div align="center">預排休9</div></td>
-<td><div align="center">預排休10</div></td>
-<td><div align="center">預排休11</div></td>
-<td><div align="center">預排休12</div></td>
-<td><div align="center">預排休13</div></td>
-<td><div align="center">預排休14</div></td>
-<td><div align="center">預排休15</div></td>
-<td><div align="center">修改</div></td>
-</tr>
+            <h2>熊貓超市 - 員工個人班表</h2>
 <%
 try{
 connection = DriverManager.getConnection(connectionUrl+database, userid, password);
 statement=connection.createStatement();
-String sql ="select * from schedule where employee_ID ='" +session.getAttribute("accessId")+"'";
+String sql ="SELECT * FROM event,resource where name ='" +session.getAttribute("accessId")+"'";
 resultSet = statement.executeQuery(sql);
 while(resultSet.next()){
 %>
+
+<table>
 <tr>
-<td><%=resultSet.getString("employee_ID") %></td>
-<td><%=resultSet.getString("drawbreak1") %></td>
-<td><%=resultSet.getString("drawbreak2") %></td>
-<td><%=resultSet.getString("drawbreak3") %></td>
-<td><%=resultSet.getString("drawbreak4") %></td>
-<td><%=resultSet.getString("drawbreak5") %></td>
-<td><%=resultSet.getString("drawbreak6") %></td>
-<td><%=resultSet.getString("drawbreak7") %></td>
-<td><%=resultSet.getString("drawbreak8") %></td>
-<td><%=resultSet.getString("drawbreak9") %></td>
-<td><%=resultSet.getString("drawbreak10") %></td>
-<td><%=resultSet.getString("drawbreak11") %></td>
-<td><%=resultSet.getString("drawbreak12") %></td>
-<td><%=resultSet.getString("drawbreak13") %></td>
-<td><%=resultSet.getString("drawbreak14") %></td>
-<td><%=resultSet.getString("drawbreak15") %></td>
-<td><%if(session.getAttribute("accessId")!=null){
-          		if(session.getAttribute("accessId").equals(resultSet.getString("employee_ID"))) {%>
-          			<a href="employee_leave_update_all.jsp?employee_ID=<%=resultSet.getString("employee_ID")%>" >編輯</a>
-		  		<%}
-          }%></td>
+<td>
+<%=resultSet.getString("end") %>
+</td>
 </tr>
+<tr>
+<td>
+<%=resultSet.getString("text") %>
+</td>
+</tr>
+</table>
+
+
 <%
 }
 connection.close();
@@ -101,15 +73,14 @@ connection.close();
 e.printStackTrace();
 }
 %>
-</table>
- </header>
+          </header>
         </section>
        </div>
      </div>
-     <%@include file ="menu.jsp" %>
+    <%@include file ="menu.jsp" %>
   </div>
   <!-- Scripts -->
-  <script src="assets/js/jquery1.min.js" style=""></script>
+  <script src="assets/js/jquery.min.js" style=""></script>
   <script src="assets/js/browser.min.js" style=""></script>
   <script src="assets/js/breakpoints.min.js" style=""></script>
   <script src="assets/js/util.js" style=""></script>
