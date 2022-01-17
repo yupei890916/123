@@ -1,6 +1,7 @@
 
 package org.daypilot.demo.html5schedulerspring.controller;
 
+
 import java.time.LocalDateTime;
 
 import javax.transaction.Transactional;
@@ -78,6 +79,7 @@ public class MainController {
 
         e.setStart(params.start);
         e.setEnd(params.end);
+        e.setStatus("1");
         e.setResource(r);
 
         er.save(e);
@@ -88,11 +90,21 @@ public class MainController {
     @PostMapping("/api/events/delete")
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @Transactional
-    public String createStatus(@RequestParam(value = "已刪除") String status)
-    {
-    return "已刪除";
-    }
-    
+    Event updateEvent (@RequestBody EventUpdateParams params) {
+    	
+    	Event e = er.findById(params.id).get();
+        Resource r = rr.findById(params.resource).get();
+
+        e.setStart(params.start);
+        e.setEnd(params.end);
+        e.setStatus("0");
+        e.setResource(r);
+
+        er.save(e);
+
+        return e;
+    	
+    }    
 
     public static class EventCreateParams {
         public LocalDateTime start;
@@ -105,6 +117,14 @@ public class MainController {
         public Long id;
         public LocalDateTime start;
         public LocalDateTime end;
+        public Long resource;
+    }
+    
+    public static class EventUpdateParams {
+        public Long id;
+		public LocalDateTime start;
+        public LocalDateTime end;
+        public String text;
         public Long resource;
     }
     

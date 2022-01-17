@@ -1,0 +1,177 @@
+<%@ page language="java" contentType="text/html; charset=BIG5" pageEncoding="BIG5"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="BIG5"/>
+    <title>FOOODPANDA MARKET 熊貓超市 休假</title>
+
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link href="icons/style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+ <!-- Wrapper -->
+  <div id="wrapper">
+    <!-- Main -->
+    <div id="main">
+      <div class="inner">
+        <!-- Header -->
+        <header id="header">
+          <img src="images/熊貓.png" alt="FOOODPANDA" width="30" height="60"> <button type="submit" class="btn btn-primary">Sign in</button>
+        </header>
+        <!-- Banner -->
+        <section>
+          <header class="major">
+            <h2>班表 - 畫休</h2>
+          </header>
+        </section>
+        請依據排班規則，每人每月請預先劃休15天，各班上班人數：早班至少六位、晚班至少五位、大夜至少二位，實際休假由抽籤順序編排產生。
+        <br> <font color="blue">本月 優先休假順序為 早班：1.xxx 2.xxx 。晚班：......。大夜班：......。</font><font color="red">(新順序將於每年6/30、12/31重新抽籤)</font>
+        <div class="main">
+    <div id="dp"></div>
+</div>
+
+<!-- DayPilot library -->
+<script src="js/daypilot/daypilot-all.min.js"></script>
+
+<script>
+    var dp = new DayPilot.Scheduler("dp");
+    dp.startDate = DayPilot.Date.today().firstDayOfMonth();
+    dp.days = DayPilot.Date.today().daysInMonth();
+    dp.scale = "Day";
+    dp.timeHeaders = [
+        {groupBy: "Month"},
+        {groupBy: "Day", format: "d"}
+    ];
+    dp.init();
+
+
+
+</script>
+      </div>
+    </div>
+    <!-- Sidebar -->
+<div id="sidebar">
+            <div class="inner">
+              <!-- Search -->
+              <section id="search" class="alt">
+                <form method="post" action="#">
+                  <input type="text" name="query" id="query" placeholder="Search">
+                </form>
+              </section>
+              <!-- Menu -->
+              <nav id="menu">
+                <header class="major">
+                  <h2>Menu</h2>
+                </header>
+                <ul>
+                <li>
+                    <span class="opener">主頁</span>
+                    <ul style="">
+                      <li><a href="index.jsp">公告欄</a></li>
+                      <%
+                      if(session.getAttribute("Authority") != null){
+						if(session.getAttribute("Authority").toString().equals("SUP")){%>
+                      <li><a href="indexEdit.jsp">發佈公告</a></li>
+                      <%}}%>
+                    </ul>
+                  </li>
+                   <li>
+                    <span class="opener">打卡區</span>
+                    <ul style="">
+                      <li><a href="punchIn.jsp">打卡</a></li>
+                      <%
+                      if(session.getAttribute("Authority") != null){
+						if(session.getAttribute("Authority").toString().equals("SUP")){%>
+                      <li><a href="punchInList.jsp">打卡記錄</a></li>
+                      <%}}%>
+                    </ul>
+                  </li>
+                  <li>
+                    <span class="opener">班表區</span>
+                    <ul style="">
+                      <li><a href="employee_leave.jsp">排班</a></li>
+                      <%
+                      if(session.getAttribute("Authority") != null){
+						if(session.getAttribute("Authority").toString().equals("SUP")){%>
+                      <li><a href="personnel_leave.jsp.jsp">排班修改</a></li>
+                      <%}}%>
+                      <li><a href="employee_schedule.jsp">班表</a></li>
+                      <%
+                      if(session.getAttribute("Authority") != null){
+						if(session.getAttribute("Authority").toString().equals("SUP")){%>
+                      <li><a href="personnel_schedule.jsp">總體班表</a></li>
+                      <%}}%>
+                      <li><a href="takeOver.jsp">調班</a></li>
+                      <%
+                      if(session.getAttribute("Authority") != null){
+						if(session.getAttribute("Authority").toString().equals("SUP")){%>
+                      <li><a href="takeOverCheck.jsp">調班審核</a></li>
+                      <%}}%>
+                      <li><a href="takeOverList.jsp">調班紀錄</a></li>
+                      <%
+                      if(session.getAttribute("Authority") != null){
+						if(session.getAttribute("Authority").toString().equals("SUP")){%>
+                      <li><a href="takeOverDB.jsp">全體調班紀錄</a></li>
+                      <%}}%>
+                      <li><a href="leave.jsp">請假</a></li>
+                      <%
+                      if(session.getAttribute("Authority") != null){
+						if(session.getAttribute("Authority").toString().equals("SUP")){%>
+                      <li><a href="leaveCheck.jsp">請假審核</a></li>
+                      <%}}%>
+                      <li><a href="leaveList.jsp">請假紀錄</a></li>
+                      <%
+                      if(session.getAttribute("Authority") != null){
+						if(session.getAttribute("Authority").toString().equals("SUP")){%>
+                      <li><a href="leaveDB.jsp">全體請假紀錄</a></li>
+                      <%}}%>
+                    </ul>
+                  </li>
+                   <li>
+                    <span class="opener">個人資料區</span>
+                    <ul style="">
+                      <li><a href="member.jsp">個人資料</a></li>
+                      <%
+                      if(session.getAttribute("Authority") != null){
+						if(session.getAttribute("Authority").toString().equals("SUP")){%>
+                      <li><a href="memberList.jsp">個人資料清單</a></li>
+                      <%}}%>
+                    </ul>
+                  </li>
+                  <li>
+                    <span class="opener">薪資表區</span>
+                    <ul style="">
+                      <li><a href="payroll.jsp">薪資表</a></li>
+                      <%
+                      if(session.getAttribute("Authority") != null){
+						if(session.getAttribute("Authority").toString().equals("SUP")){%>
+                      <li><a href="payrollList.jsp">薪資表清單</a></li>
+                      <%}}%>
+                    </ul>
+                  </li>
+                   
+                   
+                </ul>
+              </nav>
+              <!-- Footer -->
+              <footer id="footer">
+                <p class="copyright"></p>
+              </footer>
+            </div>
+            <a href="#sidebar" class="toggle">Toggle</a>
+            <a href="#sidebar" class="toggle">Toggle</a>
+          </div>
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js" style=""></script>
+  <script src="assets/js/browser.min.js" style=""></script>
+  <script src="assets/js/breakpoints.min.js" style=""></script>
+  <script src="assets/js/util.js" style=""></script>
+  <script src="assets/js/main.js" style=""></script>
+
+
+
+</body>
+</html>
