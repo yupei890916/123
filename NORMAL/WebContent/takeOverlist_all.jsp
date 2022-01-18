@@ -21,14 +21,7 @@ border-bottom: 1px solid #ddd;
 tr:hover {banckground-color: pink;}
 </style>
 </head>
-<script>
-function load(){
-document.getElementById("takeOver").click();
-}
-function takeOver_button(){
-alert("takeOver_button");
-}
-</script>
+
 <body class="is-preload">
 	<!-- Wrapper -->
   <div id="wrapper">
@@ -39,24 +32,17 @@ alert("takeOver_button");
         <%@include file ="header.jsp" %>
          <section>
           <header class="major">
-            <h2>調班修改表</h2>           
+            <h2>全體調班歷史紀錄表</h2>           
           </header>
           <div class="content">
           <div class='row'>
-          <form action="takeOverlist_Up.jsp" method="post">
-            
-            <table border="1">                   
-<tr>
-<td><input type="text" name="takeOverID" value="<%@include file ="takeOver_name.jsp" %>" style="width:200px; height:40px;"></td>                            
-<td><input type="date" name="takeOverdate" size="10" placeholder="調班日期" required/></td>            
-<td><input type="text" name="cantakeOverID" placeholder="可調班員工ID" required style="width:200px; height:40px;"/></td>
-<td><input type="date" name="date" size="10" placeholder="填寫日期" required/></td>
-<td><input type="submit" value="確定送出"/></td>                      
-</tr>
-</table>
+          <form action="takeOverlist_Edit.jsp" method="post">
+          <button style="font-size:15px">修改</button>
+          <button style="font-size:15px">刪除<i class="fas fa-trash-alt"></i></button>           
             </form>       
 <br>
-<table border="1">                   
+<form action="takeOver_DB.jsp" method="post"></form>
+<table border="1" onload="load()">                   
 <tr>
 <th>須調班員工ID</th>
 <th>調班日期</th>
@@ -65,7 +51,7 @@ alert("takeOver_button");
 <th>審核狀況</th>
 <th>審核日期</th>
 </tr>
-<%
+<%request.setCharacterEncoding("BIG5");
 String takeOverID=request.getParameter("takeOverID");
 String takeOverdate=request.getParameter("takeOverdate");
 String cantakeOverID=request.getParameter("cantakeOverID");

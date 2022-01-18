@@ -31,7 +31,7 @@ tr:hover {banckground-color: pink;}
         <%@include file ="header.jsp" %>
          <section>
           <header class="major">
-            <h2>請假歷史紀錄表</h2>
+            <h2>全體請假歷史紀錄表</h2>
           </header>
               <div class="content">
 <form action="leavelist_Edit.jsp" method="post">
@@ -39,9 +39,8 @@ tr:hover {banckground-color: pink;}
 <button style="font-size:15px">刪除<i class="fas fa-trash-alt"></i></button>
 </form>
 <br>
-<form action="leave_DB.jsp" method="post"></form>                  
+<form action="leave_DB.jsp" method="post"></form>                                
                  <table border="1">
-                 
                       <tr>
                         <th>修改</th>
                         <th>請假員工ID</th>
@@ -53,7 +52,7 @@ tr:hover {banckground-color: pink;}
                         <th>審核日期</th>
                         <th>刪除</th>
                       </tr>
-<%request.setCharacterEncoding("BIG5");
+<%
 String leaveID=request.getParameter("leaveID");
 String leavedate=request.getParameter("leavedate");
 String leavecategory=request.getParameter("leavecategory");
@@ -68,7 +67,7 @@ String password = "root1201";
 Class.forName("com.mysql.jdbc.Driver");  
 Connection co= DriverManager.getConnection(url, use, password);
 Statement sta =co.createStatement();
-String sql ="select * from fpm.leave WHERE accessId";
+String sql ="select * from fpm.leave";
 ResultSet re = sta.executeQuery(sql);
 while(re.next())
 { %>

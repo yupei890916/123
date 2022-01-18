@@ -1,18 +1,32 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=BIG5" pageEncoding="BIG5"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.io.*" %>
+<%@ page import="java.sql.DriverManager"%>
+<%@ page import="java.sql.ResultSet"%>
+<%@ page import="java.sql.Statement"%>
+<%@ page import="java.sql.Connection"%>
 <!DOCTYPE html>
-<html>
 
+<html>
 <head>
-  <title>FOOODPANDA MARKET ç†Šè²“è¶…å¸‚ è«‹å‡æ¸…å–®</title>
+  <title>FOOODPANDA MARKET ºµ¿ß¶W¥« ½Ğ°²²M³æ</title>
   <meta charset="BIG5">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="assets/css/main.css">
-  <style style="table">  th, td {
+ 
+ <style> 
+table {
   border: 1px solid black;
   border-collapse: collapse;
+  width:100%
 }
-  </style>
+th, tb {
+padding: 8px;
+text-align: left;
+border-bottom: 1px solid #ddd;
+}
+tr:hover {banckground-color: pink;}
+</style>
 </head>
 
 <body class="is-preload">
@@ -23,46 +37,50 @@
       <div class="inner">
         <!-- Header -->
         <%@include file ="header.jsp" %>
-         <section>
+        <section>
          <header class="major">
-            <h2>è«‹å‡æ­·å²ç´€éŒ„è¡¨</h2>
+            <h2>½Ğ°²¼f®Ö</h2>
           </header>
-          <form method="post" action="#">
-            <font color="#000000" size="4">
-                    <tbody>
-                      <tr>
-                        <th>è«‹å‡å“¡å·¥ID</th>
-                        <th>è«‹å‡æ—¥æœŸ</th>
-                        <th>è«‹å‡é¡åˆ¥</th>
-                        <th>è«‹å‡åŸå› </th>
-                        <th>å¡«å¯«æ—¥æœŸ</th>
-                        <th>å¯©æ ¸ç‹€æ³</th>
-                        <th>å¯©æ ¸æ—¥æœŸ</th>
-                        <th>æ ¸å–éˆ•</th>
-                      </tr>
-                      <tr>
-                        <th>BETTY.WU</th>
-                        <th>2021/6/30</th>
-                        <th>äº‹å‡</th>
-                        <th>èˆ‡å®¶äººåƒé£¯</th>
-                        <th>2021/6/21</th>
-                        <th>å¯©æ ¸é€šé</th>
-                        <th>2021/6/21</th>
-                        <th></th>
-                      </tr>
-                      <tr>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div><br>
-                <!-- Break -->
-                <div class="col-5">
-                  <ul class="actions">
-                  </ul>
-                </div>
-              </div>
-            </font>
-          </form>
+<div class="content">
+<table border="1">
+<tr>
+<th>½Ğ°²­û¤uID</th>
+<th>½Ğ°²¤é´Á</th>
+<th>½Ğ°²Ãş§O</th>
+<th>½Ğ°²­ì¦]</th>
+<th>¶ñ¼g¤é´Á</th>
+<th>¼f®Öª¬ªp</th>
+<th>¼f®Ö¤é´Á</th>
+</tr>
+<%
+String leaveID=request.getParameter("leaveID");
+String leavedate=request.getParameter("leavedate");
+String leavecategory=request.getParameter("leavecategory");
+String leavereason=request.getParameter("leavereason");
+String writeDate=request.getParameter("writeDate");
+%>
+<% 
+Class.forName("com.mysql.jdbc.Driver");
+Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/fpm", "root", "root1201");
+Statement smt =conn.createStatement();
+String sql ="select * from fpm.leave";
+ResultSet rs = smt.executeQuery(sql);
+while(rs.next())
+{ %>                     
+<tr>
+<td><%=rs.getString("leaveID")%></td>
+<td><%=rs.getString("leavedate")%></td>
+<td><%=rs.getString("leavecategory")%></td>
+<td><%=rs.getString("leavereason")%></td>
+<td><%=rs.getString("writeDate")%></td>
+<td></td>
+<td><input type="date" name="¼f®Ö¤é´Á" size="10" placeholder="¼f®Ö¤é´Á"/></td>
+</tr>
+<%}	
+	conn.close();
+	%>                                       
+</table>
+      </div>
         </section>
        </div>
      </div>

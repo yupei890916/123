@@ -37,7 +37,7 @@ tr:nth-child(even) {background-color: #ffff;}
              
             <table>
             <tr><td>請假員工ID：</td>
-            <td><input type="text" name="leaveID" value="<%@include file ="leave_create_name.jsp" %>" style="width:200px; height:40px;"></td></tr> 
+            <td><input type="text" name="leaveID" value="<%@include file ="leave_name.jsp" %>" style="width:200px; height:40px;"></td></tr> 
             <tr><td>請假日期：</td><td><input type="date" name="leavedate" size="10" placeholder="請假日期"/></td></tr>
             <tr><td>請假類別：</td><td><select name="leavecategory" style="width:200px; height:50px;">
                    <option value="病假" selected>病假</option>

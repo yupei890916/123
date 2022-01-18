@@ -21,14 +21,7 @@ border-bottom: 1px solid #ddd;
 tr:hover {banckground-color: pink;}
 </style>
 </head>
-<script>
-function load(){
-document.getElementById("takeOver").click();
-}
-function takeOver_button(){
-alert("takeOver_button");
-}
-</script>
+
 <body class="is-preload">
 	<!-- Wrapper -->
   <div id="wrapper">
@@ -44,9 +37,11 @@ alert("takeOver_button");
           <div class="content">
           <div class='row'>
           <form action="takeOverlist_Edit.jsp" method="post">
-          <button style="font-size:15px" onclick="takeover_Update();">修改</button>           
+          <button style="font-size:15px">修改</button>
+          <button style="font-size:15px">刪除<i class="fas fa-trash-alt"></i></button>           
             </form>       
 <br>
+<form action="takeOver_DB.jsp" method="post"></form>
 <table border="1" onload="load()">                   
 <tr>
 <th>須調班員工ID</th>
@@ -55,7 +50,6 @@ alert("takeOver_button");
 <th>填寫日期</th>
 <th>審核狀況</th>
 <th>審核日期</th>
-<th>刪除</th>
 </tr>
 <%request.setCharacterEncoding("BIG5");
 String takeOverID=request.getParameter("takeOverID");
@@ -67,7 +61,7 @@ String date=request.getParameter("date");
 Class.forName("com.mysql.jdbc.Driver");
 Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/fpm", "root", "root1201");
 Statement st =con.createStatement();
-String sql ="select * from fpm.takeover";
+String sql ="select * from fpm.takeover WHERE accessId";
 ResultSet rs = st.executeQuery(sql);
 while(rs.next())
 { %>
@@ -78,7 +72,6 @@ while(rs.next())
 <td><%=rs.getString("date")%></td>
 <td><%=rs.getString("auditstatus")%></td>
 <td><%=rs.getString("auditdate")%></td>
-<td><button style="font-size:12px" id="takeOver" onclick="takeOver_delete()"><i class="fas fa-trash-alt"></i></button></td> 
 </tr>
 
 <%}	

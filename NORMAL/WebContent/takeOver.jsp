@@ -38,7 +38,7 @@ tr:nth-child(even) {background-color: #ffff;}
                       </header>
                <form method="post" action="takeOver_DB.jsp">                                                     
 <table>
-<tr><td>須調班員工ID：</td><td><input type="text" name="takeOverID" value="<%@include file ="takeOver_create_name.jsp" %>" style="width:150px; height:40px;"></td></tr>                            
+<tr><td>須調班員工ID：</td><td><input type="text" name="takeOverID" value="<%@include file ="takeOver_name.jsp" %>" style="width:150px; height:40px;"></td></tr>                            
 <tr><td>調班日期：</td><td><input type="date" name="takeOverdate" size="10" placeholder="調班日期"/></td></tr>            
 <tr><td>可調班員工ID：</td><td><input type="text" name="cantakeOverID" placeholder="可調班員工ID" required style="width:150px; height:40px;"/></td></tr>
 <tr><td>填寫日期：</td><td><input type="date" name="date" size="10" placeholder="填寫日期"/></td></tr>                        

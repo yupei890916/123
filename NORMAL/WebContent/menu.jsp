@@ -57,11 +57,11 @@
 						if(session.getAttribute("Authority").toString().equals("SUP")){%>
                       <li><a href="takeOverCheck.jsp">調班審核</a></li>
                       <%}}%>
-                      <li><a href="takeOverList.jsp">調班紀錄</a></li>
+                      <li><a href="takeOverlist.jsp">調班紀錄</a></li>
                       <%
                       if(session.getAttribute("Authority") != null){
 						if(session.getAttribute("Authority").toString().equals("SUP")){%>
-                      <li><a href="takeOverDB.jsp">全體調班紀錄</a></li>
+                      <li><a href="takeOverlist_all.jsp">全體調班紀錄</a></li>
                       <%}}%>
                       <li><a href="leave.jsp">請假</a></li>
                       <%
@@ -69,11 +69,11 @@
 						if(session.getAttribute("Authority").toString().equals("SUP")){%>
                       <li><a href="leaveCheck.jsp">請假審核</a></li>
                       <%}}%>
-                      <li><a href="leaveList.jsp">請假紀錄</a></li>
+                      <li><a href="leavelist.jsp">請假紀錄</a></li>
                       <%
                       if(session.getAttribute("Authority") != null){
 						if(session.getAttribute("Authority").toString().equals("SUP")){%>
-                      <li><a href="leaveDB.jsp">全體請假紀錄</a></li>
+                      <li><a href="leavelist_all.jsp">全體請假紀錄</a></li>
                       <%}}%>
                     </ul>
                   </li>

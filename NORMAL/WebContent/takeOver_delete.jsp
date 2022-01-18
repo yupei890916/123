@@ -29,10 +29,9 @@ ResultSet rs = statement.executeQuery(sel);
 String sql="DELETE FROM takeovrt where takeOverdate= ? ";
 ps = con.prepareStatement(sql);
 
-if (takeOverdate==true ){
-   try{ String sql="DELETE FROM takeovrt where takeOverdate= '"+takeOverdate+"' ";   
-		response.sendRedirect("takeOverlist.jsp");
-    
-}
-}
+try String sql="DELETE FROM takeovrt where takeOverdate= '" "takeOverdate';   
+
+		
+response.sendRedirect("takeOverlist.jsp");    
+
 %>

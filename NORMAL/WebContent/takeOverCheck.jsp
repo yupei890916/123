@@ -72,12 +72,7 @@ while(rs.next())
 <td><%=rs.getString("date")%></td>  
 <td></td>	
 <td><input type="date" name="auditdate" size="10" placeholder="審核日期"/></td>
-<td><button onclick="setTimeout(myFunction, 1000);">送出</button>  
-                           <script>
-                             function myFunction() {
-                               alert('已成功送出調班申請');
-                              }
-                           </script> </td>
+<td><button onclick="setTimeout(myFunction, 1000);">送出</button></td>
 </tr>
 <%}	
 	conn.close();
