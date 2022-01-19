@@ -57,8 +57,6 @@ while(resultSet.next()){
 <td>
 <%=resultSet.getString("end") %>
 </td>
-</tr>
-<tr>
 <td>
 <%=resultSet.getString("text") %>
 </td>
