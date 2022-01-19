@@ -14,14 +14,14 @@ String date=request.getParameter("date");
 
 Class.forName("com.mysql.jdbc.Driver");
 Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/fpm" , "root" , "root1201");
-Statement smt= con.createStatement();
+Statement sta= con.createStatement();
 
 
-smt.executeUpdate("INSERT INTO takeover (takeOverID, takeOverdate, cantakeOverID, date) VALUES('"+takeOverID+"','"+takeOverdate+"','"+cantakeOverID+"','"+date+"')");	
+sta.executeUpdate("INSERT INTO takeover (takeOverID, takeOverdate, cantakeOverID, date) VALUES('"+takeOverID+"','"+takeOverdate+"','"+cantakeOverID+"','"+date+"')");	
 
 	response.sendRedirect("takeOverlist.jsp"); %>
    <% 
-   smt.close();
+   sta.close();
    con.close();	
 	%>
 </body>

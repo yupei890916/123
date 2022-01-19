@@ -40,8 +40,7 @@ tr:hover {banckground-color: pink;}
             <h2>調班審核</h2>          
           </header>
 <div class="content">
-<form method="post" action=".jsp">                                                     
-
+<form method="post" action="takeOver_auditstatus.jsp"> 
 <table border="1">    
 <tr>
 <th>須調班員工ID</th>
@@ -70,14 +69,14 @@ while(rs.next())
 <td><%=rs.getString("takeOverdate")%></td>
 <td><%=rs.getString("cantakeOverID")%></td>
 <td><%=rs.getString("date")%></td>  
-<td></td>	
+<td><input type="text" name="auditstatus" placeholder="審核狀況" style="width:100px; height:30px;"/></td>	
 <td><input type="date" name="auditdate" size="10" placeholder="審核日期"/></td>
-<td><button onclick="setTimeout(myFunction, 1000);">送出</button></td>
+<td><button onclick="setTimeout(myFunction, 1000);" style="font-size:10px ">送出</button></td>
 </tr>
 <%}	
 	conn.close();
 	%>                                                                                            
-</table>
+</table>                                                   
 </form>
      </div>
         </section>            

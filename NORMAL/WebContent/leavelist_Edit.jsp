@@ -47,20 +47,10 @@ alert("takeOver_button");
             
             <table border="1">                   
 <tr>
-<td><input type="text" name="leaveID" value="<%@include file ="leave_name.jsp" %>" style="width:200px; height:40px;"></td>                            
+<td><input type="text" name="leaveID" value="<%@include file ="leave_name.jsp" %>" style="width:150px; height:40px;"></td>                            
 <td><input type="date" name="leavedate" size="10" placeholder="叫安ら戳" required/></td>            
-<td><select name="leavecategory" style="width:200px; height:50px;">
-                   <option value="痜安" selected>痜安</option>
-                   <option value="ㄆ安">ㄆ安</option>
-                   <option value="そ安">そ安</option>
-                   <option value="ㄒ安">ㄒ安</option>
-                   <option value="赤安">赤安 </option>
-                   <option value="▅捆安">▅捆安 </option>
-                   <option value="疭ヰ">疭ヰ</option>
-                   <option value="盉安">盉安</option>
-                   <option value="9">そ端安</option>                   
-                   </select></td>
-<td><textarea name="leavereason" style="width:250px; height:80px;"></textarea></td>
+<td><input type="text" name="leavecategory" placeholder="叫安摸" style="width:150px; height:40px;"/></td>
+<td><input type="text" name="leavereason" placeholder="叫安" style="width:300px; height:40px;"></td>
 <td><input type="date" name="writeDate" size="10" placeholder="恶糶ら戳"/></td>
 <td><input type="submit" value="絋﹚癳"/></td>                      
 </tr>
@@ -82,13 +72,13 @@ String takeOverID=request.getParameter("leaveID");
 String takeOverdate=request.getParameter("leavedate");
 String cantakeOverID=request.getParameter("leavecategory");
 String leavereason=request.getParameter("leavereason");
-String date=request.getParameter("date");
+String Date=request.getParameter("Date");
 %>
 <% 
 Class.forName("com.mysql.jdbc.Driver");
 Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/fpm", "root", "root1201");
 Statement st =con.createStatement();
-String sql ="select * from fpm.leave WHERE accessId";
+String sql ="select * from fpm.leave ";
 ResultSet rs = st.executeQuery(sql);
 while(rs.next())
 { %>
@@ -97,7 +87,7 @@ while(rs.next())
 <td><%=rs.getString("leavedate")%></td>
 <td><%=rs.getString("leavecategory")%></td>
 <td><%=rs.getString("leavereason")%></td>
-<td><%=rs.getString("date")%></td>
+<td><%=rs.getString("writeDate")%></td>
 <td><%=rs.getString("auditstatus")%></td>
 <td><%=rs.getString("auditdate")%></td>
 </tr>

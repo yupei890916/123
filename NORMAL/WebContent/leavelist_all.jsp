@@ -34,15 +34,8 @@ tr:hover {banckground-color: pink;}
             <h2>全體請假歷史紀錄表</h2>
           </header>
               <div class="content">
-<form action="leavelist_Edit.jsp" method="post">
-<button style="font-size:15px">修改</button>
-<button style="font-size:15px">刪除<i class="fas fa-trash-alt"></i></button>
-</form>
-<br>
-<form action="leave_DB.jsp" method="post"></form>                                
                  <table border="1">
                       <tr>
-                        <th>修改</th>
                         <th>請假員工ID</th>
                         <th>請假日期</th>
                         <th>請假類別</th>
@@ -50,29 +43,25 @@ tr:hover {banckground-color: pink;}
                         <th>填寫日期</th>
                         <th>審核狀況</th>
                         <th>審核日期</th>
-                        <th>刪除</th>
                       </tr>
 <%
 String leaveID=request.getParameter("leaveID");
 String leavedate=request.getParameter("leavedate");
 String leavecategory=request.getParameter("leavecategory");
 String leavereason=request.getParameter("leavereason");
-String Date=request.getParameter("Date");
+String writeDate=request.getParameter("writeDate");
+String auditstatus=request.getParameter("auditstatus");
+String auditdate=request.getParameter("auditdate");
 %>
 <% 
-String driver = "com.mysql.jdbc.Driver";  
-String url = "jdbc:mysql://127.0.0.1:3306/fpm";  
-String use = "root";   
-String password = "root1201";  
-Class.forName("com.mysql.jdbc.Driver");  
-Connection co= DriverManager.getConnection(url, use, password);
-Statement sta =co.createStatement();
+Class.forName("com.mysql.jdbc.Driver");
+Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/fpm", "root", "root1201");
+Statement st =con.createStatement();
 String sql ="select * from fpm.leave";
-ResultSet re = sta.executeQuery(sql);
+ResultSet re = st.executeQuery(sql);
 while(re.next())
 { %>
 <tr>
-<td><button style="font-size:12px" value="<%@include file ="takeOver_name.jsp" %>">><i class="fas fa-pencil-alt"></i></button></td>
 <td><%=re.getString("leaveID")%></td>
 <td><%=re.getString("leavedate")%></td>
 <td><%=re.getString("leavecategory")%></td>
@@ -80,10 +69,9 @@ while(re.next())
 <td><%=re.getString("writeDate")%></td>
 <td><%=re.getString("auditstatus")%></td>
 <td><%=re.getString("auditdate")%></td>
-<td><button style="font-size:12px" onclick='leaveDelete(this);'> <i class="fas fa-trash-alt"></i></button></td>
 </tr>
 <%}	
-	co.close();
+	con.close();
 	%>       
 </table>
 

@@ -61,7 +61,7 @@ String date=request.getParameter("date");
 Class.forName("com.mysql.jdbc.Driver");
 Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/fpm", "root", "root1201");
 Statement st =con.createStatement();
-String sql ="select * from fpm.takeover WHERE accessId";
+String sql ="select * from fpm.takeover";
 ResultSet rs = st.executeQuery(sql);
 while(rs.next())
 { %>

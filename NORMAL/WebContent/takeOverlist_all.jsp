@@ -36,12 +36,6 @@ tr:hover {banckground-color: pink;}
           </header>
           <div class="content">
           <div class='row'>
-          <form action="takeOverlist_Edit.jsp" method="post">
-          <button style="font-size:15px">修改</button>
-          <button style="font-size:15px">刪除<i class="fas fa-trash-alt"></i></button>           
-            </form>       
-<br>
-<form action="takeOver_DB.jsp" method="post"></form>
 <table border="1" onload="load()">                   
 <tr>
 <th>須調班員工ID</th>
@@ -56,6 +50,8 @@ String takeOverID=request.getParameter("takeOverID");
 String takeOverdate=request.getParameter("takeOverdate");
 String cantakeOverID=request.getParameter("cantakeOverID");
 String date=request.getParameter("date");
+String auditstatus=request.getParameter("auditstatus");
+String auditdate=request.getParameter("auditdate");
 %>
 <% 
 Class.forName("com.mysql.jdbc.Driver");
@@ -70,11 +66,11 @@ while(rs.next())
 <td><%=rs.getString("takeOverdate")%></td>
 <td><%=rs.getString("cantakeOverID")%></td>
 <td><%=rs.getString("date")%></td>
-<td><%=rs.getString("auditstatus")%></td>
+<td><%rs.getString("auditstatus");%></td>
 <td><%=rs.getString("auditdate")%></td>
 </tr>
 
-<%}	
+<%}
 	con.close();
 	%>       
 </table>
