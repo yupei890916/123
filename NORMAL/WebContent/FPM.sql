@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.18, for macos10.14 (x86_64)
 --
--- Host: localhost    Database: fpm
+-- Host: 127.0.0.1    Database: fpm
 -- ------------------------------------------------------
--- Server version	8.0.24
+-- Server version	8.0.18
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -49,14 +49,14 @@ DROP TABLE IF EXISTS `leave`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `leave` (
-  `leavememberID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `leavedate` date NOT NULL,
-  `leavecategory` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `leavereason` char(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `date` date NOT NULL,
-  `auditstatus` char(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `auditdate` date DEFAULT NULL,
-  PRIMARY KEY (`leavememberID`)
+  `leaveID` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `leavedate` varchar(10) NOT NULL,
+  `leavecategory` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `leavereason` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `writeDate` varchar(10) NOT NULL,
+  `auditstatus` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `auditdate` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`leaveID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -104,22 +104,22 @@ DROP TABLE IF EXISTS `schedule`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `schedule` (
-  `employee_ID` varchar(100) NOT NULL,
-  `drawbreak1` varchar(50) DEFAULT NULL,
-  `drawbreak2` varchar(50) DEFAULT NULL,
-  `drawbreak3` varchar(50) DEFAULT NULL,
-  `drawbreak4` varchar(50) DEFAULT NULL,
-  `drawbreak5` varchar(50) DEFAULT NULL,
-  `drawbreak6` varchar(50) DEFAULT NULL,
-  `drawbreak7` varchar(50) DEFAULT NULL,
-  `drawbreak8` varchar(50) DEFAULT NULL,
-  `drawbreak9` varchar(50) DEFAULT NULL,
-  `drawbreak10` varchar(50) DEFAULT NULL,
-  `drawbreak11` varchar(50) DEFAULT NULL,
-  `drawbreak12` varchar(50) DEFAULT NULL,
-  `drawbreak13` varchar(50) DEFAULT NULL,
-  `drawbreak14` varchar(50) DEFAULT NULL,
-  `drawbreak15` varchar(50) DEFAULT NULL,
+  `employee_ID` varchar(10) NOT NULL,
+  `drawbreak1` varchar(20) DEFAULT NULL,
+  `drawbreak2` varchar(20) DEFAULT NULL,
+  `drawbreak3` varchar(20) DEFAULT NULL,
+  `drawbreak4` varchar(20) DEFAULT NULL,
+  `drawbreak5` varchar(20) DEFAULT NULL,
+  `drawbreak6` varchar(20) DEFAULT NULL,
+  `drawbreak7` varchar(20) DEFAULT NULL,
+  `drawbreak8` varchar(20) DEFAULT NULL,
+  `drawbreak9` varchar(20) DEFAULT NULL,
+  `drawbreak10` varchar(20) DEFAULT NULL,
+  `drawbreak11` varchar(20) DEFAULT NULL,
+  `drawbreak12` varchar(20) DEFAULT NULL,
+  `drawbreak13` varchar(20) DEFAULT NULL,
+  `drawbreak14` varchar(20) DEFAULT NULL,
+  `drawbreak15` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`employee_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -141,16 +141,16 @@ DROP TABLE IF EXISTS `schedules`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `schedules` (
-  `memberID` char(10) NOT NULL,
+  `memberID` varchar(10) NOT NULL,
   `date` datetime NOT NULL,
   `leave?` char(2) NOT NULL,
   `takeOver?` char(2) NOT NULL,
   `punchIn` time NOT NULL,
-  `delay` tinyint NOT NULL,
+  `delay` tinyint(4) NOT NULL,
   `rest` time NOT NULL,
   `restOff` time NOT NULL,
   `punchOff` time NOT NULL,
-  `worktime` tinyint NOT NULL,
+  `worktime` tinyint(4) NOT NULL,
   `incentive` char(20) DEFAULT NULL,
   `incentiveReason` char(20) DEFAULT NULL,
   PRIMARY KEY (`memberID`,`date`)
@@ -175,23 +175,23 @@ DROP TABLE IF EXISTS `staff`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `staff` (
-  `memberID` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `jobtitle` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `class` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `name` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `gender` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `birthday` date NOT NULL,
-  `identitycard` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `phonenumber` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `email` char(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `lineID` char(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `address` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `ec` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `ecrelationships` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `ecphonenumber` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `arrivalday` date NOT NULL,
-  `turnoverdate` date DEFAULT NULL,
-  `remark` tinytext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `memberID` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `jobtitle` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `class` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `name` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `gender` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `birthday` varchar(10) DEFAULT NULL,
+  `identitycard` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `phonenumber` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `email` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `lineID` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `address` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `ec` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `ecrelationships` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `ecphonenumber` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `arrivalday` varchar(10) DEFAULT NULL,
+  `turnoverdate` varchar(10) DEFAULT NULL,
+  `remark` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`memberID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -214,13 +214,13 @@ DROP TABLE IF EXISTS `takeover`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `takeover` (
-  `takeOvermemberID` char(10) NOT NULL,
-  `takeOverdate` date NOT NULL,
-  `cantakeOvermemberID` char(10) NOT NULL,
-  `date` date NOT NULL,
-  `auditstatus` char(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `auditdate` date DEFAULT NULL,
-  PRIMARY KEY (`takeOvermemberID`,`takeOverdate`)
+  `takeOverID` varchar(10) NOT NULL,
+  `takeOverdate` varchar(10) NOT NULL,
+  `cantakeOverID` varchar(10) NOT NULL,
+  `date` varchar(10) NOT NULL,
+  `auditstatus` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `auditdate` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`takeOverID`,`takeOverdate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -230,9 +230,17 @@ CREATE TABLE `takeover` (
 
 LOCK TABLES `takeover` WRITE;
 /*!40000 ALTER TABLE `takeover` DISABLE KEYS */;
-INSERT INTO `takeover` VALUES ('BETTY.WU','2021-06-28','PENNY.LI','2021-06-20','待審核',NULL);
+INSERT INTO `takeover` VALUES ('BETTY.WU','2021-06-28','PENNY.LI','2021-06-20','待審核','2021-06-22'),('BETTY.WU','2022-01-20','QQ.SS','2022-01-18','審核','2021-01-19');
 /*!40000 ALTER TABLE `takeover` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'fpm'
+--
+
+--
+-- Dumping routines for database 'fpm'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -243,4 +251,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-16 14:56:40
+-- Dump completed on 2022-01-19 10:26:31
