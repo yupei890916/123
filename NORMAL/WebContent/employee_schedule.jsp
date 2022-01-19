@@ -52,17 +52,18 @@ resultSet = statement.executeQuery(sql);
 while(resultSet.next()){
 %>
 
+<div>
 <table>
 <tr>
 <td>
-<%=resultSet.getString("end") %>
+<h4><%=resultSet.getString("end")%></h4>
 </td>
 <td>
-<%=resultSet.getString("text") %>
+<h4><%=resultSet.getString("text")%></h4>
 </td>
 </tr>
+</div>
 </table>
-
 
 <%
 }
