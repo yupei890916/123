@@ -1,76 +1,79 @@
-<%@page import="com.mysql.cj.x.protobuf.MysqlxSql.StmtExecute"%>
-<%@ page language="java" contentType="text/html; charset=BIG5"
-pageEncoding="BIG5"%>
-<%@page import="java.sql.*,java.util.*"%>
+<%@ page language="java" contentType="text/html; charset=BIG5" pageEncoding="UTF-8"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="BIG5">
-<title>FOOODPANDA MARKET ºµ¿ß¶W¥«</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>FOOODPANDA MARKET ç†Šè²“è¶…å¸‚ å…¬å‘Šæ¬„æ¸…å–®</title>
+  <meta charset="BIG5">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
+
 <body class="is-preload">
-	<!-- Wrapper -->
   <div id="wrapper">
-    <!-- Main -->
     <div id="main">
       <div class="inner">
-        <!-- Header -->
         <%@include file ="header.jsp" %>
-        <!-- Banner -->
-        <br>
-          <header class="major">
-            <h2>&ensp;¤½ §i Äæ</h2>
+         <section>
+          <header class="major" draggable="true">
+            <h2>å…¬å‘Šæ¬„æ¸…å–®</h2>
           </header>
-        
-        <h3>µo§G¤½§i</h3>
-       
-
-<form method="post" action="index_input.jsp">
-<table>
-	<div class="row gtr-uniform">
-	<div class="col-6 col-12-xsmall">										
-		<input type="text" name="title" id="demo-name" value="" placeholder="¼ÐÃD" />
-	</div>
-	<div class="col-6 col-12-xsmall">
-		<input type="text" name="Publisher" id="demo-name" value="" placeholder="µo§G¤H" />
-	</div>
-	<div class="col-6 col-12-xsmall">
-		<input type="datetime-local" name="date"" placeholder="µo§G¤é´Á" />
-	</div>
-	<div class="col-6 col-12-small">
-		<input type="checkbox" id="demo-copy" name="demo-copy">
-			<label for="demo-copy">Email me a copy</label>
-	</div>
-						
-<!-- Break -->
-	<div class="col-12">
-		<textarea name="message" id="demo-message" placeholder="¿é¤J¤º®e" rows="6"></textarea>
-	</div>
-<!-- Break -->
-	<div class="col-12">
-		<ul class="actions">
-	<li><input type="submit" value="µo§G" class="primary" /></li>
-	<li><input type="reset" value="²M°£" /></li>
-</ul>
-	</div>
-	</div>
-</table>
-</form>
-         
-</div>
-</div>
-   
-    <!-- Sidebar -->
+          <div class="content">
+          <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
+                             url="jdbc:mysql://127.0.0.1:3306/fpm"
+                             user="root"  password="lovelove520"/>
+          <sql:query dataSource="${snapshot}" var="result">
+               SELECT * from fpm.notice ;
+          </sql:query>
+          <form action="newIndex.jsp" method="post">
+			<table id="indexList" border="1" >
+			<thead>
+				<tr>
+  					 <th>æ¨™é¡Œ</th>
+  					 <th>ç™¼ä½ˆäºº</th>
+  					 <th>æ—¥æœŸ</th>
+  					 <th>å…§å®¹</th>
+				</tr>
+			</thead>
+				<c:forEach var="row" items="${result.rows}">
+			<tbody>
+				<tr>
+				   <td><c:out value="${row.title}"/></td>
+				   <td><c:out value="${row.Publisher}"/></td>
+				   <td><c:out value="${row.date}"/></td>
+				   <td><c:out value="${row.message}"/></td>
+				   <td><input type="button" value="åˆªé™¤" onclick="delRow(this)"></td>
+				   <!-- <td><input type="button" value="åˆªé™¤" onclick="delRow(this)"></td>
+				   <td><button style="font-size:12px" id="delete" onclick="index_delete()"><i class="fas fa-trash-alt"></i></button></td> -->
+				</tr>
+				</c:forEach>
+			</tbody>
+			</table>
+			<center>
+           <font size="4"><input type="submit" value="æ–°å¢ž"/></font>
+           </center>
+            </form>
+           </div>
+        </section>
+       </div>
+     </div>
     <%@include file ="menu.jsp" %>
   </div>
+  
+
+
   <!-- Scripts -->
   <script src="assets/js/jquery.min.js" style=""></script>
   <script src="assets/js/browser.min.js" style=""></script>
   <script src="assets/js/breakpoints.min.js" style=""></script>
   <script src="assets/js/util.js" style=""></script>
   <script src="assets/js/main.js" style=""></script>
+  <script src="assets/js/table.js" style=""></script>
+  <script src="assets/js/delete.js" style=""></script>
 </body>
 </html>

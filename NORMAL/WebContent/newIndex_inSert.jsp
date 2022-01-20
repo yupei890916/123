@@ -12,7 +12,7 @@ pageEncoding="BIG5"%>
 try
 {
 Class.forName("com.mysql.jdbc.Driver");
-Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/fpm", "root", "betty62411");
+Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/fpm", "root", "lovelove520");
 Statement st=conn.createStatement();
 
 int i=st.executeUpdate("insert into notice (title,publisher,date,message) values ('"+request.getParameter("title")+"','"+request.getParameter("publisher")+"','"+request.getParameter("date")+"','"+request.getParameter("message")+"')");

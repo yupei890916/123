@@ -1,14 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=BIG5" pageEncoding="UTF-8"%>
-<%@ page import="java.io.*,java.util.*,java.sql.*"%>
-<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@ page language="java" contentType="text/html; charset=BIG5" pageEncoding="BIG5"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
 
-<!DOCTYPE html>
-<html>
 
 <head>
-  <title>FOOODPANDA MARKET ç†Šè²“è¶…å¸‚ å€‹äººè³‡æ–™</title>
+  <title>FOOODPANDA MARKET ºµ¿ß¶W¥« ­Ó¤H¸ê®Æ</title>
   <meta charset="BIG5">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="assets/css/main.css">
@@ -17,34 +15,46 @@
 <body class="is-preload">
   <div id="wrapper">
     <%
-     out.print("name:"+request.getParameter("memberID"));  
+     String name1=request.getParameter("memberId");
+     out.print("name:"+name1);  
     %>
+    <%
+	Class.forName("com.mysql.jdbc.Driver");
+	Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/fpm", "root", "lovelove520");
+	Statement st=conn.createStatement();
+	String sql = "SELECT * FROM staff WHERE memberId ='" +name1+"'";
+	ResultSet rs = st.executeQuery(sql);
+	rs.next();
+	%>
     <div id="main">
       <div class="inner">
         <%@include file ="header.jsp" %>
          <section>
           <header class="major">
-            <h2>ç†Šè²“è¶…å¸‚ å€‹äººè³‡æ–™</h2>
+            <h2>ºµ¿ß¶W¥« ­×§ï­Ó¤H¸ê®Æ</h2>
           </header>
-           <form method="post" action="#">
+           <form method="post" action="memberEdit_update.jsp">
            <font color="#000000" size="4">
             <div class="row gtr-uniform">
-              <div class="col-4 col-12-xsmall col-md-1" style="">å“¡å·¥ID : ${row.memberID}</div>
-              <div class="col-4 col-12-xsmall col-md-1" style=""> å§“åï¼š<c:out value="${row.name}"/></div>
-              <div class="col-4" style=""> ç­åˆ¥ï¼š<c:out value="${row.shift}"/></div>
-              <div class="col-4" style=""> è·ç¨±ï¼š${row.jobtitle} </div>
-              <div class="col-4" style=""> æ€§åˆ¥ï¼š<c:out value="${row.gender}"/></div>
-              <div class="col-4 col-12-xsmall" style=""> å‡ºç”Ÿå¹´æœˆæ—¥ï¼š<c:out value="${row.birthday}"/></div>
-              <div class="col-4 col-12-xsmall" style=""> èº«åˆ†è­‰å­—è™Ÿï¼š<c:out value="${row.identitycard}"/></div>
-              <div class="col-4 col-12-xsmall" style=""> æ‰‹æ©Ÿè™Ÿç¢¼ï¼š<c:out value="${row.phonenumber}"/></div>
-              <div class="col-4 col-12-xsmall" style=""> Emailï¼š<c:out value="${row.email}"/></div>
-              <div class="col-4 col-12-xsmall" style=""> LINE IDï¼š<c:out value="${row.lineID}"/></div>
-              <div class="col-4 col-12-xsmall" style=""> ä½å€ï¼š<c:out value="${row.Email}"/> </div>
-              <div class="col-4 col-12-xsmall" style=""> ç·Šæ€¥è¯çµ¡äººï¼š<c:out value="${row.ec}"/></div>
-              <div class="col-4 col-12-xsmall" style=""> ç·Šæ€¥è¯çµ¡äººé›»è©±ï¼š<c:out value="${row.ecphonenumber}"/></div>
-              <div class="col-4 col-12-xsmall" style=""> ç·Šæ€¥è¯çµ¡äººé—œä¿‚ï¼š<c:out value="${row.ecrelationships}"/></div>
-              <div class="col-4 col-12-xsmall" style=""> åœ¨è·æ—¥ï¼š<c:out value="${row.arrivalday}"/></div>
-              <div class="col-4 col-12-xsmall" style=""> é›¢è·æ—¥ï¼š<c:out value="${row.turnoverdate}"/></div>
+              <div class="col-4 col-12-xsmall col-md-1"> ­û¤uID : <input type="text" value="<%=request.getParameter("name1")%>" readonly="readonly"></div>
+              <div class="col-4 col-12-xsmall col-md-1"> ©m¦W¡G<input type="text" name=name value="<%=rs.getString("name")%>"></div>
+              <div class="col-4"> ¯Z§O¡G<input type="text" name=shift value="<%=rs.getString("shift")%>"></div>
+              <div class="col-4"> Â¾ºÙ¡G<input type="text" name=jobtitle value="<%=rs.getString("jobtitle")%>"></div>
+              <div class="col-4"> Á~¸ê¡G<input type="text" name=salary value="<%=rs.getString("salary")%>"></div>
+              <div class="col-4"> ©Ê§O¡G<input type="text" name=gender value="<%=rs.getString("gender")%>" readonly="readonly"></div>
+              <div class="col-4 col-12-xsmall"> ¥X¥Í¦~¤ë¤é¡G<input type="text" name=birthday value="<%=rs.getString("birthday")%>" readonly="readonly"></div>
+              <div class="col-4 col-12-xsmall"> ¨­¤ÀÃÒ¦r¸¹¡G<input type="text" name=identitycard value="<%=rs.getString("identitycard")%>" readonly="readonly"></div>
+              <div class="col-4 col-12-xsmall"> ¤â¾÷¸¹½X¡G<input type="text" name=phonenumber value="<%=rs.getString("phonenumber")%>"></div>
+              <div class="col-4 col-12-xsmall"> Email¡G<input type="text" name=email value="<%=rs.getString("email")%>"></div>
+              <div class="col-4 col-12-xsmall"> LINE ID¡G<input type="text" name=lineID value="<%=rs.getString("lineID")%>"></div>
+              <div class="col-4 col-12-xsmall"> ¦í§}¡G <input type="text" name=address value="<%=rs.getString("address")%>"></div>
+              <div class="col-4 col-12-xsmall"> ºò«æÁpµ¸¤H¡G<input type="text" name=ec value="<%=rs.getString("ec")%>"></div>
+              <div class="col-4 col-12-xsmall"> ºò«æÁpµ¸¤H¹q¸Ü¡G<input type="text" name=ecrelationships value="<%=rs.getString("ecrelationships")%>"></div>
+              <div class="col-4 col-12-xsmall"> ºò«æÁpµ¸¤HÃö«Y¡G<input type="text" name=ecphonenumber value="<%=rs.getString("ecphonenumber")%>"></div>
+              <div class="col-4 col-12-xsmall"> ¦bÂ¾¤é¡G<input type="text" name=arrivalday value="<%=rs.getString("arrivalday")%>" readonly="readonly"></div>
+              <div class="col-4 col-12-xsmall"> Â÷Â¾¤é¡G<input type="text" name=turnoverdate value="<%=rs.getString("turnoverdate")%>"></div>
+              <div class="col-4 col-12-xsmall"> ³Æµù¡G<input type="text" name=remark value="<%=rs.getString("remark")%>"></div>
+              <br><font size="4"><input type="submit" value="§¹¦¨" class="primary"></font>
             </div>
           </font>
         </form>

@@ -43,6 +43,7 @@ SELECT * from fpm.staff where memberID='<%=session.getAttribute("accessId")%>';
               <div class="col-4 col-12-xsmall col-md-1" style=""> 姓名：<c:out value="${row.name}"/></div>
               <div class="col-4" style=""> 班別：<c:out value="${row.shift}"/></div>
               <div class="col-4" style=""> 職稱：<%=session.getAttribute("Authority")%> </div>
+              <div class="col-4" style=""> 薪資：<c:out value="${row.salary}"/></div>
               <div class="col-4" style=""> 性別：<c:out value="${row.gender}"/></div>
               <div class="col-4 col-12-xsmall" style=""> 出生年月日：<c:out value="${row.birthday}"/></div>
               <div class="col-4 col-12-xsmall" style=""> 身分證字號：<c:out value="${row.identitycard}"/></div>

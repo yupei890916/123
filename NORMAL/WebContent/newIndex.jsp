@@ -16,7 +16,7 @@
           <header class="major">
             <h2>&ensp;發 佈 公 告</h2>
           </header>
-			<form method="post" action="index_input.jsp">
+			<form method="post" action="newIndex_inSert.jsp">
 				<div class="row gtr-uniform">
 					<div class="col-6 col-12-xsmall"><input type="text" name="title" placeholder="標題"/></div>
 					<div class="col-6 col-12-xsmall"><input type="text" name="publisher" placeholder="發佈人"/></div>

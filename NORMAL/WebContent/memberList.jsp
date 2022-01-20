@@ -67,8 +67,7 @@ ResultSet resultSet = null;
 				   <td><%=resultSet.getString("name") %></td>
 				   <td><%=resultSet.getString("shift") %></td>
 				   <td><font size="3"><input type="button" value="н╫зя" 
-				        onclick="location.href='memberEdit.jsp?memberId=aaa'"></font> </td>
-				        <!-- <%=resultSet.getString("memberID")%> -->
+				        onclick="location.href='memberEdit.jsp?memberId=<%=resultSet.getString("memberID")%>'"></font> </td>
 				</tr>
 				<%
 				}
