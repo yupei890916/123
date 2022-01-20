@@ -15,7 +15,6 @@
   <link rel="stylesheet" href="assets/css/main.css">
  <style> 
  table {
-  border: 1px solid black;
   border-collapse: collapse;
   width:100%
 }
@@ -35,11 +34,11 @@ tr:hover {banckground-color: pink;}
       <div class="inner">
         <!-- Header -->
         <%@include file ="header.jsp" %>         
-     <section>        
-         <header class="major">
+          <header class="major">
+            <br>
             <h2>½Õ¯Z¼f®Ö</h2>          
           </header>
-<div class="content">
+               <div class="content">
 <form method="post" action="takeOver_auditstatus.jsp"> 
 <table border="1">    
 <tr>
@@ -69,26 +68,43 @@ while(rs.next())
 <td><%=rs.getString("takeOverdate")%></td>
 <td><%=rs.getString("cantakeOverID")%></td>
 <td><%=rs.getString("date")%></td>  
-<td><input type="text" name="auditstatus" placeholder="¼f®Öª¬ªp" style="width:100px; height:30px;"/></td>	
+<td><class="a"><input type="text" name="auditstatus" placeholder="¼f®Öª¬ªp" style="width:100px; height:30px;"/></td>	
 <td><input type="date" name="auditdate" size="10" placeholder="¼f®Ö¤é´Á"/></td>
-<td><button onclick="setTimeout(myFunction, 1000);" style="font-size:10px ">°e¥X</button></td>
+<td><button style="font-size:10px ">°e¥X</button></td>
 </tr>
 <%}	
 	conn.close();
-	%>                                                                                            
-</table>                                                   
-</form>
-     </div>
-        </section>            
-    </div>
+	%>	                                                                                            
+</table>
+<div id="showbox"></div> 
+</form>                                                     
+</div>                                                                           
+         </div>
+         </div> 
+  <!-- Sidebar -->
     <%@include file ="menu.jsp" %>
   </div>
- </div>
   <!-- Scripts -->
   <script src="assets/js/jquery.min.js" style=""></script>
   <script src="assets/js/browser.min.js" style=""></script>
   <script src="assets/js/breakpoints.min.js" style=""></script>
   <script src="assets/js/util.js" style=""></script>
   <script src="assets/js/main.js" style=""></script>
+  <script>
+  function ShowTime(){
+¡@document.getElementById('showbox').innerHTML = new Date();
+¡@setTimeout('ShowTime()',1000);
+  }
+  </script>
+  <script>
+var tag = 0;
+$(function(){
+  $("#add").click(function(){
+      $('#mt tbody').append('<tr><td>Name'+tag+'</td><td>TEL</td><td>E-MAIL</td><td>TEL</td><td>E-MAIL</td><td>TEL</td></tr>');
+    tag++;
+   });
+  
+})
+</script>  
 </body>
 </html>

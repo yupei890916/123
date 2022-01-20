@@ -15,29 +15,22 @@
 </head>
 
 <body class="is-preload">
-	<!-- Wrapper -->
   <div id="wrapper">
-    <!-- Main -->
     <div id="main">
       <div class="inner">
-        <!-- Header -->
         <%@include file ="header.jsp" %>
          <section>
           <header class="major">
             <h2>熊貓超市 公告欄</h2>
           </header>
-    <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-     url="jdbc:mysql://127.0.0.1:3306/fpm"
-     user="root"  password="lovelove520"/>
-     <sql:query dataSource="${snapshot}" var="result">
-     SELECT * from fpm.notice;
-     </sql:query>
+		    <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
+		     url="jdbc:mysql://127.0.0.1:3306/fpm"
+		     user="root"  password="lovelove520"/>
+		    <sql:query dataSource="${snapshot}" var="result">
+		     SELECT * from fpm.notice;
+		    </sql:query>
           <form method="post" action="#">
-            <font color="#000000" size="4">
-              <div class=" gtr-uniform">
-                <div class="col-6 col-12-xsmall">
-               
-                  <table style="width:100%">
+                  <table >
                   <c:forEach var="row" items="${result.rows}">
                     <thead>
                       <tr>
@@ -53,25 +46,16 @@
                      </tbody>
                      </c:forEach> 
                   </table>
-            </div><br>
-                <!-- Break -->
-                <div class="col-5">
-                  <ul class="actions">
-                  </ul>
-                </div>
-              </div>
-            </font>
           </form>
         </section>
        </div>
      </div>
     <%@include file ="menu.jsp" %>
   </div>
-  <!-- Scripts -->
-  <script src="assets/js/jquery.min.js" style=""></script>
-  <script src="assets/js/browser.min.js" style=""></script>
-  <script src="assets/js/breakpoints.min.js" style=""></script>
-  <script src="assets/js/util.js" style=""></script>
-  <script src="assets/js/main.js" style=""></script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

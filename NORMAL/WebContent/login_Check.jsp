@@ -34,7 +34,7 @@ rs=sql.executeQuery();
 if(rs.next()){  
 	session.setAttribute("accessId",rs.getString("memberID"));
 	session.setAttribute("Authority",rs.getString("jobtitle"));
-	session.setMaxInactiveInterval(20);
+	session.setMaxInactiveInterval(200);
 	response.sendRedirect("index.jsp");
 }else{
 	response.sendRedirect("login_fail.jsp");	

@@ -1,79 +1,69 @@
-<%@ page language="java" contentType="text/html; charset=BIG5"
-    pageEncoding="BIG5"%>
+<%@ page language="java" contentType="text/html; charset=BIG5" pageEncoding="UTF-8"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html>
 <html>
 
 <head>
-  <title>FOOODPANDA MARKET ∫µøﬂ∂W•´ ¡~∏Í™Ì</title>
+  <title>FOOODPANDA MARKET ÁÜäË≤ìË∂ÖÂ∏Ç Ëñ™Ë≥áÁ∏ΩË°®</title>
   <meta charset="BIG5">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
 <body class="is-preload">
-	<!-- Wrapper -->
+		<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
+		     url="jdbc:mysql://127.0.0.1:3306/fpm"
+		     user="root"  password="lovelove520"/>
+		<sql:query dataSource="${snapshot}" var="result1">
+		select memberID, SUM(TotalTime) AS WT FROM schedules group by memberID;
+		</sql:query>
+		<sql:query dataSource="${snapshot}" var="result2">
+		select memberID, SUM(delay) AS DE FROM schedules group by memberID;
+		</sql:query>
+		<sql:query dataSource="${snapshot}" var="result3">
+		SELECT * from fpm.staff where memberID = "BETTY.WU";
+		</sql:query>
   <div id="wrapper">
-    <!-- Main -->
     <div id="main">
       <div class="inner">
-        <!-- Header -->
         <%@include file ="header.jsp" %>
          <section>
-         <header class="major">
-            <h2>¡~∏Í¡`™Ì</h2>
+          <header class="major">
+          <h2>ÂÖ≠ÊúàËñ™Ë≥áË°®</h2>
           </header>
-         <form method="post" action="#">
-            <font color="#000000" size="4">
-              <div class=" gtr-uniform">
-                <div class="col-6 col-12-xsmall">
-                  <table id="leaveTable" name="§≠§Î¡~∏Í™Ì" style="width:100%">
+          <div class="content">
+            <table border="1">
                     <thead>
-                       <tr>
-                       <th>§È¥¡</th>
-                        <th>≠˚§uID</th>
-                        <th>πÍª⁄§WØZÆ…∂°</th>
-                        <th>ø®Ï§¿ƒ¡º∆</th>
-                        <th>Ω–∞≤§—º∆</th>
-                        <th>º˙√g</th>
-                        <th>º˙√g≠Ï¶]</th>
-                        <th>¡`¡~∏Í√B</th>
-                        
-                      </tr>
-                    </thead>
-                    <tbody>
                       <tr>
-                        <th>2021/5</th>
-                        <th>BETTY.WU</th>
-                        <th>165 §pÆ…</th>
-                        <th>5 §¿ƒ¡</th>
-                        <th>1</th>
-                        <th>-50$</th>
-                        <th>ø®Ï</th>
-                        <th>$26,350</th>
-                        
+                        <th>Âì°Â∑•ID</th>
+                        <th>Á∏ΩÊôÇÊï∏</th>
+                        <th>Á∏ΩÈÅ≤Âà∞ÂàÜÈêòÊï∏</th>
+                        <th>Ëñ™Ë≥á</th>
+                        <th>Á∏ΩËñ™Ë≥á</th>
                       </tr>
-                       <tr>
-                        <th>2021/5</th>
-                        <th>PENNY.LI</th>
-                        <th>120 §pÆ…</th>
-                        <th>15 §¿ƒ¡</th>
-                        <th>3</th>
-                        <th>-150$</th>
-                        <th>ø®Ï</th>
-                        <th>$19,050</th>
-                        
+                      </thead>
+                      <tbody>  
+                      <tr>
+                        <c:forEach var="row" items="${result1.rows}">
+                        <th><c:out value="${row.memberID}"/></th>
+                        </c:forEach>
+                        <c:forEach var="row" items="${result1.rows}">
+                        <th class="hours"><c:out value="${row.WT}"/> </th><br>
+            			</c:forEach>
+                        <c:forEach var="row" items="${result2.rows}">
+                        <th><c:out value="${row.DE}"/> </th><br>
+            			</c:forEach>
+            			<c:forEach var="row" items="${result3.rows}">
+                        <th class="salary"><c:out value="${row.salary}"/> </th><br>
+            			</c:forEach>
+                        <th class="result"></th>
                       </tr>
                     </tbody>
                   </table>
-                </div><br>
-                <!-- Break -->
-                <div class="col-5">
-                  <ul class="actions">
-                  </ul>
-                </div>
-              </div>
-            </font>
-          </form>
+             </div>  
         </section>
        </div>
      </div>
@@ -85,5 +75,15 @@
   <script src="assets/js/breakpoints.min.js" style=""></script>
   <script src="assets/js/util.js" style=""></script>
   <script src="assets/js/main.js" style=""></script>
+  <script>
+    let hours = document.querySelector(".hours").innerHTML;
+    hours = hours.slice(0, hours.length);
+    let salary = document.querySelector(".salary").innerHTML;
+    salary = salary.slice(0, salary.length);
+    let result = document.querySelector(".result");
+    console.log(hours);
+    console.log(salary);
+    result.innerHTML = hours*salary;
+</script>
 </body>
 </html>

@@ -35,8 +35,8 @@
                   <option value="FT">FT</option>
                   <option value="SUP">SUP</option></select></div>
               <div class="col-4"> 性別：<select name="gender" >
-                  <option value="m">男</option>
-                  <option value="f">女</option></select></div>
+                  <option value="男">男</option>
+                  <option value="女">女</option></select></div>
               <div class="col-4"> 出生年月日：<br><input type="date" name="birthday" placeholder="出生年月日">
               </div>
               <div class="col-4"> 身分證字號：<input type="text" name="identitycard" placeholder="身分證字號">
