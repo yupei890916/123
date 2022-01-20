@@ -94,6 +94,8 @@ while(rs.next())
   function ShowTime(){
 ¡@document.getElementById('showbox').innerHTML = new Date();
 ¡@setTimeout('ShowTime()',1000);
+  let t = document.getElementById("showbox").innerHTML.split(" ");
+  document.querySelector("a")innerHTML= t[1] + ", " + t[2] + ", " + t[3];
   }
   </script>
   <script>

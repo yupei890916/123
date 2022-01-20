@@ -37,7 +37,7 @@ tr:hover {banckground-color: pink;}
           <div class="content">
           <div class='row'>
           <form action="takeOverlist_Edit.jsp" method="post">
-          <button style="font-size:15px">­×§ï</button>
+          <button style="font-size:15px">­×§ï<i class="fas fa-pencil-alt"></i></button>
           <button style="font-size:15px">§R°£<i class="fas fa-trash-alt"></i></button>           
             </form>       
 <br>

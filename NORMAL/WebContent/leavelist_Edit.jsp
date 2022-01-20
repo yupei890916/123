@@ -21,14 +21,6 @@ border-bottom: 1px solid #ddd;
 tr:hover {banckground-color: pink;}
 </style>
 </head>
-<script>
-function load(){
-document.getElementById("takeOver").click();
-}
-function takeOver_button(){
-alert("takeOver_button");
-}
-</script>
 <body class="is-preload">
 	<!-- Wrapper -->
   <div id="wrapper">
@@ -37,14 +29,11 @@ alert("takeOver_button");
       <div class="inner">
         <!-- Header -->
         <%@include file ="header.jsp" %>
-         <section>
           <header class="major">
+            <br>
             <h2>½Ð°²­×§ïªí</h2>           
           </header>
-          <div class="content">
-          <div class='row'>
-          <form action="leavelist_Up.jsp" method="post">
-            
+          <form action="leavelist_Up.jsp" method="post">        
             <table border="1">                   
 <tr>
 <td><input type="text" name="leaveID" value="<%@include file ="leave_name.jsp" %>" style="width:150px; height:40px;"></td>                            
@@ -91,24 +80,27 @@ while(rs.next())
 <td><%=rs.getString("auditstatus")%></td>
 <td><%=rs.getString("auditdate")%></td>
 </tr>
-
 <%}	
 	con.close();
 	%>       
 </table>
-
-           </div>                                                                
-         </div>
-       </section>
-     </div>         
-   </div>
-<%@include file ="menu.jsp"%>   
+<div id="showbox"></div>
 </div>
+                </div>                            
+          <!-- Sidebar -->               
+    <%@include file ="menu.jsp" %>
+   </div>
   <!-- Scripts -->
   <script src="assets/js/jquery.min.js" style=""></script>
   <script src="assets/js/browser.min.js" style=""></script>
   <script src="assets/js/breakpoints.min.js" style=""></script>
   <script src="assets/js/util.js" style=""></script>
   <script src="assets/js/main.js" style=""></script>
+<script>
+  function ShowTime(){
+¡@document.getElementById('showbox').innerHTML = new Date();
+¡@setTimeout('ShowTime()',1000);
+  }
+  </script>
 </body>
 </html>

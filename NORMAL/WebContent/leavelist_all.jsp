@@ -79,8 +79,9 @@ while(re.next())
               </section>
           </div>                
        </div>
-     </div>
+     <!-- Sidebar -->               
     <%@include file ="menu.jsp" %>
+   </div>
   <!-- Scripts -->
   <script src="assets/js/jquery.min.js" style=""></script>
   <script src="assets/js/browser.min.js" style=""></script>

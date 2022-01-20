@@ -21,7 +21,7 @@
                       <%
                       if(session.getAttribute("Authority") != null){
 						if(session.getAttribute("Authority").toString().equals("SUP")){%>
-                      <li><a href="indexEdit.jsp">編輯公告欄</a></li>
+                      <li><a href="indexEdit.jsp">發佈公告</a></li>
                       <%}}%>
                     </ul>
                   </li>

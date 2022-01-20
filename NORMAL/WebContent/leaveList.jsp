@@ -30,14 +30,12 @@ tr:hover {banckground-color: pink;}
       <div class="inner">
         <!-- Header -->
         <%@include file ="header.jsp" %>
-         <section>
           <header class="major">
+           <br>
             <h2>請假歷史紀錄表</h2>
           </header>
-              <div class="content">
-              <div class='row'>
 <form action="leavelist_Edit.jsp" method="post">
-<button style="font-size:15px">修改</button>
+<button style="font-size:15px">修改<i class="fas fa-pencil-alt"></i></button>
 <button style="font-size:15px">刪除<i class="fas fa-trash-alt"></i></button>
 </form>
 <br>
@@ -79,18 +77,23 @@ while(re.next())
 	con.close();
 	%>       
 </table>
+<div id="showbox"></div>
 </div>
                 </div>                            
-              </section>
-          </div>                
-       </div>
-     </div>
+          <!-- Sidebar -->               
     <%@include file ="menu.jsp" %>
+   </div>
   <!-- Scripts -->
   <script src="assets/js/jquery.min.js" style=""></script>
   <script src="assets/js/browser.min.js" style=""></script>
   <script src="assets/js/breakpoints.min.js" style=""></script>
   <script src="assets/js/util.js" style=""></script>
   <script src="assets/js/main.js" style=""></script>
+  <script>
+  function ShowTime(){
+　document.getElementById('showbox').innerHTML = new Date();
+　setTimeout('ShowTime()',1000);
+  }
+  </script>
 </body>
 </html>

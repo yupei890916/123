@@ -66,7 +66,7 @@ while(rs.next())
 <td><%=rs.getString("takeOverdate")%></td>
 <td><%=rs.getString("cantakeOverID")%></td>
 <td><%=rs.getString("date")%></td>
-<td><%rs.getString("auditstatus");%></td>
+<td><%=rs.getString("auditstatus")%></td>
 <td><%=rs.getString("auditdate")%></td>
 </tr>
 

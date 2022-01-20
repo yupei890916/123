@@ -2,11 +2,6 @@
 <!DOCTYPE html>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.io.*" %>
-<%@ page import="java.sql.DriverManager"%>
-<%@ page import="java.sql.ResultSet"%>
-<%@ page import="java.sql.Statement"%>
-<%@ page import="java.sql.Connection"%>
-
 <html>
 <head>
   <title>FOOODPANDA MARKET 熊貓超市 請假清單</title>
@@ -82,11 +77,12 @@ while(rs.next())
 </table>                                                   
 </form>
      </div>
-        </section>            
-    </div>
+        </section> 
+        </div>           
+    </div>                            
+          <!-- Sidebar -->               
     <%@include file ="menu.jsp" %>
-  </div>
- </div>
+   </div>
   <!-- Scripts -->
   <script src="assets/js/jquery.min.js" style=""></script>
   <script src="assets/js/browser.min.js" style=""></script>
