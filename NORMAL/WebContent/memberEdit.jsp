@@ -15,27 +15,19 @@
 </head>
 
 <body class="is-preload">
- <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-     url="jdbc:mysql://127.0.0.1:3306/fpm"
-     user="root"  password="lovelove520"/>
-
-
-
-	<!-- Wrapper -->
   <div id="wrapper">
-    <!-- Main -->
+    <%
+     out.print("name:"+request.getParameter("memberID"));  
+    %>
     <div id="main">
       <div class="inner">
-        <!-- Header -->
         <%@include file ="header.jsp" %>
          <section>
           <header class="major">
             <h2>熊貓超市 個人資料</h2>
           </header>
-          <c:forEach var="row" items="${result.rows}">
            <form method="post" action="#">
-           
-          <font color="#000000" size="4">
+           <font color="#000000" size="4">
             <div class="row gtr-uniform">
               <div class="col-4 col-12-xsmall col-md-1" style="">員工ID : ${row.memberID}</div>
               <div class="col-4 col-12-xsmall col-md-1" style=""> 姓名：<c:out value="${row.name}"/></div>
@@ -56,7 +48,6 @@
             </div>
           </font>
         </form>
-         </c:forEach>
         </section>
        </div>
      </div>

@@ -1,14 +1,30 @@
-<%@ page language="java" contentType="text/html; charset=BIG5" pageEncoding="UTF-8"%>
-<%@ page import="java.io.*,java.util.*,java.sql.*"%>
-<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=BIG5" pageEncoding="BIG5"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page import="java.sql.*" %>
+<%@ page import="java.io.*" %>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%
+String driver = "com.mysql.jdbc.Driver";
+String connectionUrl = "jdbc:mysql://localhost:3306/";
+String database = "fpm";
+String userid = "root";
+String password = "lovelove520";
+try {
+Class.forName(driver);
+} catch (ClassNotFoundException e) {
+e.printStackTrace();
+}
+Connection connection = null;
+Statement statement = null;
+ResultSet resultSet = null;
+%>
 <html>
 
 <head>
-  <title>FOOODPANDA MARKET ÁÜäË≤ìË∂ÖÂ∏Ç Âì°Â∑•Ê∏ÖÂñÆ</title>
+  <title>FOOODPANDA MARKET ∫µøﬂ∂W•´ ≠˚§u≤M≥Ê</title>
   <meta charset="BIG5">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="assets/css/main.css">
@@ -24,38 +40,47 @@
         <%@include file ="header.jsp" %>
          <section>
           <header class="major" draggable="true">
-            <h2>ÂÄã‰∫∫Ë≥áÊñôÂàóË°®</h2>
+            <h2>≠”§H∏ÍÆ∆¶C™Ì</h2>
           </header>
           <div class="content">
-          <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-                             url="jdbc:mysql://127.0.0.1:3306/fpm"
-                             user="root"  password="lovelove520"/>
-          <sql:query dataSource="${snapshot}" var="result">
-               SELECT * from fpm.staff ;
-          </sql:query>
           <form action="newMember.jsp" method="post">
 			<table id="memberList" border="1" width="100%">
 			<thead>
 				<tr>
-  					 <th>Âì°Â∑•ID</th>
-  					 <th>ÂßìÂêç</th>
-  					 <th>Áè≠Âà•</th>
-  					 <th>Á∑®ËºØ</th>
+  					 <th>≠˚§uID</th>
+  					 <th>©m¶W</th>
+  					 <th>ØZßO</th>
+  					 <th>ΩsøË</th>
 				</tr>
 			</thead>
-				<c:forEach var="row" items="${result.rows}">
+				<%
+				try{
+				connection = DriverManager.getConnection(connectionUrl+database, userid, password);
+				statement=connection.createStatement();
+				String sql ="select * from staff "; 
+				resultSet = statement.executeQuery(sql);
+				while(resultSet.next()){
+				%>
 			<tbody>
 				<tr>
-				   <td><c:out value="${row.memberID}"/></td>
-				   <td><c:out value="${row.name}"/></td>
-				   <td><c:out value="${row.shift}"/></td>
-				   <td><font size="3"><input type="button" value="‰øÆÊîπ" onclick="location.href='memberEdit.jsp?memberId=${row.memberID}'"></font> </td>
+				   <td><%=resultSet.getString("memberID") %></td>
+				   <td><%=resultSet.getString("name") %></td>
+				   <td><%=resultSet.getString("shift") %></td>
+				   <td><font size="3"><input type="button" value="≠◊ßÔ" 
+				        onclick="location.href='memberEdit.jsp?memberId=aaa'"></font> </td>
+				        <!-- <%=resultSet.getString("memberID")%> -->
 				</tr>
-				</c:forEach>
+				<%
+				}
+				connection.close();
+				} catch (Exception e) {
+				e.printStackTrace();
+				}
+				%>
 			</tbody>
 			</table>
 		   <center>
-           <font size="4"><input type="submit" value="Êñ∞Â¢û"/></font>
+           <font size="4"><input type="submit" value="∑sºW"/></font>
            </center>
             </form>
            </div>
@@ -65,11 +90,10 @@
     <%@include file ="menu.jsp" %>
   </div>
   <!-- Scripts -->
-  <script src="assets/js/jquery.min.js" style=""></script>
-  <script src="assets/js/browser.min.js" style=""></script>
-  <script src="assets/js/breakpoints.min.js" style=""></script>
-  <script src="assets/js/util.js" style=""></script>
-  <script src="assets/js/main.js" style=""></script>
-  <script src="assets/js/table.js" style=""></script>
+  <script src="assets/js/jquery.min.js" ></script>
+  <script src="assets/js/browser.min.js" ></script>
+  <script src="assets/js/breakpoints.min.js" ></script>
+  <script src="assets/js/util.js" ></script>
+  <script src="assets/js/main.js" ></script>
 </body>
 </html>

@@ -1,10 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=BIG5"
-    pageEncoding="BIG5"%>
+<%@ page language="java" contentType="text/html; charset=BIG5" pageEncoding="UTF-8"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html>
 <html>
 
 <head>
-  <title>FOOODPANDA MARKET ∫µøﬂ∂W•´ •¥•d</title>
+  <title>FOOODPANDA MARKET ÁÜäË≤ìË∂ÖÂ∏Ç ÊâìÂç°</title>
   <meta charset="BIG5">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="assets/css/main.css">
@@ -20,9 +23,14 @@
         <%@include file ="header.jsp" %>
          <section>
           <header class="major">
-            <h2>∫µøﬂ∂W•´ •¥•d∞Oø˝</h2>
+            <h2>ÁÜäË≤ìË∂ÖÂ∏Ç ÊâìÂç°Ë®òÈåÑ</h2>
           </header>
-    
+     <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
+     url="jdbc:mysql://127.0.0.1:3306/fpm"
+     user="root"  password="betty62411"/>
+     <sql:query dataSource="${snapshot}" var="result">
+     SELECT * from fpm.punchln;
+     </sql:query>
           <form method="post" action="#">
             <font color="#000000" size="4">
               <div class=" gtr-uniform">
@@ -31,57 +39,35 @@
                   <table style="width:100%">
                     <thead>
                       <tr>
-                        <th>§È¥¡</th>
-                        <th>≠˚§uID</th>
-                        <th>§WØZÆ…∂°</th>
-                        <th>•ÆßÆ…∂°</th>
-                        <th>•Æßµ≤ßÙ</th>
-                        <th>§UØZÆ…∂°</th>
-                        <th>Æ…º∆</th>
-                        <th>ø®Ï</th>                 
-                        <th>•º•Æß</th>
+                        <th>Êó•Êúü</th>
+                        <th>Âì°Â∑•ID</th>
+                        <th>‰∏äÁè≠ÊôÇÈñì</th>
+                        <th>‰ºëÊÅØÊôÇÈñì</th>
+                        <th>‰ºëÊÅØÁµêÊùü</th>
+                        <th>‰∏ãÁè≠ÊôÇÈñì</th>
+                        <th>ÈÅ≤Âà∞</th>                 
+                        <th>Êú™‰ºëÊÅØ</th>
                       </tr>
-                      </thead>
+                    </thead>
+                    <c:forEach var="row" items="${result.rows}">
                       <tbody>
                       <tr>
-                        <th>2021/06/19</th>
-                        <th>PENNY.LI</th>
-                        <th>18:05</th>
-                        <th>--:--</th>
-                        <th>--:--</th>
-                        <th>00:02</th>
-                        <th>6</th>
-                        <th>5</th>
-                        <th>V</th>
-                      </tr>
-                      <tr>
-                        <th>2021/06/19</th>
-                        <th>BETTY.WU</th>
-                        <th>18:02</th>
-                        <th>21:05</th>
-                        <th>21:35</th>
-                        <th>00:02</th>
-                        <th>5.5</th>
-                        <th>2</th>
-                        <th></th>
-                      </tr>
-                      <tr>
-                        <th>2021/06/18</th>
-                        <th>BETTY.WU</th>
-                        <th>17:57</th>
-                        <th>20:00</th>
-                        <th>20:30</th>
-                        <th>24:00</th>
-                         <th>5.5</th>
-                         <th>0</th>
-                        <th></th>
-                      </tr>
+                        <th><c:out value="${row.date}"/></th>
+                        <th><c:out value="${row.memberID}"/></th>
+                        <th><c:out value="${row.gohours}"/></th>
+                        <th><c:out value="${row.resthours}"/></th>
+                        <th><c:out value="${row.restoffhours}"/></th>
+                        <th><c:out value="${row.afterhours}"/></th>
+                        <th><c:out value="${row.late}"/></th>
+                        <th><c:out value="${row.norest}"/></th>
+                      </tr>        
                     </tbody>
+                   </c:forEach>
                   </table>
            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-           <font size="4"><input type="submit"  value="•Æß¨ˆø˝"/></font> 
+           <font size="4"><input type="submit"  value="‰ºëÊÅØÁ¥ÄÈåÑ"/></font> 
            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-           <font size="4"><input type="reset" value="ø®Ï¨ˆø˝"/></font>
+           <font size="4"><input type="reset" value="ÈÅ≤Âà∞Á¥ÄÈåÑ"/></font>
            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                           </div><br>
                 <!-- Break -->

@@ -1,66 +1,94 @@
-<%@ page language="java" contentType="text/html; charset=BIG5"
-    pageEncoding="BIG5"%>
+<%@ page language="java" contentType="text/html; charset=BIG5" pageEncoding="UTF-8"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html>
 <html>
 
 <head>
-  <title>FOOODPANDA MARKET ºµ¿ß¶W¥« Á~¸êªí</title>
+  <title>FOOODPANDA MARKET ç†Šè²“è¶…å¸‚ è–ªè³‡è¡¨</title>
   <meta charset="BIG5">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
 <body class="is-preload">
-	<!-- Wrapper -->
+<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
+     url="jdbc:mysql://127.0.0.1:3306/fpm"
+     user="root"  password="lovelove520"/>
+<sql:query dataSource="${snapshot}" var="result">
+SELECT * from fpm.schedules where memberID='<%=session.getAttribute("accessId")%>';
+</sql:query>
+<sql:query dataSource="${snapshot}" var="result1">
+select SUM(TotalTime) AS WT FROM schedules where memberID='<%=session.getAttribute("accessId")%>';
+</sql:query>
+<sql:query dataSource="${snapshot}" var="result2">
+select SUM(delay) AS DE FROM schedules where memberID='<%=session.getAttribute("accessId")%>';
+</sql:query>
+<sql:query dataSource="${snapshot}" var="result3">
+SELECT * from fpm.staff where memberID='<%=session.getAttribute("accessId")%>';
+</sql:query>
+
+
+
   <div id="wrapper">
-    <!-- Main -->
     <div id="main">
       <div class="inner">
-        <!-- Header -->
         <%@include file ="header.jsp" %>
          <section>
           <header class="major">
-            <h2>¤»¤ëÁ~¸êªí</h2>
-            <h3>­û¤uID¡G BETTY.WU</h3><br>
-            <h3>¹ê»Ú¤W¯Z®É¶¡¡G 11 ¤p®É </h3><br>
-            <h3>¿ğ¨ì¤ÀÄÁ¼Æ¡G 2 ¤ÀÄÁ</h3><br>
-            <h3>¼úÃg¡G-20$ </h3><br>
-            <h3>¼úÃg­ì¦]¡G¿ğ¨ì</h3><br>
-            <h3>Á`Á~¸êÃB¡G$1,960</h3>
+          
+            <h2>å…­æœˆè–ªè³‡è¡¨</h2>
+            <h3>å“¡å·¥IDï¼š <%=session.getAttribute("accessId")%></h3><br>
+            <c:forEach var="row" items="${result1.rows}">
+            <h3 class="hours">ç¸½æ™‚æ•¸ï¼š <c:out value="${row.WT}"/>å°æ™‚ </h3><br>
+            </c:forEach>
+            <c:forEach var="row" items="${result2.rows}">
+            <h3>ç¸½é²åˆ°åˆ†é˜æ•¸ï¼š <c:out value="${row.DE}"/>åˆ†é˜</h3><br>
+            </c:forEach>
+            
+            <c:forEach var="row" items="${result3.rows}">
+            <%
+                      if(session.getAttribute("Authority") != null){
+						if(session.getAttribute("Authority").toString().equals("PT")){%>
+                      <h3 class="salary">è–ªè³‡ï¼š<c:out value="${row.salary}"/></h3>
+                      <h3 class="result"></h3>
+                      <%}
+
+						else {%>
+	                      <h3>è–ªè³‡ï¼š<c:out value="${row.salary}"/></h3>
+	                      
+	                      <%}
+                      }%>
+             </c:forEach>
             <table style="width:100%">
                     <thead>
                       <tr>
-                        <th>¤é´Á</th>
-                        <th>¤W¯Z®É¶¡</th>
-                        <th>¥ğ®§®É¶¡</th>
-                        <th>¥ğ®§µ²§ô</th>
-                        <th>¤U¯Z®É¶¡</th>
-                        <th>®É¼Æ</th>
-                        <th>¿ğ¨ì</th>  
+                        <th>æ—¥æœŸ</th>
+                        <th>ä¸Šç­æ™‚é–“</th>
+                        <th>ä¼‘æ¯æ™‚é–“</th>
+                        <th>ä¼‘æ¯çµæŸ</th>
+                        <th>ä¸‹ç­æ™‚é–“</th>
+                        <th>æ™‚æ•¸</th>
+                        <th>é²åˆ°</th>  
                       </tr>
                       </thead>
-                      <tbody>
-                     
+                      <c:forEach var="row" items="${result.rows}">
+                      <tbody>  
                       <tr>
-                        <th>2021/06/19</th>
-                        <th>18:02</th>
-                        <th>21:05</th>
-                        <th>21:35</th>
-                        <th>00:02</th>
-                        <th>5.5</th>
-                        <th>2</th>
-                      </tr>
-                      <tr>
-                        <th>2021/06/18</th>
-                        <th>17:57</th>
-                        <th>20:00</th>
-                        <th>20:30</th>
-                        <th>24:00</th>
-                         <th>5.5</th>
-                         <th>0</th>
+                        <th><c:out value="${row.workdate}"/></th>
+                        <th><c:out value="${row.punchIn}"/></th>
+                        <th><c:out value="${row.rest}"/></th>
+                        <th><c:out value="${row.restOff}"/></th>
+                        <th><c:out value="${row.punchOff}"/></th>
+                        <th><c:out value="${row.TotalTime}"/></th>
+                        <th><c:out value="${row.delay}"/></th>
                       </tr>
                     </tbody>
+                    </c:forEach>
                   </table>
+               
           </header>
         </section>
        </div>
@@ -68,10 +96,20 @@
     <%@include file ="menu.jsp" %>
   </div>
   <!-- Scripts -->
-  <script src="assets/js/jquery.min.js" style=""></script>
-  <script src="assets/js/browser.min.js" style=""></script>
-  <script src="assets/js/breakpoints.min.js" style=""></script>
-  <script src="assets/js/util.js" style=""></script>
-  <script src="assets/js/main.js" style=""></script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    let hours = document.querySelector(".hours").innerHTML;
+    hours = hours.slice(4, hours.length-3);
+    let salary = document.querySelector(".salary").innerHTML;
+    salary = salary.slice(3, salary.length);
+    let result = document.querySelector(".result");
+    console.log(hours);
+    console.log(salary);
+    result.innerHTML = "ç¸½è–ªè³‡ï¼š" + hours*salary;
+</script>
 </body>
 </html>
